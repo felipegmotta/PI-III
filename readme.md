@@ -1,4 +1,6 @@
-Integrantes do Grupo:
+Nome do grupo: Supersônicos
+
+Integrantes:
 
 1- Felipe Gabriel Motta / GIT: felipegmotta / E-mail: femotta38@gmail.com
 
@@ -9,3 +11,7 @@ Integrantes do Grupo:
 4- Marcos Lopes / GIT: Couban / E-mail: marcospereiralopes1@gmail.com
 
 5- Ygor de Jesus / GIT: YgorJR / E-mail: ygor.j.r.01@gmail.com
+
+Empresa: Tadesound
+
+Área de atuação: Instrumentos Musicais
