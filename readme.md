@@ -1,6 +1,6 @@
 Integrantes do Grupo:
 
-1- Felipe Gabriel Motta GIT: felipegmotta / E-mail: femotta38@gmail.com
+1- Felipe Gabriel Motta / GIT: felipegmotta / E-mail: femotta38@gmail.com
 
 2- Eduardo Santos Franco / GIT: edu_franco94 / E-mail: eduardosantos9401@gmail.com
 
