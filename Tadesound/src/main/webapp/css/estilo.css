@@ -1,0 +1,15 @@
+/* 
+    Created on : 09/10/2020, 20:04:59
+    Author     : Denise Trevizo 
+*/
+
+body{
+    background-color: #182127;
+}
+
+.centered {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);  
+}
