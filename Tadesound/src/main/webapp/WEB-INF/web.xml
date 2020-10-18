@@ -12,6 +12,14 @@
         <servlet-name>CadastrarCliente</servlet-name>
         <servlet-class>Servlet.CadastrarCliente</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AtualizarCliente</servlet-name>
+        <servlet-class>Servlet.AtualizarCliente</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ExcluirCliente</servlet-name>
+        <servlet-class>Servlet.ExcluirCliente</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ServletBD</servlet-name>
         <url-pattern>/ServletBD</url-pattern>
@@ -23,6 +31,14 @@
     <servlet-mapping>
         <servlet-name>CadastrarCliente</servlet-name>
         <url-pattern>/CadastrarCliente</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AtualizarCliente</servlet-name>
+        <url-pattern>/AtualizarCliente</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ExcluirCliente</servlet-name>
+        <url-pattern>/ExcluirCliente</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

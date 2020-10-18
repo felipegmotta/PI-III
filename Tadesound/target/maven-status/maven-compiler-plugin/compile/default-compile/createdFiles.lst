@@ -1,8 +1,11 @@
+DAO\ProdutoDAO.class
+Servlet\ExcluirCliente.class
 Utils\Utils.class
 BD\ConexaoBD.class
 Model\Cliente.class
+Model\Produto.class
 Servlet\CadastrarCliente.class
 Servlet\ListarClientes.class
 Model\Pessoa.class
 DAO\ClienteDAO.class
-Utils\teste.class
+Servlet\AtualizarCliente.class

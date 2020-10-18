@@ -1,6 +1,6 @@
 <%-- 
-    Document   : cadastrarCliente
-    Created on : 10/10/2020, 17:19:36
+    Document   : alterarCliente
+    Created on : 18/10/2020, 12:39:34
     Author     : Felipe
 --%>
 
@@ -12,7 +12,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="css/crud.css">
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-        <title>Cadastrar Cliente</title>
+        <title>Alterar Cliente</title>
         
         <script type="text/javascript">
             function validarFormulario() {
@@ -29,18 +29,20 @@
                 
                 //Caso nao contenha erros de preenchimento
                 if (msgErro === "") {
-                    cadastrarClienteBD();
+                    alterarClienteBD();
                 } else {
                     exibeMensagemErro(msgErro);
                 }
             }
             
-            //Essa funcao e responsavel por enviar o POST para o servlet cadastrar o cliente
-            function cadastrarClienteBD() {
+            //Essa funcao e responsavel por enviar um POST para o servlet atualizar o cliente no BD
+            function alterarClienteBD() {
+                console.log("estou para ennviar o post")
                 $.ajax({
                     type: "POST",
-                    url: "CadastrarCliente",
-                    data: {'nome': $('#nome').val(),
+                    url: "AtualizarCliente",
+                    data: {'idCliente': ${cliente.idCliente},
+                           'nome': $('#nome').val(),
                            'email': $('#email').val(),
                            'cpf': $('#cpf').val(),
                            'dataNascimento': $('#dataNascimento').val(),
@@ -59,22 +61,16 @@
             
             //Exibe um toast de sucesso
             function exibeMensagemSucesso() {
-                $('#msgToast').html("Cadastro realizado com sucesso!");
+                $('#msgToast').html("Atualizacao do cliente: ${cliente.nome} realizada com sucesso!");
 //                $('#toast').toast('show');
-                
-//                Limpa o valor dos campos
-//                $('#nome').val() = "";
             }
             
             //Exibe um toast de erro, com os erros ocorridos
             function exibeMensagemErro(msgErro) {
-                var msgExibir = "Erro ao cadastrar cliente:</br>";
+                var msgExibir = "Erro ao atualizar cliente: ${cliente.nome}</br>";
                 msgExibir = msgExibir.concat(msgErro);
                 $('#msgToast').html(msgExibir);
 //                $('#toast').toast('show');
-                
-                //Limpa o valor dos campos
-//                $('#nome').val() = "";
             }
             
             //Event Listener para formatacao de campos
@@ -108,11 +104,10 @@
             }
         });
         </script>
-        
     </head>
     <body>
         <header>
-            <h1>CADASTRO</h1>
+            <h1>Manutenção</h1>
             <div class="info">
                 <h2>consulta . cadastro . manutenção</h2>
             </div>
@@ -134,78 +129,77 @@
         </div>
         
         <div class="rgt-container">
-            <h1>Adicionar Cliente</h1>
+            <h1>Atualizar Cliente: ${cliente.nome}</h1>
             
             <form method="POST">
                 <div class="campos-container">
                     <div class="nome">
                         <label for="nome">Nome</label>
-                        <input id="nome" name="nome" minlength="3" maxlength="255" required="required"/><br/>
+                        <input id="nome" name="nome" minlength="3" maxlength="255" required="required" value="${cliente.nome}"/><br/>
                     </div>
 
                     <div class="email">
                         <label for="email">Email</label>
-                        <input id="email" name="email" required="required"/><br/>
+                        <input id="email" name="email" required="required" value="${cliente.email}"/><br/>
                     </div>
 
                     <div class="cpf">
                         <label for="cpf">CPF</label>
-                        <input id="cpf" name="cpf" placeholder="___.___.___-__" data-slots="_" required="required"/><br/>
+                        <input id="cpf" name="cpf" placeholder="___.___.___-__" data-slots="_" required="required" value="${cliente.cpf}"/><br/>
                     </div>
 
                     <div class="dataNascimento">
                         <label for="dataNascimento">Data Nascimento</label>
-                        <input id="dataNascimento" name="dataNascimento" placeholder="__/__/____" data-slots="_" required="required"/><br/>
+                        <input id="dataNascimento" name="dataNascimento" placeholder="__/__/____" data-slots="_" required="required" value="${cliente.dataNascimento}"/><br/>
                     </div>
 
                     <div class="telefone">
                         <label for="telefone">Telefone</label>
-                        <input id="telefone" name="telefone" placeholder="(__) _____-____" data-slots="_" required="required"/><br/>
+                        <input id="telefone" name="telefone" placeholder="(__) _____-____" data-slots="_" required="required" value="${cliente.telefone}"/><br/>
                     </div>
 
                     <div class="endereco">
                         <label for="endereco">Endereco</label>
-                        <input id="endereco" name="endereco" maxlength="255" required="required"/><br/>
+                        <input id="endereco" name="endereco" maxlength="255" required="required" value="${cliente.endereco}"/><br/>
                     </div>
 
                     <div class="numero">
                         <label for="numero">Numero</label>
-                        <input id="numero" name="numero" minlength="10" maxlength="11"/><br/>
+                        <input id="numero" name="numero" minlength="10" maxlength="11" value="${cliente.numero}"/><br/>
                     </div>
 
                     <div class="complemento">
                         <label for="complemento">Complemento</label>
-                        <input id="complemento" name="complemento" required="required" maxlength="255"/><br/>
+                        <input id="complemento" name="complemento" required="required" maxlength="255" value="${cliente.complemento}"/><br/>
                     </div>
 
                     <div class="bairro">
                         <label for="bairro">Bairro</label>
-                        <input id="bairro" name="bairro" required="required" maxlength="255"/><br/>
+                        <input id="bairro" name="bairro" required="required" maxlength="255" value="${cliente.bairro}"/><br/>
                     </div>
 
                     <div class="cidade">
                         <label for="cidade">Cidade</label>
-                        <input id="cidade" name="cidade" required="required" maxlength="255"/><br/>
+                        <input id="cidade" name="cidade" required="required" maxlength="255" value="${cliente.cidade}"/><br/>
                     </div>
 
                     <div class="uf">
                         <label for="uf">UF</label>
-                        <input id="uf" name="uf" required="required" maxlength="2"/><br/>
+                        <input id="uf" name="uf" required="required" maxlength="2" value="${cliente.uf}"/><br/>
                     </div>
 
                     <div class="cep">
                         <label for="cep">CEP</label>
-                        <input id="cep" name="cep" placeholder="_____-___" data-slots="_" required="required"/><br/>
+                        <input id="cep" name="cep" placeholder="_____-___" data-slots="_" required="required" value="${cliente.cep}"/><br/>
                     </div>
                 </div>
                 
                 <div class="botao-container">
-                    <button type="button" onclick="validarFormulario()">Cadastrar</button>
+                    <button type="button" onclick="validarFormulario()">Atualizar</button>
                 </div>
                 
                 <a href="index.jsp">Voltar</a>
             </form>            
         </div>
-        
     </body>
 </html>

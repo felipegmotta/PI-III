@@ -18,6 +18,12 @@ public class Cliente extends Pessoa {
         this.dataCadastro = dataCadastro;
     }
     
-    private String dataCadastro;
+    //Construtor com o idCliente
+    public Cliente(int idCliente, String nome, String email, String cpf, String dataNascimento, String telefone, String endereco, int numero, String complemento, String bairro, String cidade, String uf, String cep) {
+        super(nome, email, cpf, dataNascimento, telefone, endereco, numero, complemento, bairro, cidade, uf, cep);
+        this.idCliente = idCliente;
+    }
     
+    private String dataCadastro;
+    private int idCliente;
 }

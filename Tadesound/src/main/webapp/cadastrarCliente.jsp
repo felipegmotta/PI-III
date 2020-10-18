@@ -7,6 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+    <%--<%@include file="header.jsp"%>--%>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="css/crud.css">
@@ -59,10 +60,10 @@
             //Exibe um toast de sucesso
             function exibeMensagemSucesso() {
                 $('#msgToast').html("Cadastro realizado com sucesso!");
-                //$('#toast').toast('show');
+//                $('#toast').toast('show');
                 
-                //Limpa o valor dos campos
-                //$('#nome').val() = "";
+//                Limpa o valor dos campos
+//                $('#nome').val() = "";
             }
             
             //Exibe um toast de erro, com os erros ocorridos
@@ -70,10 +71,10 @@
                 var msgExibir = "Erro ao cadastrar cliente:</br>";
                 msgExibir = msgExibir.concat(msgErro);
                 $('#msgToast').html(msgExibir);
-                //$('#toast').toast('show');
+//                $('#toast').toast('show');
                 
                 //Limpa o valor dos campos
-                $('#nome').val() = "";
+//                $('#nome').val() = "";
             }
             
             //Event Listener para formatacao de campos

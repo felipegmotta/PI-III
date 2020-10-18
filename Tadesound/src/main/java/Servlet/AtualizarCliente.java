@@ -1,21 +1,42 @@
 package Servlet;
 
-import Utils.*;
+import Utils.Utils;
 import Model.Cliente;
 import DAO.ClienteDAO;
 import java.io.IOException;
+import java.sql.SQLException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class CadastrarCliente extends HttpServlet {
+public class AtualizarCliente extends HttpServlet {
     
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        System.out.println("dentro do post");
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String cpfCliente = request.getParameter("cpf");
+        System.out.println("to no get " + cpfCliente);
         
+        Cliente cliente = null;
+
+        try {
+            cliente = ClienteDAO.getCliente(cpfCliente);
+        } catch (SQLException ex) {
+            Utils.exibeTelaErro(ex, request, response);
+        }
+        
+        System.out.println(cliente.getNome());
+        
+        request.setAttribute("cliente", cliente);
+        RequestDispatcher requestDispatcher = getServletContext()
+                .getRequestDispatcher("/atualizarCliente.jsp");
+        requestDispatcher.forward(request, response);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int idCliente = Integer.parseInt(request.getParameter("idCliente"));
         String nome = request.getParameter("nome");
         String email = request.getParameter("email");
         String cpf = request.getParameter("cpf").replaceAll("([^\\w\\*])", ""); //Remove todos os caracteres especiais
@@ -42,13 +63,15 @@ public class CadastrarCliente extends HttpServlet {
         System.out.println(uf);
         System.out.println(cep);
         
+        //Cria um novo cliente com os dados atualizados
+        Cliente cliente = new Cliente(idCliente, nome, email, cpf, dataNascimento, telefone, endereco, numero, complemento, bairro, cidade, uf, cep);
+        
         try {
-            ClienteDAO.addCliente(new Cliente(nome, email, cpf, dataNascimento, telefone, endereco, numero, complemento, bairro, cidade, uf, cep));
-            response.sendRedirect("sucesso.jsp");
-            System.out.println("sucessoooo");
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
+            //Atualiza os dados do cliente no BD
+            ClienteDAO.updateCliente(cliente);
+        } catch (SQLException ex) {
             Utils.exibeTelaErro(ex, request, response);
         }
     }
+
 }
