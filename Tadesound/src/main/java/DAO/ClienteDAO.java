@@ -15,6 +15,7 @@ public class ClienteDAO {
         List<Cliente> listaClientes = new ArrayList();
         
         try {
+            System.out.println("GETTING CLIENTES");
             Connection con = ConexaoBD.getConexao();
             String query = "Select * from cliente";
             PreparedStatement ps = con.prepareStatement(query);

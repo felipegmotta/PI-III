@@ -2,7 +2,6 @@ package Servlet;
 
 import Model.Cliente;
 import DAO.ClienteDAO;
-import static Utils.Utils.*;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -31,19 +30,32 @@ public class CadastrarCliente extends HttpServlet {
         String uf = request.getParameter("uf");
         String cep = request.getParameter("cep").replaceAll("([^\\w\\*])", "");
         
+        System.out.println(nome);
+        System.out.println(email);
+        System.out.println(cpf);
+        System.out.println(dataNascimento);
+        System.out.println(telefone);
+        System.out.println(endereco);
+        System.out.println(numero);
+        System.out.println(complemento);
+        System.out.println(bairro);
+        System.out.println(cidade);
+        System.out.println(uf);
+        System.out.println(cep);
+        
         //Valida informacoes inputadas pelo usuario
-        String msgErro = validaDadosInseridosCliente(nome, email, cpf, dataNascimento, telefone, endereco, numero, complemento, bairro, cidade, uf, cep);
+        //String msgErro = validaDadosInseridosCliente(nome, email, cpf, dataNascimento, telefone, endereco, numero, complemento, bairro, cidade, uf, cep);
         
         //Caso tenha preenchido algo errado 
-        if (msgErro != null) {
-            request.setAttribute("msgErro", msgErro);
-            
-            RequestDispatcher requestDispatcher = getServletContext()
-                .getRequestDispatcher("/erro_cadastro.jsp");
-            requestDispatcher.forward(request, response);
-            
-            return;
-        }
+//        if (msgErro != null) {
+//            request.setAttribute("msgErro", msgErro);
+//            
+//            RequestDispatcher requestDispatcher = getServletContext()
+//                .getRequestDispatcher("/erro_cadastro.jsp");
+//            requestDispatcher.forward(request, response);
+//            
+//            return;
+//        }
         
         try {
             ClienteDAO.addCliente(new Cliente(nome, email, cpf, dataNascimento, telefone, endereco, numero, complemento, bairro, cidade, uf, cep));
@@ -51,7 +63,7 @@ public class CadastrarCliente extends HttpServlet {
         } catch (Exception ex) {
             Logger.getLogger(CadastrarCliente.class.getName()).log(Level.SEVERE, null, ex);
             
-            msgErro = ex.getMessage();
+            String msgErro = ex.getMessage();
             request.setAttribute("msgErro", msgErro);
             
             RequestDispatcher requestDispatcher = getServletContext()
