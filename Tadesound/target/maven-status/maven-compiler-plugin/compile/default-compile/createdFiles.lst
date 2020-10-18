@@ -1,6 +1,8 @@
+Utils\Utils.class
 BD\ConexaoBD.class
 Model\Cliente.class
 Servlet\CadastrarCliente.class
 Servlet\ListarClientes.class
 Model\Pessoa.class
 DAO\ClienteDAO.class
+Utils\teste.class

@@ -25,7 +25,7 @@ public class ConexaoBD {
     }
     
     public static Connection getConexao() throws SQLException {
-        String url = "jdbc:mysql://localhost:3306/tadesound_bd";
+        String url = "jdbc:mysql://localhost:3006/tadesound_bd";
         String user = "root";
         String password = "";
         
