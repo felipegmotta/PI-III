@@ -97,7 +97,7 @@
                         <td>${cliente.uf}</td>
                         <td>${cliente.cep}</td>
                         <td>${cliente.dataCadastro}</td>
-                        <td><a href="AtualizarCliente?cpf=${cliente.cpf}">Atualizar</a></td>
+                        <td><a href="AtualizarCliente?cpf=${cliente.cpf}"><button type="button" class="btn btn-primary">Atualizar</button></a></td>
                         <td><button type="button" class="btn btn-primary" onclick="mostrarModalExclusao('${cliente.cpf}', '${cliente.nome}')">Excluir</button></td>
                     </tr>
                 </c:forEach>
@@ -125,6 +125,6 @@
             </div>
           </div>
         
-        <a href="index.jsp">Voltar</a>
+        <a href="index.jsp"><button type="button" class="btn btn-primary">Voltar</button></a>
     </body>
 </html>

@@ -203,7 +203,7 @@
                     <button type="button" onclick="validarFormulario()">Cadastrar</button>
                 </div>
                 
-                <a href="index.jsp">Voltar</a>
+                <a href="index.jsp"><button type="button" class="btn btn-primary">Voltar</button></a>
             </form>            
         </div>
         
