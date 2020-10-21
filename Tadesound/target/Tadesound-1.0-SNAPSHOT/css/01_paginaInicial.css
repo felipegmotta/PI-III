@@ -1,0 +1,42 @@
+/* 
+    Created on : 09/10/2020, 20:04:59
+    Author     : Denise Trevizo 
+*/
+
+body{
+    background-color: #182127;
+}
+
+.container-login{
+    position: relative;
+    height: 3.5vw;
+    margin: 2vw 2.45vw 0 83vw; 
+    padding: 0.5vw;
+    border-radius: 2vw 2vw 0 0;
+    text-align: center;
+    background-color: #85898b;
+}
+
+.login{
+    width: 80%;
+}
+
+.container {
+    width: 100%; 
+    text-align: center;
+}
+
+.background{
+    width: 95%;    
+}
+
+footer{
+    background-color: #d1d1d1;
+    text-align: center;
+    padding-top: 0.3vw;
+    margin: -4px 2.45vw 2vw 2.45vw;
+}
+
+.info{
+    width: 80%;
+}
