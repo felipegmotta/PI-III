@@ -1,0 +1,52 @@
+/* 
+    Created on : 18/10/2020, 15:22:10
+    Author     : Denise Trevizo 
+*/
+
+body{
+    background-color: #c9ddef;
+}
+
+header{
+    margin: -10px -10px 5vw -10px;
+    padding: 1.5vw;
+    background-color: #8e9193;
+    border-bottom: #182127 solid 0.8vw;
+    text-align: center;
+}
+
+.logo{
+    width: 50%;
+}
+
+.navbar{
+    width: 100%; 
+    text-align: center;
+    position: fixed;
+    top: 35%;
+}
+
+.icone{
+    width: 15vw;
+    border-radius: 100%;
+    padding: 1vw;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.05);
+    margin: 2vw;
+}
+
+footer{
+    position: fixed;
+    height: 10%;
+    background-color: #d1d1d1;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    text-align: center;
+    padding-top: 0.3vw;
+    border-top: #182127 solid 0.8vw;
+}
+
+.info{
+    width: 80%;
+}
