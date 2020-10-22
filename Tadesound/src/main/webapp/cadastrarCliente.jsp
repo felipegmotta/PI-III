@@ -60,10 +60,21 @@
             //Exibe um toast de sucesso
             function exibeMensagemSucesso() {
                 $('#msgToast').html("Cadastro realizado com sucesso!");
-//                $('#toast').toast('show');
+                //$('#toast').toast('show');
                 
-//                Limpa o valor dos campos
-//                $('#nome').val() = "";
+                //Limpa o valor dos campos
+                $('#nome').val("");
+                $('#email').val("");
+                $('#cpf').val("");
+                $('#dataNascimento').val("");
+                $('#telefone').val("");
+                $('#endereco').val("");
+                $('#numero').val("");
+                $('#complemento').val("");
+                $('#bairro').val("");
+                $('#cidade').val("");
+                $('#uf').val("");
+                $('#cep').val("");
             }
             
             //Exibe um toast de erro, com os erros ocorridos
@@ -71,10 +82,7 @@
                 var msgExibir = "Erro ao cadastrar cliente:</br>";
                 msgExibir = msgExibir.concat(msgErro);
                 $('#msgToast').html(msgExibir);
-//                $('#toast').toast('show');
-                
-                //Limpa o valor dos campos
-//                $('#nome').val() = "";
+                //$('#toast').toast('show');
             }
             
             //Event Listener para formatacao de campos
@@ -170,7 +178,7 @@
 
                     <div class="numero">
                         <label for="numero">Numero</label>
-                        <input id="numero" name="numero" minlength="10" maxlength="11"/><br/>
+                        <input id="numero" name="numero" type="number" maxlength="5"/><br/>
                     </div>
 
                     <div class="complemento">

@@ -1,9 +1,12 @@
+Servlet\ListarProdutos.class
 DAO\ProdutoDAO.class
 Utils\Utils.class
 Model\Cliente.class
 Model\Produto.class
 Servlet\CadastrarCliente.class
 Servlet\ListarClientes.class
+Utils\teste.class
+Servlet\CadastrarProduto.class
 Servlet\ExcluirCliente.class
 BD\ConexaoBD.class
 Model\Pessoa.class

@@ -1,40 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
-        <servlet-name>ServletBD</servlet-name>
-        <servlet-class>Servlet.ServletBD</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>ListarClientes</servlet-name>
         <servlet-class>Servlet.ListarClientes</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListarProdutos</servlet-name>
+        <servlet-class>Servlet.ListarProdutos</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>CadastrarCliente</servlet-name>
         <servlet-class>Servlet.CadastrarCliente</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>CadastrarProduto</servlet-name>
+        <servlet-class>Servlet.CadastrarProduto</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>AtualizarCliente</servlet-name>
         <servlet-class>Servlet.AtualizarCliente</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AtualizarProduto</servlet-name>
+        <servlet-class>Servlet.AtualizarProduto</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ExcluirCliente</servlet-name>
         <servlet-class>Servlet.ExcluirCliente</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>ServletBD</servlet-name>
-        <url-pattern>/ServletBD</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>ListarClientes</servlet-name>
         <url-pattern>/ListarClientes</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListarProdutos</servlet-name>
+        <url-pattern>/ListarProdutos</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>CadastrarCliente</servlet-name>
         <url-pattern>/CadastrarCliente</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>CadastrarProduto</servlet-name>
+        <url-pattern>/CadastrarProduto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>AtualizarCliente</servlet-name>
         <url-pattern>/AtualizarCliente</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AtualizarProduto</servlet-name>
+        <url-pattern>/AtualizarProduto</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ExcluirCliente</servlet-name>

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package DAO;
 
 import BD.ConexaoBD;
@@ -14,63 +9,86 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author Edu Franco
- */
 public class ProdutoDAO {
     
-    
-    public static List<Produto> getProdutos() {
-        
+    public static List<Produto> getProdutos() throws SQLException {
         List<Produto> listaProdutos = new ArrayList();
         
-        try {
-            Connection con = ConexaoBD.getConexao();
-            String query = "Select * from produto";
-            PreparedStatement ps = con.prepareStatement(query);
-            ResultSet rs = ps.executeQuery();
-            
-            while (rs.next()) {
-//              int idProduto = rs.getInt("idProduto");
-                String nome = rs.getString("nome");
-                String descricao = rs.getString("descricao");
-                double preco = rs.getDouble("preco");
-                String categoria = rs.getString("categoria");
-                int quantidade = rs.getInt("quantidadeEstoque");
-//                int idFornecedor = rs.getInt("idFornecedor");
-//                int idLoja = rs.getInt("idLoja");
-                String dataCadastro = rs.getString("dataCadastro");
-                String ultimaAtualizacao = rs.getString("ultimaAtualizacao");
-                
-                listaProdutos.add(new Produto(quantidade, nome, descricao, preco, categoria, quantidade));
-            }
-        } catch (SQLException ex) {
-            System.out.println("Nao foi possivel estabelecer uma conexao com o banco de dados.");            
+        Connection con = ConexaoBD.getConexao();
+        String query = "SELECT * FROM produto";
+        PreparedStatement ps = con.prepareStatement(query);
+        ResultSet rs = ps.executeQuery();
+        
+        while (rs.next()) {
+            int idProduto = rs.getInt("idProduto");
+            String nome = rs.getString("nome");
+            String descricao = rs.getString("descricao");
+            String preco = rs.getString("preco");
+            String categoria = rs.getString("categoria");
+            int quantidadeEstoque = rs.getInt("quantidadeEstoque");
+            int idFornecedor = rs.getInt("idFornecedor");
+            int idLoja = rs.getInt("idLoja");
+            String dataCadastro = rs.getString("dataCadastro");
+            listaProdutos.add(new Produto(idProduto, nome, descricao, preco, categoria, quantidadeEstoque, idFornecedor, idLoja, dataCadastro));
         }
         
         return listaProdutos;
     }
     
-    public static void addProdutos (Produto produto) throws SQLException {
-        Connection con = ConexaoBD.getConexao();
+    public static Produto getProduto(int idProduto) throws SQLException {   
+        Produto produto = null;
         
-        String query =  "INSERT INTO produto (nome, descricao, preco, categoria, quantidadeEstoque) VALUES (?,?,?,?,?)";
+        Connection con = ConexaoBD.getConexao();
+        String query = "SELECT * FROM produto WHERE idProduto = ?";
+        PreparedStatement ps = con.prepareStatement(query);
+        ps.setInt(1, idProduto);
+        ResultSet rs = ps.executeQuery();
+        if (rs.next()) {
+            String nome = rs.getString("nome");
+            String descricao = rs.getString("descricao");
+            String preco = rs.getString("preco");
+            String categoria = rs.getString("categoria");
+            int quantidadeEstoque = rs.getInt("quantidadeEstoque");
+            int idFornecedor = rs.getInt("idFornecedor");
+            int idLoja = rs.getInt("idLoja");
+            produto = new Produto(idProduto, nome, descricao, preco, categoria, quantidadeEstoque, idFornecedor, idLoja);
+        }
+        
+        return produto;
+    }
+    
+    public static void addProduto(Produto produto) throws SQLException {
+        Connection con = ConexaoBD.getConexao();
+       
+        String query = "INSERT INTO produto (nome, descricao, preco, categoria, quantidadeEstoque, idFornecedor, idLoja) VALUES (?,?,?,?,?,?,?)";
         PreparedStatement ps = con.prepareStatement(query);
         
-        ps.setString(1, produto.getNomeProduto());
-        ps.setString(2, produto.getDescricaoProduto());
-        ps.setDouble(3, produto.getPrecoProduto());
-        ps.setString(4, produto.getCategoriaProduto());
-        ps.setInt(5, produto.getQuantidadeProduto());
+        ps.setString(1, produto.getNome());
+        ps.setString(2, produto.getDescricao());
+        ps.setString(3, produto.getPreco());
+        ps.setString(4, produto.getCategoria());
+        ps.setInt(5, produto.getQuantidadeEstoque());
+        ps.setInt(6, produto.getIdFornecedor());
+        ps.setInt(7, produto.getIdLoja());
         
-        /*
-        Conversar com o time para saber se esses dados vem
-        ps.setString(6, produto.getDataCadastro());
-        ps.setString(7, produto.getUltimaAtualizacao());
-        */
-    
         ps.execute();
+    }
+    
+    public static void updateProduto(Produto produto) throws SQLException {
+        Connection con = ConexaoBD.getConexao();
+       
+        String query = "UPDATE produto SET nome=?, descricao=?, preco=?, categoria=?, quantidadeEstoque=?, idFornecedor=?, idLoja=? WHERE idProduto=?";
+        PreparedStatement ps = con.prepareStatement(query);
         
+        ps.setString(1, produto.getNome());
+        ps.setString(2, produto.getDescricao());
+        ps.setString(3, produto.getPreco());
+        ps.setString(4, produto.getCategoria());
+        ps.setInt(5, produto.getQuantidadeEstoque());
+        ps.setInt(6, produto.getIdFornecedor());
+        ps.setInt(7, produto.getIdLoja());
+        ps.setInt(8, produto.getIdProduto());
+        
+        ps.execute();
     }
 }

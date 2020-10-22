@@ -1,6 +1,6 @@
 <%-- 
-    Document   : cadastrarCliente
-    Created on : 10/10/2020, 17:19:36
+    Document   : alterarProduto
+    Created on : 18/10/2020, 12:39:34
     Author     : Felipe
 --%>
 
@@ -12,7 +12,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="css/crud.css">
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-        <title>Cadastrar Cliente</title>
+        <title>Alterar Produto</title>
         
         <script type="text/javascript">
             function validarFormulario() {
@@ -23,35 +23,32 @@
                     msgErro += "O Campo \"Nome\" nao deve possuir numeros.</br>";
                 }
                 //Valida o Email
-                if ($('#email').val().search("@") === -1) {
-                    msgErro += "O Campo \"Email\" esta incorreto.</br>";
+                if ($('#descricao').val().search("@") !== -1) {
+                    msgErro += "O Campo \"Descricao\" esta incorreto.</br>";
                 }
                 
                 //Caso nao contenha erros de preenchimento
                 if (msgErro === "") {
-                    cadastrarClienteBD();
+                    alterarProdutoBD();
                 } else {
                     exibeMensagemErro(msgErro);
                 }
             }
             
-            //Essa funcao e responsavel por enviar o POST para o servlet cadastrar o cliente
-            function cadastrarClienteBD() {
+            //Essa funcao e responsavel por enviar um POST para o servlet atualizar o produto no BD
+            function alterarProdutoBD() {
+                console.log("estou para ennviar o post")
                 $.ajax({
                     type: "POST",
-                    url: "CadastrarCliente",
-                    data: {'nome': $('#nome').val(),
-                           'email': $('#email').val(),
-                           'cpf': $('#cpf').val(),
-                           'dataNascimento': $('#dataNascimento').val(),
-                           'telefone': $('#telefone').val(),
-                           'endereco': $('#endereco').val(),
-                           'numero': $('#numero').val(),
-                           'complemento': $('#complemento').val(),
-                           'bairro': $('#bairro').val(),
-                           'cidade': $('#cidade').val(),
-                           'uf': $('#uf').val(),
-                           'cep': $('#cep').val()},
+                    url: "AtualizarProduto",
+                    data: {'idProduto': ${produto.idProduto},
+                           'nome': $('#nome').val(),
+                           'descricao': $('#descricao').val(),
+                           'preco': $('#preco').val(),
+                           'categoria': $('#categoria').val(),
+                           'quantidadeEstoque': $('#quantidadeEstoque').val(),
+                           'idFornecedor': $('#idFornecedor').val(),
+                           'idLoja': $('#idLoja').val()},
                     dataType: "text",
                     success: exibeMensagemSucesso()
                    });
@@ -59,30 +56,16 @@
             
             //Exibe um toast de sucesso
             function exibeMensagemSucesso() {
-                $('#msgToast').html("Cadastro realizado com sucesso!");
-                //$('#toast').toast('show');
-                
-                //Limpa o valor dos campos
-                $('#nome').val("");
-                $('#email').val("");
-                $('#cpf').val("");
-                $('#dataNascimento').val("");
-                $('#telefone').val("");
-                $('#endereco').val("");
-                $('#numero').val("");
-                $('#complemento').val("");
-                $('#bairro').val("");
-                $('#cidade').val("");
-                $('#uf').val("");
-                $('#cep').val("");
+                $('#msgToast').html("Atualizacao do produto: ${produto.nome} realizada com sucesso!");
+//                $('#toast').toast('show');
             }
             
             //Exibe um toast de erro, com os erros ocorridos
             function exibeMensagemErro(msgErro) {
-                var msgExibir = "Erro ao cadastrar cliente:</br>";
+                var msgExibir = "Erro ao atualizar produto: ${produto.nome}</br>";
                 msgExibir = msgExibir.concat(msgErro);
                 $('#msgToast').html(msgExibir);
-                //$('#toast').toast('show');
+//                $('#toast').toast('show');
             }
             
             //Event Listener para formatacao de campos
@@ -113,14 +96,12 @@
                 el.addEventListener("input", format);
                 el.addEventListener("focus", format);
                 el.addEventListener("blur", () => el.value === pattern && (el.value=""));
-            }
-        });
+            }});
         </script>
-        
     </head>
     <body>
         <header>
-            <h1>CADASTRO</h1>
+            <h1>Manutenção</h1>
             <div class="info">
                 <h2>consulta . cadastro . manutenção</h2>
             </div>
@@ -135,78 +116,61 @@
         <div class="lft-container">
             <img src="img/IconeProduto.png" class="icone" alt="Ícone de produto">
             <img src="img/IconeServico.png" class="icone" alt="Ícone de serviço">
-            <img src="img/IconeClientes.png" class="icone" alt="Ícone de clientes">
+            <img src="img/IconeProdutos.png" class="icone" alt="Ícone de produtos">
             <img src="img/IconeFornecedor.png" class="icone" alt="Ícone de fornecedor">
             <img src="img/IconeFilial.png" class="icone" alt="Ícone de filial">
             <img src="img/IconeFuncionario.png" class="icone" alt="Ícone de funcionário">
         </div>
         
         <div class="rgt-container">
-            <h1>Adicionar Cliente</h1>
+            <h1>Atualizar Produto: ${produto.nome}</h1>
             
             <form method="POST">
                 <div class="campos-container">
                     <div class="nome">
                         <label for="nome">Nome</label>
-                        <input id="nome" name="nome" minlength="3" maxlength="255" required="required"/><br/>
+                        <input id="nome" name="nome" minlength="3" maxlength="255" required="required" value="${produto.nome}"/><br/>
                     </div>
 
-                    <div class="email">
-                        <label for="email">Email</label>
-                        <input id="email" name="email" required="required"/><br/>
+                    <div class="descricao">
+                        <label for="descricao">Descricao</label>
+                        <input id="descricao" name="descricao" minlength="3" maxlength="255" required="required" value="${produto.descricao}"/><br/>
                     </div>
 
-                    <div class="cpf">
-                        <label for="cpf">CPF</label>
-                        <input id="cpf" name="cpf" placeholder="___.___.___-__" data-slots="_" required="required"/><br/>
+                    <div class="preco">
+                        <label for="preco">Preco</label>
+                        <input type="text" id="preco" name="preco" required="required" value="${produto.preco}"/><br/>
                     </div>
 
-                    <div class="dataNascimento">
-                        <label for="dataNascimento">Data Nascimento</label>
-                        <input id="dataNascimento" name="dataNascimento" placeholder="__/__/____" data-slots="_" required="required"/><br/>
+                    <div class="categoria">
+                        <label for="categoria">Categoria</label>
+                        <select id="categoria" name="categoria" value="${produto.categoria}">
+                            <option value="1">Cordas</option>
+                            <option value="2">Grande Porte</option>
+                        </select>
                     </div>
 
-                    <div class="telefone">
-                        <label for="telefone">Telefone</label>
-                        <input id="telefone" name="telefone" placeholder="(__) _____-____" data-slots="_" required="required"/><br/>
+                    <div class="quantidadeEstoque">
+                        <label for="quantidadeEstoque">Quantidade em Estoque</label>
+                        <input id="quantidadeEstoque" type="number" name="quantidadeEstoque" required="required" value="${produto.quantidadeEstoque}"/><br/>
                     </div>
 
-                    <div class="endereco">
-                        <label for="endereco">Endereco</label>
-                        <input id="endereco" name="endereco" maxlength="255" required="required"/><br/>
+                    <div class="fornecedor">
+                        <label for="fornecedor">Fornecedor</label>
+                        <select id="idFornecedor" name="fornecedor" value="${produto.idFornecedor}">
+                            <option value="1">Velvet</option>
+                            <option value="2">Yamaha</option>
+                        </select>
                     </div>
 
-                    <div class="numero">
-                        <label for="numero">Numero</label>
-                        <input id="numero" name="numero" type="number" maxlength="5"/><br/>
+                    <div class="loja">
+                        <label for="loja">Loja</label>
+                        <select id="idLoja" name="loja" value="${produto.idLoja}">
+                            <option value="1">Campos Elisios</option>
+                            <option value="2">Interlagos</option>
+                        </select>
                     </div>
-
-                    <div class="complemento">
-                        <label for="complemento">Complemento</label>
-                        <input id="complemento" name="complemento" required="required" maxlength="255"/><br/>
-                    </div>
-
-                    <div class="bairro">
-                        <label for="bairro">Bairro</label>
-                        <input id="bairro" name="bairro" required="required" maxlength="255"/><br/>
-                    </div>
-
-                    <div class="cidade">
-                        <label for="cidade">Cidade</label>
-                        <input id="cidade" name="cidade" required="required" maxlength="255"/><br/>
-                    </div>
-
-                    <div class="uf">
-                        <label for="uf">UF</label>
-                        <input id="uf" name="uf" required="required" maxlength="2"/><br/>
-                    </div>
-
-                    <div class="cep">
-                        <label for="cep">CEP</label>
-                        <input id="cep" name="cep" placeholder="_____-___" data-slots="_" required="required"/><br/>
-                    </div>
-                </div>
-                
+                    
                 <div class="botao-container">
                     <button type="button" onclick="validarFormulario()">Cadastrar</button>
                 </div>
@@ -214,6 +178,5 @@
                 <a href="index.jsp"><button type="button" class="btn btn-primary">Voltar</button></a>
             </form>            
         </div>
-        
     </body>
 </html>

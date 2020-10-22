@@ -1,14 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Model;
-
-/**
- *
- * @author Edu Franco
- */
 
 import lombok.Getter;
 import lombok.Setter;
@@ -17,39 +7,49 @@ import lombok.Setter;
 @Setter
 public class Produto {
     
-    private int idProduto;
-    private String nomeProduto;
-    private String descricaoProduto;
-    private double precoProduto;
-    private String categoriaProduto;
-    private int quantidadeProduto;
-    /*
-    Conversar com time sobre esses atributos.
-    private String nomeFornecedor;
-    private String nomeLoja;
-    private String dataCadastro;
-    private String ultimaAtualizacao;
-    */
-
-    //Construtor do produto
-    public Produto(int idProduto, String nomeProduto, String descricaoProduto, double precoProduto, String categoriaProduto, int quantidadeProduto) {
-        this.idProduto = idProduto;
-        this.nomeProduto = nomeProduto;
-        this.descricaoProduto = descricaoProduto;
-        this.precoProduto = precoProduto;
-        this.categoriaProduto = categoriaProduto;
-        this.quantidadeProduto = quantidadeProduto;
-        
-        /*
-        Conversar com o time sobre esses atributos.
-        this.nomeFornecedor = nomeFornecedor;
-        this.nomeLoja = nomeLoja;
-        this.dataCadastro = dataCadastro;
-        this.ultimaAtualizacao = ultimaAtualizacao;
-        */
-        
+    //Construtor sem a data de cadastro
+    public Produto(String nome, String descricao, String preco, String categoria, int quantidadeEstoque, int idFornecedor, int idLoja) {
+        this.nome = nome;
+        this.descricao = descricao;
+        this.preco = preco;
+        this.categoria = categoria;
+        this.quantidadeEstoque = quantidadeEstoque;
+        this.idFornecedor = idFornecedor;
+        this.idLoja = idLoja;
     }
     
+    //Construtor com a data de cadastro
+    public Produto(int idProduto, String nome, String descricao, String preco, String categoria, int quantidadeEstoque, int idFornecedor, int idLoja, String dataCadastro) {
+        this.idProduto = idProduto;
+        this.nome = nome;
+        this.descricao = descricao;
+        this.preco = preco;
+        this.categoria = categoria;
+        this.quantidadeEstoque = quantidadeEstoque;
+        this.idFornecedor = idFornecedor;
+        this.idLoja = idLoja;
+        this.dataCadastro = dataCadastro;
+    }
     
+    //Construtor com o idProduto
+    public Produto(int idProduto, String nome, String descricao, String preco, String categoria, int quantidadeEstoque, int idFornecedor, int idLoja) {
+        this.idProduto = idProduto;
+        this.nome = nome;
+        this.descricao = descricao;
+        this.preco = preco;
+        this.categoria = categoria;
+        this.quantidadeEstoque = quantidadeEstoque;
+        this.idFornecedor = idFornecedor;
+        this.idLoja = idLoja;
+    }
     
+    private int idProduto;
+    private String nome;
+    private String descricao;
+    private String preco;
+    private String categoria;
+    private int quantidadeEstoque;
+    private int idFornecedor;
+    private int idLoja;
+    private String dataCadastro;    
 }

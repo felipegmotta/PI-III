@@ -18,6 +18,7 @@ public class ClienteDAO {
         String query = "SELECT * FROM cliente";
         PreparedStatement ps = con.prepareStatement(query);
         ResultSet rs = ps.executeQuery();
+        
         while (rs.next()) {
             String nome = rs.getString("nome");
             String email = rs.getString("email");
