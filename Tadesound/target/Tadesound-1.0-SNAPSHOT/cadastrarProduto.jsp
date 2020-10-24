@@ -13,6 +13,7 @@
         <link rel="stylesheet" href="css/crudProduto.css">
         <link rel="stylesheet" href="css/bootstrap.css">
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <title>Cadastrar Produto</title>  
         
         <script type="text/javascript">
             function validarFormulario() {
@@ -101,10 +102,9 @@
                 el.addEventListener("focus", format);
                 el.addEventListener("blur", () => el.value === pattern && (el.value=""));
             }});
-        </script>
-        <title>Cadastrar Produto</title>
-        
+        </script>              
     </head>
+    
     <body>
         <header>
             <div class="container-logo">
@@ -140,8 +140,14 @@
                 class="icone" alt="Ícone de funcionário"></a>
         </div>
         
-        <div class="rgt-container">
-            <h1>Adicionar Produto</h1>
+        <div class="rgt-container">            
+            <div class="container-titulo">
+                <h1>Adicionar Produto</h1>
+                <a href="listaProdutos.jsp"><img src="img/IconePesquisar.png" 
+                    class="btn-manter1" alt="Ícone para a página de listagem de produtos"></a>
+                <a href="atualizarProduto.jsp"><img src="img/IconeEditar.png" 
+                    class="btn-manter2" alt="Ícone para a página de manutenção de produtos"></a>
+            </div>
             
             <form method="POST">
                 <div class="campos-container">

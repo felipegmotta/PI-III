@@ -116,9 +116,9 @@
                 el.addEventListener("blur", () => el.value === pattern && (el.value=""));
             }
         });
-        </script>
-        
+        </script>        
     </head>
+    
     <body> 
         <header>
             <div class="container-logo">
@@ -155,7 +155,13 @@
         </div>
         
         <div class="rgt-container">
-            <h1>Adicionar Cliente</h1>    
+            <div class="container-titulo">
+                <h1>Adicionar Cliente</h1>
+                <a href="listaClientes.jsp"><img src="img/IconePesquisar.png" 
+                    class="btn-manter1" alt="Ícone para a página de listagem de clientes"></a>
+                <a href="atualizarCliente.jsp"><img src="img/IconeEditar.png" 
+                    class="btn-manter2" alt="Ícone para a página de manutenção de clientes"></a>
+            </div>
             
             <form method="POST">
                 <div class="campos-container">
@@ -221,6 +227,7 @@
                 </div>
                 
                 <div class="botao-container">
+          
                     <a href="index.jsp"><button type="button" class="btn-cancelar">Cancelar</button></a>
                     <button type="button" class="btn-cadastrar" onclick="validarFormulario()">Cadastrar</button>
                 </div>              
