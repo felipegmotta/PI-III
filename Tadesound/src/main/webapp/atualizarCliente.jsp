@@ -10,7 +10,7 @@
     <%--<%@include file="header.jsp"%>--%>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="css/crud.css">
+        <link rel="stylesheet" href="css/crudCliente.css">
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <title>Alterar Cliente</title>
         

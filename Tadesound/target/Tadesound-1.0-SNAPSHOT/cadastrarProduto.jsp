@@ -10,8 +10,10 @@
     <%--<%@include file="header.jsp"%>--%>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="css/crud.css">
+        <link rel="stylesheet" href="css/crudProduto.css">
+        <link rel="stylesheet" href="css/bootstrap.css">
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        
         <script type="text/javascript">
             function validarFormulario() {
                 var msgErro = "";
@@ -101,28 +103,41 @@
             }});
         </script>
         <title>Cadastrar Produto</title>
+        
     </head>
     <body>
         <header>
+            <div class="container-logo">
+                <a href="02_menuInicial.jsp"><img src="img/Logo.png" class="logo" 
+                    alt="Logo da Tadesound"></a>
+            </div>
             <h1>CADASTRO</h1>
             <div class="info">
-                <h2>consulta . cadastro . manutenção</h2>
+                <h3><b>consulta . cadastro . manutenção</b></h3>
             </div>
         </header>
         
+        <!--
         <div id="toast" class="toast" role="alert" aria-live="polite" aria-atomic="true" data-delay="10000">
             <div role="alert" aria-live="assertive" aria-atomic="true">
                 <span id="msgToast"></span>
             </div>
         </div>
+        -->
         
-        <div class="lft-container">
-            <img src="img/IconeProduto.png" class="icone" alt="Ícone de produto">
-            <img src="img/IconeServico.png" class="icone" alt="Ícone de serviço">
-            <img src="img/IconeProdutos.png" class="icone" alt="Ícone de produtos">
-            <img src="img/IconeFornecedor.png" class="icone" alt="Ícone de fornecedor">
-            <img src="img/IconeFilial.png" class="icone" alt="Ícone de filial">
-            <img src="img/IconeFuncionario.png" class="icone" alt="Ícone de funcionário">
+        <div class="lft-container">            
+            <a href="cadastrarProduto.jsp"><img src="img/IconeProduto.png" 
+                class="icone" alt="Ícone de produto"></a>
+            <a href="cadastrarServico.jsp"><img src="img/IconeServico.png" 
+                class="icone" alt="Ícone de serviço"></a>
+            <a href="cadastrarCliente.jsp"><img src="img/IconeClientes.png" 
+                class="icone" alt="Ícone de clientes"></a>
+            <a href="cadastrarFornecedor.jsp"><img src="img/IconeFornecedor.png" 
+                class="icone" alt="Ícone de fornecedor"></a>
+            <a href="cadastrarFilial.jsp"><img src="img/IconeFilial.png" 
+                class="icone" alt="Ícone de filial"></a>
+            <a href="cadastrarFuncionario.jsp"><img src="img/IconeFuncionario.png" 
+                class="icone" alt="Ícone de funcionário"></a>
         </div>
         
         <div class="rgt-container">
@@ -175,10 +190,9 @@
                     </div>
                     
                 <div class="botao-container">
-                    <button type="button" onclick="validarFormulario()">Cadastrar</button>
+                    <a href="index.jsp"><button type="button" class="btn-cancelar">Cancelar</button></a>
+                    <button type="button" class="btn-cadastrar" onclick="validarFormulario()">Cadastrar</button>
                 </div>
-                
-                <a href="index.jsp"><button type="button" class="btn btn-primary">Voltar</button></a>
             </form>            
         </div>
     </body>
