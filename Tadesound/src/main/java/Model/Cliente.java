@@ -13,12 +13,13 @@ public class Cliente extends Pessoa {
     }
     
     //Construtor com a data de cadastro
-    public Cliente(String nome, String email, String cpf, String dataNascimento, String telefone, String endereco, int numero, String complemento, String bairro, String cidade, String uf, String cep, String dataCadastro) {
+    public Cliente(int idCliente, String nome, String email, String cpf, String dataNascimento, String telefone, String endereco, int numero, String complemento, String bairro, String cidade, String uf, String cep, String dataCadastro) {
         super(nome, email, cpf, dataNascimento, telefone, endereco, numero, complemento, bairro, cidade, uf, cep);
+        this.idCliente = idCliente;
         this.dataCadastro = dataCadastro;
     }
     
-    //Construtor com o idCliente
+    //Construtor com o idCliente sem a data de cadastro
     public Cliente(int idCliente, String nome, String email, String cpf, String dataNascimento, String telefone, String endereco, int numero, String complemento, String bairro, String cidade, String uf, String cep) {
         super(nome, email, cpf, dataNascimento, telefone, endereco, numero, complemento, bairro, cidade, uf, cep);
         this.idCliente = idCliente;

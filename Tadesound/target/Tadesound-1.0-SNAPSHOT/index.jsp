@@ -18,5 +18,6 @@
         <a href="cadastrarCliente.jsp">Cadastrar Clientes</a><br/>
         <a href="ListarProdutos">Listar Produtos</a><br/>
         <a href="cadastrarProduto.jsp">Cadastrar Produtos</a><br/>
+        <a href="ListarProdutosEClientes">Realizar Venda</a><br/>
     </body>
 </html>

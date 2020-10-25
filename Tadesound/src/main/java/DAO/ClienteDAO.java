@@ -18,8 +18,9 @@ public class ClienteDAO {
         String query = "SELECT * FROM cliente";
         PreparedStatement ps = con.prepareStatement(query);
         ResultSet rs = ps.executeQuery();
-        
+//        System.out.println("dentro get");
         while (rs.next()) {
+            int idCliente = rs.getInt("idCliente");
             String nome = rs.getString("nome");
             String email = rs.getString("email");
             String cpf = rs.getString("cpf");
@@ -33,7 +34,23 @@ public class ClienteDAO {
             String uf = rs.getString("uf");
             String cep = rs.getString("cep");
             String dataCadastro = rs.getString("dataCadastro");
-            listaClientes.add(new Cliente(nome, email, cpf, dataNascimento, telefone, endereco, numero, complemento, bairro, cidade, uf, cep, dataCadastro));
+            
+//            System.out.println(idCliente);
+//            System.out.println(nome);
+//            System.out.println(email);
+//            System.out.println(cpf);
+//            System.out.println(dataNascimento);
+//            System.out.println(telefone);
+//            System.out.println(endereco);
+//            System.out.println(numero);
+//            System.out.println(complemento);
+//            System.out.println(bairro);
+//            System.out.println(cidade);
+//            System.out.println(uf);
+//            System.out.println(cep);
+//            System.out.println(dataCadastro);
+//            
+            listaClientes.add(new Cliente(idCliente, nome, email, cpf, dataNascimento, telefone, endereco, numero, complemento, bairro, cidade, uf, cep, dataCadastro));
         }
         
         return listaClientes;

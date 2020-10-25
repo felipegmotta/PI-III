@@ -12,7 +12,7 @@ import java.util.List;
 
 public class LojaDAO {
 
-    public static List<Loja> getLoja() throws SQLException {
+    public static List<Loja> getLojas() throws SQLException {
         List<Loja> listaLojas = new ArrayList();
 
         Connection con = ConexaoBD.getConexao();
