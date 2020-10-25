@@ -16,6 +16,22 @@ import lombok.Setter;
  */
 public class Loja {
 
+    //Construtor já com a data de cadastro
+    public Loja(int idLoja, String nomeLoja, String endereco, int numeroLoja, String bairro, String complemento, String cidade, String uf, int cep, int telefone, String dataCadastro) {
+        this.idLoja = idLoja;
+        this.nomeLoja = nomeLoja;
+        this.endereco = endereco;
+        this.numeroLoja = numeroLoja;
+        this.bairro = bairro;
+        this.complemento = complemento;
+        this.cidade = cidade;
+        this.uf = uf;
+        this.cep = cep;
+        this.telefone = telefone;
+        this.dataCadastro = dataCadastro;
+    }
+    
+    //Construtor sem data de cadastro
     public Loja(int idLoja, String nomeLoja, String endereco, int numeroLoja, String bairro, String complemento, String cidade, String uf, int cep, int telefone) {
         this.idLoja = idLoja;
         this.nomeLoja = nomeLoja;
@@ -39,7 +55,8 @@ public class Loja {
     private String uf;
     private int cep;
     private int telefone;
-    private 
+    private String dataCadastro;
+    
     
     
     

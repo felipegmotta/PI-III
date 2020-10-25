@@ -91,4 +91,15 @@ public class ProdutoDAO {
         
         ps.execute();
     }
+    
+    public static void deleteProduto(Produto produto) throws SQLException {
+        Connection con = ConexaoBD.getConexao();
+       
+        String query = "DELETE FROM produto WHERE nome=?";
+        PreparedStatement ps = con.prepareStatement(query);
+        
+        ps.setString(1, produto.getNome());
+        
+        ps.execute();
+    }
 }
