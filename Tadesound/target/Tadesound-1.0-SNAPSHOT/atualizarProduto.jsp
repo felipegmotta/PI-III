@@ -13,6 +13,9 @@
         <link rel="stylesheet" href="css/crudProduto.css">
         <link rel="stylesheet" href="css/bootstrap.css">
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
         <title>Atualizar Produto</title>
         
         <script type="text/javascript">
@@ -38,7 +41,7 @@
             
             //Essa funcao e responsavel por enviar um POST para o servlet atualizar o produto no BD
             function alterarProdutoBD() {
-                console.log("estou para ennviar o post")
+                console.log("estou para ennviar o post");
                 $.ajax({
                     type: "POST",
                     url: "AtualizarProduto",
@@ -57,16 +60,16 @@
             
             //Exibe um toast de sucesso
             function exibeMensagemSucesso() {
-                $('#msgToast').html("Atualizacao do produto: ${produto.nome} realizada com sucesso!");
-//                $('#toast').toast('show');
+                $('#msgToast').html("Atualizacao do produto <b>${produto.nome}</b> realizada com sucesso!");
+                $('.toast').toast('show');
             }
             
             //Exibe um toast de erro, com os erros ocorridos
             function exibeMensagemErro(msgErro) {
-                var msgExibir = "Erro ao atualizar produto: ${produto.nome}</br>";
+                var msgExibir = "<b>Erro ao atualizar produto: ${produto.nome}</b></br>";
                 msgExibir = msgExibir.concat(msgErro);
                 $('#msgToast').html(msgExibir);
-//                $('#toast').toast('show');
+                $('.toast').toast('show');
             }
             
             //Event Listener para formatacao de campos
@@ -112,15 +115,7 @@
                 <h3><b>consulta . cadastro . manutenção</b></h3>
             </div>
         </header>
-        
-        <!--
-        <div id="toast" class="toast" role="alert" aria-live="polite" aria-atomic="true" data-delay="10000">
-            <div role="alert" aria-live="assertive" aria-atomic="true">
-                <span id="msgToast"></span>
-            </div>
-        </div>
-        -->
-        
+                
         <div class="lft-container">            
             <a href="ListarProdutos"><img src="img/IconeProduto.png" 
                 class="icone" alt="Ícone de produto"></a>
@@ -194,8 +189,21 @@
 
                 <div class="botao-container">
                     <a href="ListarProdutos"><button type="button" class="btn-cancelar">Cancelar</button></a>
-                    <button type="button" class="btn-cadastrar" onclick="validarFormulario()">Cadastrar</button>
+                    <button type="button" class="btn-cadastrar" onclick="validarFormulario()">Atualizar</button>
                 </div>
+
+                <div class="container-toast">
+                    <div class="toast" role="alert" aria-live="polite" aria-atomic="true" data-delay="10000">
+                        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <div>
+                            <div class="toast-body">
+                                <span id="msgToast"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>                               
             </form>            
         </div>
     </body>

@@ -96,7 +96,7 @@
         <div class="rgt-container">
             <div class="container-titulo">
                 <h1>Consultar Produto</h1>
-                <a href="cadastrarProduto.jsp"><img src="img/IconeAdicionar.png" 
+                <a href="cadastrarCliente.jsp"><img src="img/IconeAdicionar.png" 
                     class="btn-manter1" alt="Ícone para a página de cadastro de clientes"></a>
             </div>
 

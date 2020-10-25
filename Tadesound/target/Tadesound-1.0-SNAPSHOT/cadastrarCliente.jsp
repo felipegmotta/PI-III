@@ -11,8 +11,11 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="css/crudCliente.css">
-        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/bootstrap.css">        
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
         <title>Cadastrar Cliente</title>
         
         <script type="text/javascript">
@@ -61,7 +64,7 @@
             //Exibe um toast de sucesso
             function exibeMensagemSucesso() {
                 $('#msgToast').html("Cadastro realizado com sucesso!");
-                //$('#toast').toast('show');
+                $('.toast').toast('show');
                 
                 //Limpa o valor dos campos
                 $('#nome').val("");
@@ -80,43 +83,43 @@
                         
             //Exibe um toast de erro, com os erros ocorridos
             function exibeMensagemErro(msgErro) {
-                var msgExibir = "Erro ao cadastrar cliente:</br>";
+                var msgExibir = "<b>Erro ao cadastrar cliente:</b></br>";
                 msgExibir = msgExibir.concat(msgErro);
                 $('#msgToast').html(msgExibir);
-                //$('#toast').toast('show');
+                $('.toast').toast('show');
             }
             
             //Event Listener para formatacao de campos
             document.addEventListener('DOMContentLoaded', () => {
-            for (const el of document.querySelectorAll("[placeholder][data-slots]")) {
-                const pattern = el.getAttribute("placeholder"),
-                    slots = new Set(el.dataset.slots || "_"),
-                    prev = (j => Array.from(pattern, (c,i) => slots.has(c)? j=i+1: j))(0),
-                    first = [...pattern].findIndex(c => slots.has(c)),
-                    accept = new RegExp(el.dataset.accept || "\\d", "g"),
-                    clean = input => {
-                        input = input.match(accept) || [];
-                        return Array.from(pattern, c =>
-                            input[0] === c || slots.has(c) ? input.shift() || c : c
-                        );
-                    },
-                    format = () => {
-                        const [i, j] = [el.selectionStart, el.selectionEnd].map(i => {
-                            i = clean(el.value.slice(0, i)).findIndex(c => slots.has(c));
-                            return i<0? prev[prev.length-1]: back? prev[i-1] || first: i;
-                        });
-                        el.value = clean(el.value).join``;
-                        el.setSelectionRange(i, j);
-                        back = false;
-                    };
-                let back = false;
-                el.addEventListener("keydown", (e) => back = e.key === "Backspace");
-                el.addEventListener("input", format);
-                el.addEventListener("focus", format);
-                el.addEventListener("blur", () => el.value === pattern && (el.value=""));
-            }
-        });
-        </script>        
+                for (const el of document.querySelectorAll("[placeholder][data-slots]")) {
+                    const pattern = el.getAttribute("placeholder"),
+                        slots = new Set(el.dataset.slots || "_"),
+                        prev = (j => Array.from(pattern, (c,i) => slots.has(c)? j=i+1: j))(0),
+                        first = [...pattern].findIndex(c => slots.has(c)),
+                        accept = new RegExp(el.dataset.accept || "\\d", "g"),
+                        clean = input => {
+                            input = input.match(accept) || [];
+                            return Array.from(pattern, c =>
+                                input[0] === c || slots.has(c) ? input.shift() || c : c
+                            );
+                        },
+                        format = () => {
+                            const [i, j] = [el.selectionStart, el.selectionEnd].map(i => {
+                                i = clean(el.value.slice(0, i)).findIndex(c => slots.has(c));
+                                return i<0? prev[prev.length-1]: back? prev[i-1] || first: i;
+                            });
+                            el.value = clean(el.value).join``;
+                            el.setSelectionRange(i, j);
+                            back = false;
+                        };
+                    let back = false;
+                    el.addEventListener("keydown", (e) => back = e.key === "Backspace");
+                    el.addEventListener("input", format);
+                    el.addEventListener("focus", format);
+                    el.addEventListener("blur", () => el.value === pattern && (el.value=""));
+                }
+            });
+        </script> 
     </head>
     
     <body> 
@@ -130,14 +133,6 @@
                 <h3><b>consulta . cadastro . manutenção</b></h3>
             </div>
         </header>
-        
-        <!--
-        <div id="toast" class="toast" role="alert" aria-live="polite" aria-atomic="true" data-delay="10000">
-            <div role="alert" aria-live="assertive" aria-atomic="true">
-                <span id="msgToast"></span>
-            </div>
-        </div>
-        -->
         
         <div class="lft-container">            
             <a href="ListarProdutos"><img src="img/IconeProduto.png" 
@@ -226,13 +221,24 @@
                     </div>
                 </div>
                 
-                <div class="botao-container">
-          
+                <div class="botao-container">          
                     <a href="ListarClientes"><button type="button" class="btn-cancelar">Cancelar</button></a>
-                    <button type="button" class="btn-cadastrar" onclick="validarFormulario()">Cadastrar</button>
-                </div>              
+                    <button type="button" class="btn-cadastrar" onclick="validarFormulario()">Cadastrar</button>                    
+                </div>
+                
+                <div class="container-toast">
+                    <div class="toast" role="alert" aria-live="polite" aria-atomic="true" data-delay="10000">
+                        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <div>
+                            <div class="toast-body">
+                                <span id="msgToast"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </form>            
-        </div>
-        
+        </div>        
     </body>
 </html>

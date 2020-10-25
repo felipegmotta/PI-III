@@ -13,6 +13,9 @@
         <link rel="stylesheet" href="css/crudProduto.css">
         <link rel="stylesheet" href="css/bootstrap.css">
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
         <title>Cadastrar Produto</title>  
         
         <script type="text/javascript">
@@ -56,7 +59,7 @@
             //Exibe um toast de sucesso
             function exibeMensagemSucesso() {
                 $('#msgToast').html("Cadastro realizado com sucesso!");
-                //$('#toast').toast('show');
+                $('.toast').toast('show');
                 
                 //Limpa o valor dos campos
                 $('#nome').val("");
@@ -67,10 +70,10 @@
             
             //Exibe um toast de erro, com os erros ocorridos
             function exibeMensagemErro(msgErro) {
-                var msgExibir = "Erro ao cadastrar produto:</br>";
+                var msgExibir = "<b>Erro ao cadastrar produto:</b></br>";
                 msgExibir = msgExibir.concat(msgErro);
                 $('#msgToast').html(msgExibir);
-                //$('#toast').toast('show');
+                $('.toast').toast('show');
             }
             
             //Event Listener para formatacao de campos
@@ -116,14 +119,6 @@
                 <h3><b>consulta . cadastro . manutenção</b></h3>
             </div>
         </header>
-        
-        <!--
-        <div id="toast" class="toast" role="alert" aria-live="polite" aria-atomic="true" data-delay="10000">
-            <div role="alert" aria-live="assertive" aria-atomic="true">
-                <span id="msgToast"></span>
-            </div>
-        </div>
-        -->
         
         <div class="lft-container">            
             <a href="ListarProdutos"><img src="img/IconeProduto.png" 
@@ -199,6 +194,19 @@
                     <a href="ListarProdutos"><button type="button" class="btn-cancelar">Cancelar</button></a>
                     <button type="button" class="btn-cadastrar" onclick="validarFormulario()">Cadastrar</button>
                 </div>
+                
+                <div class="container-toast">
+                    <div class="toast" role="alert" aria-live="polite" aria-atomic="true" data-delay="10000">
+                        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <div>
+                            <div class="toast-body">
+                                <span id="msgToast"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>               
             </form>            
         </div>
     </body>

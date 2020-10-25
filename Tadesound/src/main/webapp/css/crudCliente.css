@@ -68,7 +68,7 @@ header h1{
     background-color: white;
     width: 80%;
     margin-left: 20px;
-    padding: 2vw 20px 0.3vw 40px;   /*top right bottom left*/
+    padding: 1.5vw 20px 0 40px;   /*top right bottom left*/
     border-radius: 15px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.05);
 }
@@ -130,8 +130,18 @@ label{
 
 .botao-container{
     margin: -30px -20px 1.5vw -40px;
-    padding: 1.3vw 4vw 0.5vw 4vw;
+    padding: 1.3vw 4vw 1vw 4vw;
     background-color: #c9ddef;
+    border-radius: 0 0 15px 15px; 
+}
+
+.container-toast{
+    margin-left: 51vw;
+    margin-top: -7.5vw;
+}
+
+.toast-body{
+    font-size: 0.8vw;
 }
 
 .botao-container button{
