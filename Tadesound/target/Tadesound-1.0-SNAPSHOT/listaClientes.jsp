@@ -11,7 +11,9 @@
     <%@include file="header.jsp"%>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Lista de Clientes</title>
+        <link rel="stylesheet" href="css/listaClientes.css">
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <title>Consulta de Clientes</title>
         
         <script type="text/javascript">
             function mostrarModalExclusao(cpfCliente, nomeCliente){
@@ -57,74 +59,116 @@
         </script>
     </head>
     <body>
-        <h1>Lista de Clientes</h1>
+        <header>
+            <div class="container-logo">
+                <a href="02_menuInicial.jsp"><img src="img/Logo.png" class="logo" 
+                    alt="Logo da Tadesound"></a>
+            </div>
+            <h1>CONSULTA</h1>
+            <div class="info">
+                <h3><b>consulta . cadastro . manutenção</b></h3>
+            </div>
+        </header>
         
+        <!--
         <div id="toast" class="toast" role="alert" aria-live="polite" aria-atomic="true" data-delay="10000">
             <div role="alert" aria-live="assertive" aria-atomic="true">
                 <span id="msgToast"></span>
             </div>
         </div>
-
-        <table>
-            <thead>
-                <th>Nome</th>
-                <th>Email</th>
-                <th>CPF</th>
-                <th>Data Nascimento</th>
-                <th>Telefone</th>
-                <th>Endereco</th>
-                <th>Numero</th>
-                <th>Complemento</th>
-                <th>Bairro</th>
-                <th>Cidade</th>
-                <th>UF</th>
-                <th>CEP</th>
-                <th>Data Cadastro</th>
-            </thead>
-            <tbody>
-                <c:forEach var="cliente" items="${listaClientes}">
-                    <tr>
-                        <td>${cliente.nome}</td>
-                        <td>${cliente.email}</td>
-                        <td>${cliente.cpf}</td>
-                        <td>${cliente.dataNascimento}</td>
-                        <td>${cliente.telefone}</td>
-                        <td>${cliente.endereco}</td>
-                        <td>${cliente.numero}</td>
-                        <td>${cliente.complemento}</td>
-                        <td>${cliente.bairro}</td>
-                        <td>${cliente.cidade}</td>
-                        <td>${cliente.uf}</td>
-                        <td>${cliente.cep}</td>
-                        <td>${cliente.dataCadastro}</td>
-                        <td><a href="AtualizarCliente?cpf=${cliente.cpf}"><button type="button" class="btn btn-primary">Atualizar</button></a></td>
-                        <td><button type="button" class="btn btn-primary" onclick="mostrarModalExclusao('${cliente.cpf}', '${cliente.nome}')">Excluir</button></td>
-                    </tr>
-                </c:forEach>
-            </tbody>
-        </table>
+        -->
         
-        <div class="modal fade" id="modalExclusao" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Confirmar exclusão</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                    Confirma a exclusão do cliente <label id="nomeCliente"></label> ?
-                    <input id="cpfCliente" hidden="true"/>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                  <button type="button" class="btn btn-primary" onclick="excluirCliente()">Confirmar</button>
-                </div>
-              </div>
+        <div class="lft-container">            
+            <a href="cadastrarProduto.jsp"><img src="img/IconeProduto.png" 
+                class="icone" alt="Ícone de produto"></a>
+            <a href="cadastrarServico.jsp"><img src="img/IconeServico.png" 
+                class="icone" alt="Ícone de serviço"></a>
+            <a href="cadastrarCliente.jsp"><img src="img/IconeClientes.png" 
+                class="icone" alt="Ícone de clientes"></a>
+            <a href="cadastrarFornecedor.jsp"><img src="img/IconeFornecedor.png" 
+                class="icone" alt="Ícone de fornecedor"></a>
+            <a href="cadastrarFilial.jsp"><img src="img/IconeFilial.png" 
+                class="icone" alt="Ícone de filial"></a>
+            <a href="cadastrarFuncionario.jsp"><img src="img/IconeFuncionario.png" 
+                class="icone" alt="Ícone de funcionário"></a>
+        </div>
+        
+        <div class="rgt-container">
+            <div class="container-titulo">
+                <h1>Consultar Cliente</h1>
+                <a href="cadastrarCliente.jsp"><img src="img/IconeAdicionar.png" 
+                    class="btn-manter1" alt="Ícone para a página de cadastro de clientes"></a>
             </div>
-          </div>
-        
-        <a href="index.jsp"><button type="button" class="btn btn-primary">Voltar</button></a>
+
+            <div class="campos-container">
+                <table cellspacing="0" cellpadding="1" border="1" width="300">
+                    <table>
+                        <thead>
+                            <th>Nome</th>
+                            <th>Email</th>
+                            <th>CPF</th>
+                            <th>Data Nascimento</th>
+                            <th>Telefone</th>
+                            <th>Endereco</th>
+                            <th>Numero</th>
+                            <th>Complemento</th>
+                            <th>Bairro</th>
+                            <th>Cidade</th>
+                            <th>UF</th>
+                            <th>CEP</th>
+                            <th>Data Cadastro</th>
+                            <th class="filler">Fill</th>
+                            <th class="filler">Fill</th>
+                        </thead>
+                        <tbody>
+                            <c:forEach var="cliente" items="${listaClientes}">
+                                <tr>
+                                    <td>${cliente.nome}</td>
+                                    <td>${cliente.email}</td>
+                                    <td>${cliente.cpf}</td>
+                                    <td>${cliente.dataNascimento}</td>
+                                    <td>${cliente.telefone}</td>
+                                    <td>${cliente.endereco}</td>
+                                    <td>${cliente.numero}</td>
+                                    <td>${cliente.complemento}</td>
+                                    <td>${cliente.bairro}</td>
+                                    <td>${cliente.cidade}</td>
+                                    <td>${cliente.uf}</td>
+                                    <td>${cliente.cep}</td>
+                                    <td>${cliente.dataCadastro}</td>
+                                    <td><a href="AtualizarCliente?cpf=${cliente.cpf}">
+                                        <img src="img/IconeEditar2.png" class="btn-manter2" 
+                                        alt="Ícone para a página de manutenção de clientes"></a></td>
+                                    <td><img src="img/IconeExcluir.png" class="btn-manter3" 
+                                        onclick="mostrarModalExclusao('${cliente.cpf}', '${cliente.nome}')"
+                                        alt="Ícone para exclusão de cliente"></td>
+                                </tr>
+                            </c:forEach>
+                        </tbody>
+                    </table>
+
+                    <div class="modal fade" id="modalExclusao" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Confirmar exclusão</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    Confirma a exclusão do cliente <label id="nomeCliente"></label>?
+                                    <input id="cpfCliente" hidden="true"/>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn-cancelar" data-dismiss="modal">Cancelar</button>
+                                    <button type="button" class="btn-confirmar" onclick="excluirCliente()">Confirmar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </table>
+            </div>
+        </div>
     </body>
 </html>

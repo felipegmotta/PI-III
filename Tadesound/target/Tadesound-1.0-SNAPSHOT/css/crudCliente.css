@@ -85,6 +85,11 @@ header h1{
     margin-right: 47vw;
 }
 
+.rgt-container h3{
+    font-family: Bahnschrift Condensed;
+    transform: scale(1, 1.2);
+}
+
 .btn-manter1{
     margin-right: 0.3vw;
     width: 4%;

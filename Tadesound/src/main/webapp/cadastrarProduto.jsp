@@ -126,11 +126,11 @@
         -->
         
         <div class="lft-container">            
-            <a href="cadastrarProduto.jsp"><img src="img/IconeProduto.png" 
+            <a href="ListarProdutos"><img src="img/IconeProduto.png" 
                 class="icone" alt="Ícone de produto"></a>
             <a href="cadastrarServico.jsp"><img src="img/IconeServico.png" 
                 class="icone" alt="Ícone de serviço"></a>
-            <a href="cadastrarCliente.jsp"><img src="img/IconeClientes.png" 
+            <a href="ListarClientes"><img src="img/IconeClientes.png" 
                 class="icone" alt="Ícone de clientes"></a>
             <a href="cadastrarFornecedor.jsp"><img src="img/IconeFornecedor.png" 
                 class="icone" alt="Ícone de fornecedor"></a>
@@ -143,7 +143,7 @@
         <div class="rgt-container">            
             <div class="container-titulo">
                 <h1>Adicionar Produto</h1>
-                <a href="listaProdutos.jsp"><img src="img/IconePesquisar.png" 
+                <a href="ListarProdutos"><img src="img/IconePesquisar.png" 
                     class="btn-manter1" alt="Ícone para a página de listagem de produtos"></a>
                 <a href="atualizarProduto.jsp"><img src="img/IconeEditar.png" 
                     class="btn-manter2" alt="Ícone para a página de manutenção de produtos"></a>
@@ -196,7 +196,7 @@
                     </div>
                     
                 <div class="botao-container">
-                    <a href="index.jsp"><button type="button" class="btn-cancelar">Cancelar</button></a>
+                    <a href="ListarProdutos"><button type="button" class="btn-cancelar">Cancelar</button></a>
                     <button type="button" class="btn-cadastrar" onclick="validarFormulario()">Cadastrar</button>
                 </div>
             </form>            
