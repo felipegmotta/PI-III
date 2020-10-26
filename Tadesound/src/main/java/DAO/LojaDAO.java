@@ -1,4 +1,3 @@
-
 package DAO;
 
 import BD.ConexaoBD;
@@ -12,7 +11,7 @@ import java.util.List;
 
 public class LojaDAO {
 
-    public static List<Loja> getLoja() throws SQLException {
+    public static List<Loja> getLojas() throws SQLException {
         List<Loja> listaLojas = new ArrayList();
 
         Connection con = ConexaoBD.getConexao();
@@ -107,10 +106,10 @@ public class LojaDAO {
     public static void deleteLoja (Loja loja) throws SQLException {
         Connection con = ConexaoBD.getConexao();
         
-        String query = "DELETE FROM loja WHERE nome=?";
+        String query = "DELETE FROM loja WHERE idLoja=?";
         PreparedStatement ps = con.prepareStatement(query);
         
-        ps.setString(1, loja.getNomeLoja());
+            ps.setInt(1, loja.getIdLoja());
         
         ps.execute();  
     }
