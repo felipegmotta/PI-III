@@ -92,13 +92,13 @@ public class ProdutoDAO {
         ps.execute();
     }
     
-    public static void deleteProduto(Produto produto) throws SQLException {
+    public static void deleteProduto(int idProduto) throws SQLException {
         Connection con = ConexaoBD.getConexao();
        
-        String query = "DELETE FROM produto WHERE nome=?";
+        String query = "DELETE FROM produto WHERE idProduto=?";
         PreparedStatement ps = con.prepareStatement(query);
-        
-        ps.setString(1, produto.getNome());
+
+        ps.setInt(1, idProduto);
         
         ps.execute();
     }

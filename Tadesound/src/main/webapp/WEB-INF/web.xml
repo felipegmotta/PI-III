@@ -9,12 +9,24 @@
         <servlet-class>Servlet.ListarProdutos</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>ListarProdutosEClientes</servlet-name>
+        <servlet-class>Servlet.ListarProdutosEClientes</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>CadastrarCliente</servlet-name>
         <servlet-class>Servlet.CadastrarCliente</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>CadastrarProduto</servlet-name>
         <servlet-class>Servlet.CadastrarProduto</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CadastrarVenda</servlet-name>
+        <servlet-class>Servlet.CadastrarVenda</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CadastrarItensVenda</servlet-name>
+        <servlet-class>Servlet.CadastrarItensVenda</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>AtualizarCliente</servlet-name>
@@ -28,6 +40,10 @@
         <servlet-name>ExcluirCliente</servlet-name>
         <servlet-class>Servlet.ExcluirCliente</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ExcluirProduto</servlet-name>
+        <servlet-class>Servlet.ExcluirProduto</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ListarClientes</servlet-name>
         <url-pattern>/ListarClientes</url-pattern>
@@ -37,12 +53,24 @@
         <url-pattern>/ListarProdutos</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>ListarProdutosEClientes</servlet-name>
+        <url-pattern>/ListarProdutosEClientes</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>CadastrarCliente</servlet-name>
         <url-pattern>/CadastrarCliente</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>CadastrarProduto</servlet-name>
         <url-pattern>/CadastrarProduto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CadastrarVenda</servlet-name>
+        <url-pattern>/CadastrarVenda</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CadastrarItensVenda</servlet-name>
+        <url-pattern>/CadastrarItensVenda</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AtualizarCliente</servlet-name>
@@ -55,6 +83,10 @@
     <servlet-mapping>
         <servlet-name>ExcluirCliente</servlet-name>
         <url-pattern>/ExcluirCliente</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ExcluirProduto</servlet-name>
+        <url-pattern>/ExcluirProduto</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
