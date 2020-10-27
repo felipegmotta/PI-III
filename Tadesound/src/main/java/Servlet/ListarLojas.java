@@ -30,6 +30,6 @@ public class ListarLojas extends HttpServlet {
         RequestDispatcher requestDispatcher = getServletContext()
                 .getRequestDispatcher("/listaLojas.jsp");
         requestDispatcher.forward(request, response);
-        }
+    }
 
 }

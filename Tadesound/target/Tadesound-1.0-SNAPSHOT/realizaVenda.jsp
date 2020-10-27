@@ -145,7 +145,7 @@
                 while (i < quantidadeProdutosCarrinho) {
                     var idProduto = document.getElementById("tabelaCarrinho").children[i].children[0].innerText;
                     var quantidadeProduto = document.getElementById("tabelaCarrinho").children[i].children[4].innerText;
-                    var valorTotalProduto = document.getElementById("tabelaCarrinho").children[i].children[5].innerText.replaceAll("R$ ", "").replaceAll(".", "").replaceAll(",", ".");
+                    var valorTotalProduto = document.getElementById("tabelaCarrinho").children[i].children[6].innerText.replaceAll("R$ ", "").replaceAll(".", "").replaceAll(",", ".");
                     
                     $.ajax({
                     type: "POST",

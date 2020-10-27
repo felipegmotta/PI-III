@@ -16,6 +16,7 @@ E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\Model\Produto.jav
 E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\Utils\Utils.java
 E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\Servlet\CadastrarCliente.java
 E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\Servlet\CadastrarVenda.java
+E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\Servlet\ListarVendas.java
 E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\Model\Loja.java
 E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\Servlet\ListarProdutosEClientes.java
 E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\DAO\LojaDAO.java

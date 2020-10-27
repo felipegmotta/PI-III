@@ -5,6 +5,7 @@ import Model.Venda;
 import DAO.VendaDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -33,8 +34,15 @@ public class CadastrarVenda extends HttpServlet {
             out.print(idVenda);
             out.flush();   
         } catch (Exception ex) {
-            System.out.println(ex.getMessage());
-            Utils.exibeTelaErro(ex, request, response);
+            //System.out.println(ex.getMessage());
+            //Utils.exibeTelaErro(ex, request, response);
+            
+            String msgErro = ex.getMessage();
+            request.setAttribute("msgErro", msgErro);
+
+            RequestDispatcher requestDispatcher = request
+                    .getServletContext().getRequestDispatcher("/erro.jsp");
+            requestDispatcher.forward(request, response);
         }
     }
 }

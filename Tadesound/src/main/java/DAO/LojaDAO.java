@@ -106,10 +106,10 @@ public class LojaDAO {
     public static void deleteLoja (Loja loja) throws SQLException {
         Connection con = ConexaoBD.getConexao();
         
-        String query = "DELETE FROM loja WHERE idLoja=?";
+        String query = "DELETE FROM loja WHERE nome=?";
         PreparedStatement ps = con.prepareStatement(query);
         
-            ps.setInt(1, loja.getIdLoja());
+        ps.setString(1, loja.getNomeLoja());
         
         ps.execute();  
     }

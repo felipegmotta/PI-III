@@ -18,12 +18,11 @@ public class Venda {
     }
     
     //Construtor com a data da venda
-    public Venda (int idVenda, String tipo, String valorTotal, int quantidadeProdutos, String dataEntrega, int idCliente, int idFuncionario, String dataVenda) {
+    public Venda (int idVenda, String tipo, String valorTotal, int quantidadeProdutos, int idCliente, int idFuncionario, String dataVenda) {
         this.idVenda = idVenda;
         this.tipo = tipo;
         this.valorTotal = valorTotal;
         this.quantidadeProdutos = quantidadeProdutos;
-        this.dataEntrega = dataEntrega;
         this.idCliente = idCliente;
         this.idFuncionario = idFuncionario;
         this.dataVenda = dataVenda;

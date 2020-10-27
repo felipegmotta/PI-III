@@ -13,6 +13,10 @@
         <servlet-class>Servlet.ListarProdutosEClientes</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>ListarVendas</servlet-name>
+        <servlet-class>Servlet.ListarVendas</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>CadastrarCliente</servlet-name>
         <servlet-class>Servlet.CadastrarCliente</servlet-class>
     </servlet>
@@ -55,6 +59,10 @@
     <servlet-mapping>
         <servlet-name>ListarProdutosEClientes</servlet-name>
         <url-pattern>/ListarProdutosEClientes</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListarVendas</servlet-name>
+        <url-pattern>/ListarVendas</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>CadastrarCliente</servlet-name>

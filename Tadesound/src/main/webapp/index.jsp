@@ -12,13 +12,13 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Menu</title>
     </head>
-    <body>
+    <body> 
         <h1>Menu</h1>
         <a href="ListarClientes">Listar Clientes</a><br/>
         <a href="cadastrarCliente.jsp">Cadastrar Clientes</a><br/>
         <a href="ListarProdutos">Listar Produtos</a><br/>
         <a href="cadastrarProduto.jsp">Cadastrar Produtos</a><br/>
         <a href="ListarProdutosEClientes">Realizar Venda</a><br/>
-        <a href="ListarVendas">Relatorio de Vendas</a><br/>
+        <a href="listaVendas.jsp">Relatorio de Vendas</a><br/>
     </body>
 </html>
