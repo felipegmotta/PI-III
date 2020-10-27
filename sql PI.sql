@@ -21,18 +21,17 @@ CREATE TABLE cliente (
 
 CREATE TABLE funcionario (
     idFuncionario SMALLINT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    idLoja SMALLINT NOT NULL,
     nome VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL,
     cpf VARCHAR(14) NULL,
     dataNascimento VARCHAR(10) NULL,
     telefone VARCHAR(9) NOT NULL,
     cargo VARCHAR(255) NOT NULL,
-    salario DECIMAL(10 , 2 ) NOT NULL,
+    salario DECIMAL(10 , 2) NOT NULL,
     setor VARCHAR(255) NOT NULL,
     usuario VARCHAR(255) NOT NULL,
     senha VARCHAR(255) NOT NULL,
-    nivelAcesso VARCHAR(255) NOT NULL,
-    nomeLoja VARCHAR(255) NOT NULL,
     endereco VARCHAR(255) NOT NULL,
     numero SMALLINT NOT NULL,
     complemento VARCHAR(255) NOT NULL,
@@ -41,7 +40,10 @@ CREATE TABLE funcionario (
     uf VARCHAR(2) NOT NULL,
     cep VARCHAR(8) NOT NULL,
     dataCadastro DATETIME DEFAULT NOW() NOT NULL,
-    ultimaAtualizacao DATETIME ON UPDATE NOW() NULL
+    ultimaAtualizacao DATETIME ON UPDATE NOW() NULL,
+    FOREIGN KEY (idLoja)
+        REFERENCES loja (idLoja)
+        ON UPDATE CASCADE ON DELETE RESTRICT
 );
 
 CREATE TABLE fornecedor (
@@ -113,7 +115,7 @@ CREATE TABLE servico (
 CREATE TABLE venda (
     idVenda SMALLINT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     tipo VARCHAR(255) NOT NULL,
-    valorTotal DECIMAL(10 , 2 ) NOT NULL,
+    valorTotal DECIMAL(10 , 2) NOT NULL,
     quantidadeProdutos SMALLINT NOT NULL,
     idCliente SMALLINT NOT NULL,
     idFuncionario SMALLINT NOT NULL,
@@ -135,7 +137,6 @@ CREATE TABLE itensVenda (
     idVenda SMALLINT NOT NULL,
     quantidadeProduto SMALLINT NOT NULL,
     valorTotalProduto DECIMAL(10, 2) NOT NULL,
-    dataVenda DATETIME DEFAULT NOW() NOT NULL,
     ultimaAtualizacao DATETIME ON UPDATE NOW() NULL,
     FOREIGN KEY (idProduto)
         REFERENCES produto (idProduto)
@@ -144,6 +145,13 @@ CREATE TABLE itensVenda (
         REFERENCES venda (idVenda)
         ON UPDATE CASCADE ON DELETE RESTRICT
 );
+
+#Cria a trigger responsável por atualizar o estoque dos produtos, assim que uma venda for realizada
+delimiter $$
+CREATE TRIGGER atualizaEstoqueProduto AFTER INSERT ON itensVenda FOR EACH ROW
+BEGIN
+	UPDATE produto set quantidadeEstoque = quantidadeEstoque - NEW.quantidadeProduto WHERE idProduto = new.idProduto;
+END $$
 
 select * from cliente
 select * from loja
