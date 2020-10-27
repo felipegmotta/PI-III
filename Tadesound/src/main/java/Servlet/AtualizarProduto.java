@@ -53,7 +53,7 @@ public class AtualizarProduto extends HttpServlet {
         System.out.println(idFornecedor);
         System.out.println(idLoja);
         
-        //Cria um novo cliente com os dados atualizados
+        //Cria um novo produto com os dados atualizados
         Produto produto = new Produto(idProduto, nome, descricao, preco, categoria, quantidadeEstoque, idFornecedor, idLoja);
         
         try {
