@@ -11,7 +11,14 @@
     <%@include file="header.jsp"%>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="css/realizaVenda.css">
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
         <title>Venda</title>
+        
         <script type="text/javascript">  
             function escolherCliente(idCliente, nomeCliente) {
                 //Adiciona o id do cliente escolhido num span do carrinho
@@ -171,7 +178,7 @@
             
             //Exibe um toast de erro, com os erros ocorridos
             function exibeMensagemErro(msgErro) {
-                var msgExibir = "Erro ao realizar venda:</br>";
+                var msgExibir = "<b>Erro ao realizar venda:</b></br>";
                 msgExibir = msgExibir.concat(msgErro);
                 
                 $('#msgToast').html(msgExibir);
@@ -190,148 +197,201 @@
         </script>
     </head>
     <body>
-        <h1>Realizar Venda</h1>
-        
-        <div id="toast" class="toast" role="alert" aria-live="polite" aria-atomic="true" data-delay="10000">
-            <div role="alert" aria-live="assertive" aria-atomic="true">
-                <span id="msgToast"></span>
+        <header>
+            <div class="container-logo">
+                <a href="02_menuInicial.jsp"><img src="img/Logo.png" class="logo" 
+                    alt="Logo da Tadesound"></a>
             </div>
-        </div>
+            <h1>VENDA</h1>
+            <div class="info">
+                <h3><b>produto . serviço</b></h3>
+            </div>
+        </header>
         
-        <h1>Selecionar Cliente</h1>
-        <!--Tabela de Cliente-->
-        <table>
-            <thead>
-                <th hidden="true">idCliente</th>
-                <th>Nome</th>
-                <th>Email</th>
-                <th>CPF</th>
-                <th>Data Nascimento</th>
-                <th>Telefone</th>
-                <th>Endereco</th>
-                <th>Numero</th>
-                <th>Complemento</th>
-                <th>Bairro</th>
-                <th>Cidade</th>
-                <th>UF</th>
-                <th>CEP</th>
-                <th>Data Cadastro</th>
-            </thead>
-            <tbody>
-                <c:forEach var="cliente" items="${listaClientes}">
-                    <tr>
-                        <td hidden="true">${cliente.idCliente}</td>
-                        <td>${cliente.nome}</td>
-                        <td>${cliente.email}</td>
-                        <td>${cliente.cpf}</td>
-                        <td>${cliente.dataNascimento}</td>
-                        <td>${cliente.telefone}</td>
-                        <td>${cliente.endereco}</td>
-                        <td>${cliente.numero}</td>
-                        <td>${cliente.complemento}</td>
-                        <td>${cliente.bairro}</td>
-                        <td>${cliente.cidade}</td>
-                        <td>${cliente.uf}</td>
-                        <td>${cliente.cep}</td>
-                        <td>${cliente.dataCadastro}</td>
-                        <td><button type="button" class="btn btn-primary" onclick="escolherCliente('${cliente.idCliente}', '${cliente.nome}')">Escolher Cliente</button></td>
-                    </tr>
-                </c:forEach>
-            </tbody>
-        </table>
-        
-        <h1>Selecionar Produto</h1>
-        <!--Tabela de Produtos-->
-        <table>
-            <thead>
-                <th hidden="true">idProduto</th>
-                <th>Nome</th>
-                <th>Descricao</th>
-                <th>Preco</th>
-                <th>Categoria</th>
-                <th>Quantidade em Estoque</th>
-                <th>Codigo Fornecedor</th>
-                <th>Codigo Loja</th>
-                <th>Data Cadastro</th>
-            </thead>
-            <tbody>
-                <c:forEach var="produto" items="${listaProdutos}">
-                    <tr>
-                        <td hidden="true">${produto.idProduto}</td>
-                        <td>${produto.nome}</td>
-                        <td>${produto.descricao}</td>
-                        <td id='precoProduto${produto.idProduto}'>0,00</td>
-                        <td>${produto.categoria}</td>
-                        <td>${produto.quantidadeEstoque}</td>
-                        <td>${produto.idFornecedor}</td>
-                        <td>${produto.idLoja}</td>
-                        <td>${produto.dataCadastro}</td>
-                        <td><button type="button" class="btn btn-primary" onclick="mostraModalEscolheQuantidadeProduto('${produto.idProduto}', '${produto.nome}', '${produto.categoria}', '${produto.preco}')">Adicionar ao Carrinho</button></td>
-                    </tr>
-                    
-                    <script>
-                        //Formata o campo de preco corretamente para exibicao
-                        var precoProdutoAtual = ${produto.preco}
-                        var precoProdutoFormatado = numberToCurrency(precoProdutoAtual);
-                        $('#precoProduto${produto.idProduto}').html(precoProdutoFormatado);
-                    </script>
-                    
-                </c:forEach>
-            </tbody>
-        </table>
-        
-        <h1>Carrinho</h1>
-        <!--Tabela do carrinho-->
-        <table>
-            <thead>
-                <th hidden="true">idProduto</th>
-                <th>Tipo</th>
-                <th>Nome</th>
-                <th>Categoria</th>
-                <th>Quantidade</th>
-                <th>Preco Unidade</th>
-                <th>Total</th>
-            </thead>
-            <tbody id="tabelaCarrinho">
+        <div class="lft-container">            
+            <a href="ListarProdutos"><img src="img/IconeCaixa.png" 
+                class="icone" alt="Ícone de venda de produtos"></a>
+            <a href="cadastrarServico.jsp"><img src="img/IconeAgendar.png" 
+                class="icone" alt="Ícone de venda de serviço"></a>
+            <a href="ListarClientes"><img src="img/IconeClientes.png" 
+                class="icone" alt="Ícone de clientes"></a>
+        </div>         
+       
+        <div class="rgt-container">
+            <h1>Produto</h1>
+
+            <div class="campos-container">                
+                <h2>Selecionar Cliente</h2>
+                <div class="campos-container1">
+                    <table cellspacing="0" cellpadding="1" border="1" width="300">
+                        <!--Tabela de Cliente-->
+                        <table>
+                            <thead>
+                                <th class="filler">Fill</th>
+                                <th hidden="true">idCliente</th>
+                                <th>Nome</th>
+                                <th>Email</th>
+                                <th>CPF</th>
+                                <th>Data Nascimento</th>
+                                <th>Telefone</th>
+                                <th>Endereco</th>
+                                <th>Numero</th>
+                                <th>Complemento</th>
+                                <th>Bairro</th>
+                                <th>Cidade</th>
+                                <th>UF</th>
+                                <th>CEP</th>
+                                <th>Data Cadastro</th>                                
+                            </thead>
+                            <tbody>
+                                <c:forEach var="cliente" items="${listaClientes}">
+                                    <tr>
+                                        <td><img src="img/IconeFinalizar.png" class="btn-selecionar" 
+                                        alt="Ícone para selecionar cliente" 
+                                        onclick="escolherCliente('${cliente.idCliente}', '${cliente.nome}')"></td>
+                                        <td hidden="true">${cliente.idCliente}</td>
+                                        <td>${cliente.nome}</td>
+                                        <td>${cliente.email}</td>
+                                        <td>${cliente.cpf}</td>
+                                        <td>${cliente.dataNascimento}</td>
+                                        <td>${cliente.telefone}</td>
+                                        <td>${cliente.endereco}</td>
+                                        <td>${cliente.numero}</td>
+                                        <td>${cliente.complemento}</td>
+                                        <td>${cliente.bairro}</td>
+                                        <td>${cliente.cidade}</td>
+                                        <td>${cliente.uf}</td>
+                                        <td>${cliente.cep}</td>
+                                        <td>${cliente.dataCadastro}</td>                                        
+                                    </tr>
+                                </c:forEach>
+                            </tbody>
+                        </table>
+                    </table>
+                </div>
+
+                <h2>Selecionar Produto</h2>
+                <div class="campos-container1">
+                    <table cellspacing="0" cellpadding="1" border="1" width="300">
+                        <!--Tabela de Produtos-->
+                        <table>
+                            <thead>
+                                <th class="filler">Fill</th>
+                                <th hidden="true">idProduto</th>
+                                <th>Nome</th>
+                                <th>Descricao</th>
+                                <th>Preco</th>
+                                <th>Categoria</th>
+                                <th>Quantidade em Estoque</th>
+                                <th>Codigo Fornecedor</th>
+                                <th>Codigo Loja</th>
+                                <th>Data Cadastro</th>                            
+                            </thead>
+                            <tbody>
+                                <c:forEach var="produto" items="${listaProdutos}">
+                                    <tr>
+                                        <td><img src="img/IconeAdicionar.png" class="btn-selecionar" 
+                                        alt="Ícone para adicionar produto ao carrinho" 
+                                        onclick="mostraModalEscolheQuantidadeProduto('${produto.idProduto}', '${produto.nome}', '${produto.categoria}', '${produto.preco}')"></td>                                        
+                                        <td hidden="true">${produto.idProduto}</td>
+                                        <td>${produto.nome}</td>
+                                        <td>${produto.descricao}</td>
+                                        <td id='precoProduto${produto.idProduto}'>0,00</td>
+                                        <td>${produto.categoria}</td>
+                                        <td>${produto.quantidadeEstoque}</td>
+                                        <td>${produto.idFornecedor}</td>
+                                        <td>${produto.idLoja}</td>
+                                        <td>${produto.dataCadastro}</td>                                        
+                                    </tr>
+
+                                <script>
+                                    //Formata o campo de preco corretamente para exibicao
+                                    var precoProdutoAtual = ${produto.preco}
+                                    var precoProdutoFormatado = numberToCurrency(precoProdutoAtual);
+                                    $('#precoProduto${produto.idProduto}').html(precoProdutoFormatado);
+                                </script>
+
+                            </c:forEach>
+                            </tbody>
+                        </table>
+                    </table>
+                </div>
+            
+                <h2 class="carrinho">Carrinho</h2>
+                <div class="campos-container2">
+                    <table cellspacing="0" cellpadding="1" border="1" width="300">
+                        <!--Tabela do carrinho-->
+                        <table>
+                            <thead>
+                            <th hidden="true">idProduto</th>
+                            <th>Tipo</th>
+                            <th>Nome</th>
+                            <th>Categoria</th>
+                            <th>Quantidade</th>
+                            <th>Preco Unidade</th>
+                            <th>Total</th>
+                            </thead>
+                            <tbody id="tabelaCarrinho">
+
+                            </tbody>
+                        </table>
+                    </table>                    
+                </div>
                 
-            </tbody>
-        </table>
-        
-        <!--Guardar o status atual da compra-->
-        <span id="statusCompra">
-            <h5 id="valorCompra">Valor Compra: R$0,00</h5>
-            <h5 id="clienteCompra">Cliente: </h5>
-            <input hidden="true" id="clienteEscolhido"/>
-            <input hidden="true" id="valorTotal"/>
-            <input hidden="true" id="quantidadeProdutos"/>
-        </span>
-        
-        <div class="modal fade" id="modalProduto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Escolher quantidade</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
+                <div class="total">
+                    <!--Guardar o status atual da compra-->
+                    <span id="statusCompra">
+                        <h5 id="valorCompra">Total: R$0,00</h5>
+                        <h5 id="clienteCompra">Cliente: </h5>
+                        <input hidden="true" id="clienteEscolhido"/>
+                        <input hidden="true" id="valorTotal"/>
+                        <input hidden="true" id="quantidadeProdutos"/>
+                    </span>
+
+                    <div class="modal fade" id="modalProduto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Escolher quantidade</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    Escolha a quantidade do produto: 
+                                    <input id="quantidadeProduto" type="number"/>
+                                    <input id="idProduto" hidden="true"/>
+                                    <input id="nomeProduto" hidden="true"/>
+                                    <input id="categoriaProduto" hidden="true"/>
+                                    <input id="precoProduto" hidden="true"/>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn-cancelar" data-dismiss="modal">Cancelar</button>
+                                    <button type="button" class="btn-confirmar" onclick="adicionarProdutoAoCarrinho()">Confirmar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="modal-body">
-                    Escolha a quantidade do produto: 
-                    <input id="quantidadeProduto" type="number"/>
-                    <input id="idProduto" hidden="true"/>
-                    <input id="nomeProduto" hidden="true"/>
-                    <input id="categoriaProduto" hidden="true"/>
-                    <input id="precoProduto" hidden="true"/>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                  <button type="button" class="btn btn-primary" onclick="adicionarProdutoAoCarrinho()">Confirmar</button>
-                </div>
-              </div>
             </div>
+                                        
+            <div class="botao-container">
+                <button type="button" class="btn-cancelar" onclick="limparCarrinho()">Limpar Carrinho</button>
+                <button type="button" class="btn-confirmar" onclick="validaVenda()">Finalizar</button>
+            </div>
+            
+            <div class="container-toast">
+                <div id="toast" class="toast" role="alert" aria-live="polite" aria-atomic="true" data-delay="10000">
+                    <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <div>
+                        <div class="toast-body">
+                            <span id="msgToast"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>            
         </div>
-        
-        <button type="button" class="btn btn-primary" onclick="limparCarrinho()">Limpar Carrinho</button>
-        <button type="button" class="btn btn-primary" onclick="validaVenda()">Finalizar</button>
     </body>
 </html>

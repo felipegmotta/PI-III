@@ -24,7 +24,7 @@
                 class="icone" alt="Ícone para a tela de relatórios"></a>
             <a href="cadastrarCliente.jsp"><img src="img/IconeCrud3.png" 
                 class="icone" alt="Ícone para a tela de CRUD"></a>
-            <a href="cadastrarCliente.jsp"><img src="img/IconeCaixa.png" 
+            <a href="ListarProdutosEClientes"><img src="img/IconeCaixa.png" 
                 class="icone" alt="Ícone para a tela de caixa"></a>
         </div>
         
