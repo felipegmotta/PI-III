@@ -12,10 +12,13 @@ Utils\teste.class
 DAO\VendaDAO.class
 Servlet\ListarLojas.class
 Servlet\CadastrarProduto.class
+Model\VendaProdutos.class
+Servlet\AtualizarLoja.class
 Servlet\AtualizarProduto.class
 Servlet\ExcluirCliente.class
 Servlet\ExcluirProduto.class
 BD\ConexaoBD.class
+Model\VendaClientes.class
 Servlet\ListarProdutosEClientes.class
 Servlet\AtualizarCliente.class
 Model\ItensVenda.class
@@ -25,3 +28,4 @@ Servlet\CadastrarItensVenda.class
 DAO\LojaDAO.class
 Model\Pessoa.class
 DAO\ClienteDAO.class
+Model\VendaLojas.class

@@ -56,6 +56,16 @@
                 $('#msgToast').html("Erro ao realizar a operacao.");
                 $('#toast').toast('show');
             }
+            
+            //Formata numero em currency
+            function numberToCurrency(number) {
+                //Cria um formatador de numeros
+                var formatter = new Intl.NumberFormat('pt-BR', {
+                  style: 'currency',
+                  currency: 'BRL'});
+
+                return formatter.format(number);
+            }
         </script>
     </head>
     <body>
@@ -122,7 +132,7 @@
                                     <td>${produto.idProduto}</td>
                                     <td>${produto.nome}</td>
                                     <td>${produto.descricao}</td>
-                                    <td>${produto.preco}</td>
+                                    <td id="valorProduto${produto.idProduto}">${produto.preco}</td>
                                     <td>${produto.categoria}</td>
                                     <td>${produto.quantidadeEstoque}</td>
                                     <td>${produto.idFornecedor}</td>
@@ -131,10 +141,17 @@
                                     <td><a href="AtualizarProduto?idProduto=${produto.idProduto}">
                                         <img src="img/IconeEditar2.png" class="btn-manter2" 
                                         alt="Ícone para a página de manutenção de produtos"></a></td>
-                                    <td><img src="img/IconeExcluir.png" class="btn-manter3" 
+                                    <td><img src="img/IconeExcluir.png" class="btn-manter3" style="cursor: pointer;" 
                                         onclick="mostrarModalExclusao('${produto.idProduto}', '${produto.nome}')"
                                         alt="Ícone para exclusão de produto"></td>
                                 </tr>
+                                
+                                <script>
+                                    //Formata o campo de preco corretamente para exibicao
+                                    var precoProdutoFormatado = numberToCurrency(${produto.preco});
+                                    $('#valorProduto${produto.idProduto}').html(precoProdutoFormatado);
+                                </script>
+                                
                             </c:forEach>
                         </tbody>
                     </table>

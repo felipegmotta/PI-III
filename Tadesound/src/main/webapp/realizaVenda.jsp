@@ -14,7 +14,6 @@
         <link rel="stylesheet" href="css/realizaVenda.css">
         <link rel="stylesheet" href="css/bootstrap.css">
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
         <title>Venda</title>
@@ -76,7 +75,8 @@
             
             function atualizaValorCompra(precoProduto, quantidadeProduto) {
                 //Captura o valor atual da compra
-                valorAtual = document.getElementById('valorCompra').innerText.replace("Valor Compra: R$", "").replaceAll(".", "").replaceAll(",", ".");
+                valorAtual = document.getElementById('valorCompra').innerText.replace("Total: R$", "").replaceAll(".", "").replaceAll(",", ".");
+                console.log(valorAtual)
                 
                 //Transforma valores em int
                 valorAtual = parseInt(valorAtual);
@@ -89,7 +89,7 @@
                 
                 //Formata o valor total e atualiza o valor da compra
                 valorTotalFormatado = numberToCurrency(valorTotal); /* R$2.500,00 */
-                document.getElementById('valorCompra').innerText = "Valor Compra: " + valorTotalFormatado;
+                document.getElementById('valorCompra').innerText = "Total: " + valorTotalFormatado;
             }
             
             function limparCarrinho() {
@@ -97,7 +97,7 @@
                 $('#tabelaCarrinho').html("");
                 
                 //Limpa o valor total do carrinho
-                document.getElementById('valorCompra').innerText = "Valor Compra: R$0,00";
+                document.getElementById('valorCompra').innerText = "Total: R$0,00";
             }
             
             function validaVenda() {
@@ -134,7 +134,7 @@
                            'valorTotal': $('#valorTotal').val(),
                            'quantidadeProdutos': $('#quantidadeProdutos').val(),
                            'idCliente': $('#clienteEscolhido').val(),
-                           'idFuncionario': "1"},
+                           'idFuncionario': "4"},
                     dataType: "text",
                     success: function(response) {
                         cadatrarItensVendaBD(response)
@@ -178,7 +178,7 @@
             
             //Exibe um toast de erro, com os erros ocorridos
             function exibeMensagemErro(msgErro) {
-                var msgExibir = "<b>Erro ao realizar venda:</b></br>";
+                var msgExibir = "Erro ao realizar venda:</br>";
                 msgExibir = msgExibir.concat(msgErro);
                 
                 $('#msgToast').html(msgExibir);
@@ -218,13 +218,15 @@
         </div>         
        
         <div class="rgt-container">
-            <h1>Produto</h1>
+            <h1>Realizar Venda</h1>
 
+            
             <div class="campos-container">                
                 <h2>Selecionar Cliente</h2>
                 <div class="campos-container1">
+                    
+                    <!--Tabela de Cliente-->
                     <table cellspacing="0" cellpadding="1" border="1" width="300">
-                        <!--Tabela de Cliente-->
                         <table>
                             <thead>
                                 <th class="filler">Fill</th>
@@ -246,7 +248,7 @@
                             <tbody>
                                 <c:forEach var="cliente" items="${listaClientes}">
                                     <tr>
-                                        <td><img src="img/IconeFinalizar.png" class="btn-selecionar" 
+                                        <td><img src="img/IconeFinalizar.png" class="btn-selecionar" style="cursor: pointer;" 
                                         alt="Ícone para selecionar cliente" 
                                         onclick="escolherCliente('${cliente.idCliente}', '${cliente.nome}')"></td>
                                         <td hidden="true">${cliente.idCliente}</td>
@@ -270,10 +272,12 @@
                     </table>
                 </div>
 
+                
                 <h2>Selecionar Produto</h2>
                 <div class="campos-container1">
+                    
+                    <!--Tabela de Produtos-->
                     <table cellspacing="0" cellpadding="1" border="1" width="300">
-                        <!--Tabela de Produtos-->
                         <table>
                             <thead>
                                 <th class="filler">Fill</th>
@@ -290,7 +294,7 @@
                             <tbody>
                                 <c:forEach var="produto" items="${listaProdutos}">
                                     <tr>
-                                        <td><img src="img/IconeAdicionar.png" class="btn-selecionar" 
+                                        <td><img src="img/IconeAdicionar.png" class="btn-selecionar" style="cursor: pointer;"
                                         alt="Ícone para adicionar produto ao carrinho" 
                                         onclick="mostraModalEscolheQuantidadeProduto('${produto.idProduto}', '${produto.nome}', '${produto.categoria}', '${produto.preco}')"></td>                                        
                                         <td hidden="true">${produto.idProduto}</td>

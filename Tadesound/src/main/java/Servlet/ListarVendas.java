@@ -1,14 +1,16 @@
 package Servlet;
 
 import Utils.Utils;
-import Model.Venda;
-import java.util.List;
 import DAO.VendaDAO;
+import java.util.List;
 import java.io.IOException;
+import Model.VendaProdutos;
+import Model.VendaClientes;
+import Model.VendaLojas;
 import java.sql.SQLException;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -18,24 +20,29 @@ public class ListarVendas extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String tipoConsulta = request.getParameter("tipoConsulta");
-        
-        List<Venda> listaVendas = null;
+        String idConsulta = request.getParameter("idConsulta");        
+        String nomeConsulta = request.getParameter("nomeConsulta");        
         
         try {
-            if (tipoConsulta == "Produto") {
-                listaVendas = VendaDAO.getVendasProdutos();
-            } else if (tipoConsulta == "Cliente") {
-                listaVendas = VendaDAO.getVendasClientes();
-            } else if (tipoConsulta == "Loja"){
-                listaVendas = VendaDAO.getVendasLojas();
-            } else {
-                listaVendas = VendaDAO.getVendas();
+            switch (tipoConsulta) {
+                case "Produto":
+                    List<VendaProdutos> listaVendasProdutos = VendaDAO.getVendasProdutos(idConsulta, nomeConsulta);
+                    request.setAttribute("listaVendas", listaVendasProdutos);
+                    break;
+                case "Cliente":
+                    List<VendaClientes> listaVendasClientes = VendaDAO.getVendasClientes(idConsulta, nomeConsulta);
+                    request.setAttribute("listaVendas", listaVendasClientes);
+                    break;
+                case "Loja":
+                    List<VendaLojas> listaVendasLojas = VendaDAO.getVendasLojas(idConsulta, nomeConsulta);
+                    request.setAttribute("listaVendas", listaVendasLojas);
+                    break;
+                default:
+                    break;
             }
         } catch (SQLException ex) {
             Utils.exibeTelaErro(ex, request, response);
         }
-        
-        request.setAttribute("listaVendas", listaVendas);
         
         RequestDispatcher requestDispatcher = getServletContext()
                 .getRequestDispatcher("/listaVendas.jsp");
