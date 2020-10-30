@@ -178,7 +178,7 @@
             
             //Exibe um toast de erro, com os erros ocorridos
             function exibeMensagemErro(msgErro) {
-                var msgExibir = "Erro ao realizar venda:</br>";
+                var msgExibir = "<b>Erro ao realizar venda:</b></br>";
                 msgExibir = msgExibir.concat(msgErro);
                 
                 $('#msgToast').html(msgExibir);
@@ -209,7 +209,7 @@
         </header>
         
         <div class="lft-container">            
-            <a href="ListarProdutos"><img src="img/IconeCaixa.png" 
+            <a href="ListarProdutosEClientes"><img src="img/IconeCaixa.png" 
                 class="icone" alt="Ícone de venda de produtos"></a>
             <a href="cadastrarServico.jsp"><img src="img/IconeAgendar.png" 
                 class="icone" alt="Ícone de venda de serviço"></a>

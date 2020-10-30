@@ -20,7 +20,7 @@
         </header>        
         
         <div class="navbar">
-            <a href="cadastrarCliente.jsp"><img src="img/IconeRelatorio.png" 
+            <a href="listaVendas.jsp"><img src="img/IconeRelatorio.png" 
                 class="icone" alt="Ícone para a tela de relatórios"></a>
             <a href="cadastrarCliente.jsp"><img src="img/IconeCrud3.png" 
                 class="icone" alt="Ícone para a tela de CRUD"></a>

@@ -11,7 +11,7 @@
     <%@include file="header.jsp"%>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="css/listaClientes.css">
+        <link rel="stylesheet" href="css/listaVendas.css">
         <link rel="stylesheet" href="css/bootstrap.css">
         <title>Relatorio de Vendas</title>
         <script>
@@ -122,96 +122,104 @@
                 <a href="02_menuInicial.jsp"><img src="img/Logo.png" class="logo" 
                     alt="Logo da Tadesound"></a>
             </div>
-            <h1>RELATORIO</h1>
+            <h1>RELATÓRIO</h1>
             <div class="info">
-                <h3><b>consulta</b></h3>
+                <h3><b>produto . cliente . loja</b></h3>
             </div>
         </header>
 
-        <div class="lft-container">            
+        <div class="lft-container">      
+            <a href="listaVendas.jsp"><img src="img/IconeVendas.png" 
+                class="icone" alt="Ícone de relatório de vendas"></a>
             <a href="cadastrarProduto.jsp"><img src="img/IconeProduto.png" 
                 class="icone" alt="Ícone de produto"></a>
-            <a href="cadastrarServico.jsp"><img src="img/IconeServico.png" 
-                class="icone" alt="Ícone de serviço"></a>
             <a href="cadastrarCliente.jsp"><img src="img/IconeClientes.png" 
                 class="icone" alt="Ícone de clientes"></a>
-            <a href="cadastrarFornecedor.jsp"><img src="img/IconeFornecedor.png" 
-                class="icone" alt="Ícone de fornecedor"></a>
             <a href="cadastrarFilial.jsp"><img src="img/IconeFilial.png" 
                 class="icone" alt="Ícone de filial"></a>
-            <a href="cadastrarFuncionario.jsp"><img src="img/IconeFuncionario.png" 
-                class="icone" alt="Ícone de funcionário"></a>
         </div>
         
         <div class="rgt-container">
             <div class="container-titulo">
                 <h1>Consultar Vendas</h1>
-                <a href="cadastrarCliente.jsp"><img src="img/IconeAdicionar.png" 
-                    class="btn-manter1" alt="Ícone para a página de cadastro de clientes"></a>
             </div>
             
-            <!--checkbox para o tipo de consulta-->
-            <input type="radio" id="Produto" name="tipoConsulta" value="Produto" onchange="atualizarTipoConsulta('Produto')">
-            <label for="tipoConsulta">Produto</label><br>
-            
-            <input type="radio" id="Cliente" name="tipoConsulta" value="Cliente" onchange="atualizarTipoConsulta('Cliente')">
-            <label for="tipoConsulta">Cliente</label><br>
-            
-            <input type="radio" id="Loja" name="tipoConsulta" value="Loja" onchange="atualizarTipoConsulta('Loja')">
-            <label for="tipoConsulta">Loja</label><br>
-            
-            <!--Inputs para filtro da consulta-->
-            <label for="idConsulta">Id Consulta</label>
-            <input type="number" id="idConsulta" name="idConsulta">
-            <label for="nomeConsulta">Nome</label>
-            <input id="nomeConsulta" name="nomeConsulta">
-            
             <div class="campos-container">
-                <table cellspacing="0" cellpadding="1" border="1" width="300">
-                    <table>
-                        <thead id="headTabelaRelatorio">
-                        </thead>
-                        
-                        <tbody id="bodyTabelaRelatorio">
-                            <c:forEach var='consulta' items='${listaVendas}'>
-                                <!--Para relatorios de cliente-->
-                                <c:if test="${consulta.tipoVenda == 'Cliente'}">
-                                    <tr>
-                                        <td>${consulta.idCliente}</td>
-                                        <td>${consulta.nomeCliente}</td>
-                                        <td>${consulta.idLoja}</td>
-                                        <td>${consulta.nomeLoja}</td>
-                                        <td>${consulta.idVenda}</td>
-                                        <td>${consulta.valorTotal}</td>
-                                        <td>${consulta.dataVenda}</td>
-                                    </tr>
-                                </c:if>
-                                
-                                <!--Para relatorios de produto-->
-                                <c:if test="${consulta.tipoVenda == 'Produto'}">
-                                    <tr>
-                                        <td>${consulta.idLoja}</td>
-                                        <td>${consulta.idProduto}</td>
-                                        <td>${consulta.nomeProduto}</td>
-                                        <td>${consulta.valorProduto}</td>
-                                        <td>${consulta.quantidadeTotalProduto}</td>
-                                        <td>${consulta.valorTotal}</td>
-                                    </tr>
-                                </c:if>
-                                
-                                <!--Para relatorios de loja-->
-                                <c:if test="${consulta.tipoVenda == 'Loja'}">
-                                    <tr>
-                                        <td>${consulta.idLoja}</td>
-                                        <td>${consulta.nomeLoja}</td>
-                                        <td>${consulta.valorTotal}</td>
-                                        <td>${consulta.valorTotalPorcentagem}</td>
-                                    </tr>
-                                </c:if>
-                            </c:forEach>
-                        </tbody>
+                <div class="campos-container1"
+                    <!--checkbox para o tipo de consulta-->
+                    <div class="tipo-container">
+                        <h2>Tipo de Relatório</h2>
+                        <input type="radio" id="Produto" name="tipoConsulta" value="Produto" onchange="atualizarTipoConsulta('Produto')">
+                        <label for="tipoConsulta">Produto</label><br>
+
+                        <input type="radio" id="Cliente" name="tipoConsulta" value="Cliente" onchange="atualizarTipoConsulta('Cliente')">
+                        <label for="tipoConsulta">Cliente</label><br>
+
+                        <input type="radio" id="Loja" name="tipoConsulta" value="Loja" onchange="atualizarTipoConsulta('Loja')">
+                        <label for="tipoConsulta">Loja</label><br>
+                    </div>
+                    
+                    <!--Inputs para filtro da consulta-->
+                    <div class="filtro-container">
+                        <h2>Filtro de Consulta</h2>
+                        <div>
+                            <label for="idConsulta">Id Consulta</label>
+                            <input type="number" id="idConsulta" name="idConsulta">
+                        </div>
+                        <div>
+                            <label for="nomeConsulta">Nome</label>
+                            <input id="nomeConsulta" name="nomeConsulta">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="campos-container2">
+                    <table cellspacing="0" cellpadding="1" border="1" width="300">
+                        <table>
+                            <thead id="headTabelaRelatorio">
+                            </thead>
+
+                            <tbody id="bodyTabelaRelatorio">
+                                <c:forEach var='consulta' items='${listaVendas}'>
+                                    <!--Para relatorios de cliente-->
+                                    <c:if test="${consulta.tipoVenda == 'Cliente'}">
+                                        <tr>
+                                            <td>${consulta.idCliente}</td>
+                                            <td>${consulta.nomeCliente}</td>
+                                            <td>${consulta.idLoja}</td>
+                                            <td>${consulta.nomeLoja}</td>
+                                            <td>${consulta.idVenda}</td>
+                                            <td>${consulta.valorTotal}</td>
+                                            <td>${consulta.dataVenda}</td>
+                                        </tr>
+                                    </c:if>
+
+                                    <!--Para relatorios de produto-->
+                                    <c:if test="${consulta.tipoVenda == 'Produto'}">
+                                        <tr>
+                                            <td>${consulta.idLoja}</td>
+                                            <td>${consulta.idProduto}</td>
+                                            <td>${consulta.nomeProduto}</td>
+                                            <td>${consulta.valorProduto}</td>
+                                            <td>${consulta.quantidadeTotalProduto}</td>
+                                            <td>${consulta.valorTotal}</td>
+                                        </tr>
+                                    </c:if>
+
+                                    <!--Para relatorios de loja-->
+                                    <c:if test="${consulta.tipoVenda == 'Loja'}">
+                                        <tr>
+                                            <td>${consulta.idLoja}</td>
+                                            <td>${consulta.nomeLoja}</td>
+                                            <td>${consulta.valorTotal}</td>
+                                            <td>${consulta.valorTotalPorcentagem}</td>
+                                        </tr>
+                                    </c:if>
+                                </c:forEach>
+                            </tbody>
+                        </table>
                     </table>
-                </table>
+                </div>
             </div>
             
             <!--Guardar o status atual da compra-->
@@ -219,7 +227,9 @@
                 <input hidden="true" id="tipoConsulta"/>
             </span>
             
-            <button type="button" class="btn btn-primary" onclick="validaConsulta()">Gerar Relatorio</button>  
+            <div class="botao-container">
+                <button type="button" class="btn-confirmar" onclick="validaConsulta()">Gerar Relatorio</button>
+            </div>
             
             <div class="container-toast">
                 <div class="toast" role="alert" aria-live="polite" aria-atomic="true" data-delay="10000">

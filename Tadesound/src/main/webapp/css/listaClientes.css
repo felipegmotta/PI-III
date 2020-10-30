@@ -92,11 +92,14 @@ header h1{
 }
 
 .campos-container{
+    height: 30vw;
+    border-radius: 5px;
     margin-left: -1vw;
     padding: 0 0 15vw 0;
     background-color: #e0ebf6;
     font-family: Calibri;
     overflow: scroll;
+    overflow-y: auto;
     white-space: nowrap;
 }
 
