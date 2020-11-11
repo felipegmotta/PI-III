@@ -77,7 +77,8 @@
                                                    "<th>Nome Produto</th>" +
                                                    "<th>Valor Produto</th>" +
                                                    "<th>Quantidade Produto</th>" +
-                                                   "<th>Total</th>");
+                                                   "<th>Total</th>" +
+                                                   "<th class='filler' style='width:1%'>Fill</th>");
                 } else if (tipoConsulta === "Cliente") {
                     //Adiciona as colunas da tabela
                     $('#headTabelaRelatorio').html("<th>ID Cliente</th>" +
@@ -86,13 +87,15 @@
                                                    "<th>Nome Loja</th>" +
                                                    "<th>ID Venda</th>" +
                                                    "<th>Total</th>" +
-                                                   "<th>Data Venda</th>");
+                                                   "<th>Data Venda</th>" +
+                                                   "<th class='filler' style='width:1%'>Fill</th>");
                 } else {
                     //Para os casos onde o tipo da consulta e de loja, adicionar as colunas da tabela
                     $('#headTabelaRelatorio').html("<th>ID Loja</th>" +
                                                    "<th>Nome Loja</th>" +
                                                    "<th>Total</th>" +
-                                                   "<th>Porcentagem</th>");
+                                                   "<th>Porcentagem</th>" +
+                                                   "<th class='filler' style='width:1%'>Fill</th>");
                 }
             }
             
@@ -131,11 +134,11 @@
         <div class="lft-container">      
             <a href="listaVendas.jsp"><img src="img/IconeVendas.png" 
                 class="icone" alt="Ícone de relatório de vendas"></a>
-            <a href="cadastrarProduto.jsp"><img src="img/IconeProduto.png" 
+            <a href="ListarProdutos"><img src="img/IconeProduto.png" 
                 class="icone" alt="Ícone de produto"></a>
-            <a href="cadastrarCliente.jsp"><img src="img/IconeClientes.png" 
+            <a href="ListarClientes"><img src="img/IconeClientes.png" 
                 class="icone" alt="Ícone de clientes"></a>
-            <a href="cadastrarFilial.jsp"><img src="img/IconeFilial.png" 
+            <a><img src="img/IconeFilial.png" 
                 class="icone" alt="Ícone de filial"></a>
         </div>
         
@@ -177,6 +180,7 @@
                     <table cellspacing="0" cellpadding="1" border="1" width="300">
                         <table>
                             <thead id="headTabelaRelatorio">
+                                <th class="filler" style="width:1%">Fill</th>
                             </thead>
 
                             <tbody id="bodyTabelaRelatorio">

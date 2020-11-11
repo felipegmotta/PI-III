@@ -20,6 +20,7 @@ public class ListarProdutos extends HttpServlet {
         List<Produto> listaProdutos = null;
         
         try {
+            System.out.println("manda la porra");
             listaProdutos = ProdutoDAO.getProdutos();
         } catch (SQLException ex) {
             Utils.exibeTelaErro(ex, request, response);
@@ -28,7 +29,7 @@ public class ListarProdutos extends HttpServlet {
         request.setAttribute("listaProdutos", listaProdutos);
         
         RequestDispatcher requestDispatcher = getServletContext()
-                .getRequestDispatcher("/listaProdutos.jsp");
+                .getRequestDispatcher("/protected/backoffice/listaProdutos.jsp");
         requestDispatcher.forward(request, response);
     }
 }

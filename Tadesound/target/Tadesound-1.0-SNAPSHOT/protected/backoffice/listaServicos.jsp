@@ -1,5 +1,5 @@
 <%-- 
-    Document   : listaProdutos
+    Document   : listaServicos
     Created on : 10/10/2020, 12:03:30
     Author     : Felipe
 --%>
@@ -13,29 +13,29 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="css/listaClientes.css">
         <link rel="stylesheet" href="css/bootstrap.css">
-        <title>Consulta de Produtos</title>
+        <title>Consulta de Servicos</title>
         
         <script type="text/javascript">
-            function mostrarModalExclusao(idProduto, nomeProduto){
-                $('#nomeProduto').html(nomeProduto);
-                $('#idProduto').val(idProduto);
+            function mostrarModalExclusao(idServico, nomeServico){
+                $('#nomeServico').html(nomeServico);
+                $('#idServico').val(idServico);
                 $('#modalExclusao').modal('show');
             }
             
-            //Funcao responsavel por atualizar o produto
-            function atualizarProduto(idProduto) {
-                //Envia a requisicao GET para o BD atualizar o produto
-                $.get("AtualizarProduto?idProduto="+idProduto, function(resposta) {
+            //Funcao responsavel por atualizar o servico
+            function atualizarServico(idServico) {
+                //Envia a requisicao GET para o BD atualizar o servico
+                $.get("AtualizarServico?idServico="+idServico, function(resposta) {
                     
                 });
             }
             
-            //Funcao responsavel por excluir o produto
-            function excluirProduto() {
-                var idProduto = $('#idProduto').val();
+            //Funcao responsavel por excluir o servico
+            function excluirServico() {
+                var idServico = $('#idServico').val();
                 
-                //Envia a requisicao GET para o BD deletar o produto
-                $.get("ExcluirProduto?idProduto="+idProduto, function(resposta) {
+                //Envia a requisicao GET para o BD deletar o servico
+                $.get("ExcluirServico?idServico="+idServico, function(resposta) {
                     $('#modalExclusao').modal('hide');
                     if (resposta === "true") {
                         exibeMensagemSucesso();
@@ -89,69 +89,52 @@
         -->
 
         <div class="lft-container">            
-            <a href="cadastrarProduto.jsp"><img src="img/IconeProduto.png" 
+            <a href="ListarProdutos"><img src="img/IconeProduto.png" 
                 class="icone" alt="Ícone de produto"></a>
-            <a href="cadastrarServico.jsp"><img src="img/IconeServico.png" 
+            <a><img src="img/IconeServico.png" 
                 class="icone" alt="Ícone de serviço"></a>
-            <a href="cadastrarCliente.jsp"><img src="img/IconeClientes.png" 
+            <a href="ListarClientes"><img src="img/IconeClientes.png" 
                 class="icone" alt="Ícone de clientes"></a>
-            <a href="cadastrarFornecedor.jsp"><img src="img/IconeFornecedor.png" 
+            <a><img src="img/IconeFornecedor.png" 
                 class="icone" alt="Ícone de fornecedor"></a>
-            <a href="cadastrarFilial.jsp"><img src="img/IconeFilial.png" 
+            <a><img src="img/IconeFilial.png" 
                 class="icone" alt="Ícone de filial"></a>
-            <a href="cadastrarFuncionario.jsp"><img src="img/IconeFuncionario.png" 
+            <a><img src="img/IconeFuncionario.png" 
                 class="icone" alt="Ícone de funcionário"></a>
         </div>
         
         <div class="rgt-container">
             <div class="container-titulo">
-                <h1>Consultar Produto</h1>
-                <a href="cadastrarProduto.jsp"><img src="img/IconeAdicionar.png" 
-                    class="btn-manter1" alt="Ícone para a página de cadastro de produtos"></a>
+                <h1>Consultar Servico</h1>
+                <a href="cadastrarServico.jsp"><img src="img/IconeAdicionar.png" 
+                    class="btn-manter1" alt="Ícone para a página de cadastro de servicos"></a>
             </div>
 
             <div class="campos-container">
                 <table cellspacing="0" cellpadding="1" border="1" width="300">
                     <table>
                         <thead>
-                            <th>idProduto</th>
+                            <th hidden="true">idServico</th>
                             <th>Nome</th>
-                            <th>Descricao</th>
                             <th>Preco</th>
-                            <th>Categoria</th>
-                            <th>Quantidade em Estoque</th>
-                            <th>Codigo Fornecedor</th>
+                            <th>Grau Complexidade</th>
+                            <th>Duracao em Minutos</th>
                             <th>Codigo Loja</th>
-                            <th>Data Cadastro</th>
-                            <th class="filler">Fill</th>
-                            <th class="filler">Fill</th>
+                            <th class="Fill" style='width:1%'></th>
+                            <th class="Fill" style='width:1%'></th>
                         </thead>
                         <tbody>
-                            <c:forEach var="produto" items="${listaProdutos}">
+                            <c:forEach var="servico" items="${listaServicos}">
                                 <tr>
-                                    <td>${produto.idProduto}</td>
-                                    <td>${produto.nome}</td>
-                                    <td>${produto.descricao}</td>
-                                    <td id="valorProduto${produto.idProduto}">${produto.preco}</td>
-                                    <td>${produto.categoria}</td>
-                                    <td>${produto.quantidadeEstoque}</td>
-                                    <td>${produto.idFornecedor}</td>
-                                    <td>${produto.idLoja}</td>
-                                    <td>${produto.dataCadastro}</td>
-                                    <td><a href="AtualizarProduto?idProduto=${produto.idProduto}">
-                                        <img src="img/IconeEditar2.png" class="btn-manter2" 
-                                        alt="Ícone para a página de manutenção de produtos"></a></td>
-                                    <td><img src="img/IconeExcluir.png" class="btn-manter3" style="cursor: pointer;" 
-                                        onclick="mostrarModalExclusao('${produto.idProduto}', '${produto.nome}')"
-                                        alt="Ícone para exclusão de produto"></td>
+                                    <td hidden="true">${servico.idServico}</td>
+                                    <td>${servico.nome}</td>
+                                    <td>${servico.preco}</td>
+                                    <td>${servico.grauComplexidade}</td>
+                                    <td>${servico.duracaoMinutos}</td>
+                                    <td>${servico.idLoja}</td>
+                                    <td><a href="AtualizarServico?idServico=${servico.idServico}"><button type="button" class="btn btn-primary">Atualizar</button></a></td>
+                                    <td><button type="button" class="btn btn-primary" onclick="mostrarModalExclusao('${servico.idServico}', '${servico.nome}')">Excluir</button></td>
                                 </tr>
-                                
-                                <script>
-                                    //Formata o campo de preco corretamente para exibicao
-                                    var precoProdutoFormatado = numberToCurrency(${produto.preco});
-                                    $('#valorProduto${produto.idProduto}').html(precoProdutoFormatado);
-                                </script>
-                                
                             </c:forEach>
                         </tbody>
                     </table>
@@ -166,12 +149,12 @@
                               </button>
                             </div>
                             <div class="modal-body">
-                                Confirma a exclusão do produto <label id="nomeProduto"></label>?
-                                <input id="idProduto" hidden="true"/>
+                                Confirma a exclusão do servico <label id="nomeServico"></label>?
+                                <input id="idServico" hidden="true"/>
                             </div>
                             <div class="modal-footer">
                               <button type="button" class="btn-cancelar" data-dismiss="modal">Cancelar</button>
-                              <button type="button" class="btn-confirmar" onclick="excluirProduto()">Confirmar</button>
+                              <button type="button" class="btn-confirmar" onclick="excluirServico()">Confirmar</button>
                             </div>
                           </div>
                         </div>

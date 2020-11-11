@@ -99,7 +99,7 @@ public class VendaDAO {
         List<VendaLojas> listaVendasLojas = new ArrayList();
         
         Connection con = ConexaoBD.getConexao();
-        String query = "SELECT loja.idLoja, loja.nome, SUM(venda.valorTotal) as valorTotal, CONCAT(ROUND(SUM(venda.valorTotal)*100/(SELECT SUM(valorTotal) FROM venda), 2), \"%\") AS valorTotalPorcentagem FROM venda INNER JOIN funcionario ON venda.idFuncionario = funcionario.idFuncionario INNER JOIN loja ON funcionario.idLoja = loja.idLoja INNER JOIN itensVenda ON venda.idVenda = itensVenda.idVenda";
+        String query = "SELECT loja.idLoja, loja.nome, SUM(venda.valorTotal) as valorTotal, CONCAT(ROUND(SUM(venda.valorTotal)*100/(SELECT SUM(valorTotal) FROM venda), 2), \"%\") AS valorTotalPorcentagem FROM venda INNER JOIN funcionario ON venda.idFuncionario = funcionario.idFuncionario INNER JOIN loja ON funcionario.idLoja = loja.idLoja";
         
         PreparedStatement ps = null;
         

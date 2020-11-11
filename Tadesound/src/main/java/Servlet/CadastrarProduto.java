@@ -14,7 +14,6 @@ public class CadastrarProduto extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        System.out.println("dentro do post");
         
         String nome = request.getParameter("nome");
         String descricao = request.getParameter("descricao");

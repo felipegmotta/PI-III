@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <filter>
+        <filter-name>AutorizacaoFilter</filter-name>
+        <filter-class>Filter.AutorizacaoFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>AutorizacaoFilter</filter-name>
+        <url-pattern>/protected/*</url-pattern>
+    </filter-mapping>
     <servlet>
         <servlet-name>ListarClientes</servlet-name>
         <servlet-class>Servlet.ListarClientes</servlet-class>
@@ -7,6 +15,10 @@
     <servlet>
         <servlet-name>ListarProdutos</servlet-name>
         <servlet-class>Servlet.ListarProdutos</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListarServicos</servlet-name>
+        <servlet-class>Servlet.ListarServicos</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ListarProdutosEClientes</servlet-name>
@@ -23,6 +35,10 @@
     <servlet>
         <servlet-name>CadastrarProduto</servlet-name>
         <servlet-class>Servlet.CadastrarProduto</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CadastrarServico</servlet-name>
+        <servlet-class>Servlet.CadastrarServico</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>CadastrarVenda</servlet-name>
@@ -48,6 +64,14 @@
         <servlet-name>ExcluirProduto</servlet-name>
         <servlet-class>Servlet.ExcluirProduto</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EfetuaLogin</servlet-name>
+        <servlet-class>Servlet.EfetuaLogin</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EfetuaLogout</servlet-name>
+        <servlet-class>Servlet.EfetuaLogout</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ListarClientes</servlet-name>
         <url-pattern>/ListarClientes</url-pattern>
@@ -55,6 +79,10 @@
     <servlet-mapping>
         <servlet-name>ListarProdutos</servlet-name>
         <url-pattern>/ListarProdutos</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListarServicos</servlet-name>
+        <url-pattern>/ListarServicos</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ListarProdutosEClientes</servlet-name>
@@ -71,6 +99,10 @@
     <servlet-mapping>
         <servlet-name>CadastrarProduto</servlet-name>
         <url-pattern>/CadastrarProduto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CadastrarServico</servlet-name>
+        <url-pattern>/CadastrarServico</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>CadastrarVenda</servlet-name>
@@ -96,9 +128,21 @@
         <servlet-name>ExcluirProduto</servlet-name>
         <url-pattern>/ExcluirProduto</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EfetuaLogin</servlet-name>
+        <url-pattern>/EfetuaLogin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EfetuaLogout</servlet-name>
+        <url-pattern>/EfetuaLogout</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
+    
+    <welcome-file-list>
+        <welcome-file>paginaInicial.jsp</welcome-file>
+    </welcome-file-list>
 </web-app>

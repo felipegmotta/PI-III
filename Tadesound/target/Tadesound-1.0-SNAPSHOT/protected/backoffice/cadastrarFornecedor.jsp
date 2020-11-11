@@ -1,7 +1,6 @@
 <%-- 
-    Document   : cadastrarCliente
-    Created on : 10/10/2020, 17:19:36
-    Author     : Felipe
+    Created on : 24/10/2020, 17:40:54
+    Author     : Ygor
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -10,12 +9,10 @@
     <%--<%@include file="header.jsp"%>--%>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="css/crudCliente.css">
-        <link rel="stylesheet" href="css/bootstrap.css">        
+        <link rel="stylesheet" href="css/crudFornecedor.css">
+        <link rel="stylesheet" href="css/bootstrap.css">
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-        <title>Cadastrar Cliente</title>
+        <title>Cadastrar Fornercedor</title>
         
         <script type="text/javascript">
             function validarFormulario() {
@@ -32,21 +29,22 @@
                 
                 //Caso nao contenha erros de preenchimento
                 if (msgErro === "") {
-                    cadastrarClienteBD();
+                    cadastrarFornecedorBD();
                 } else {
                     exibeMensagemErro(msgErro);
                 }
             }
             
-            //Essa funcao e responsavel por enviar o POST para o servlet cadastrar o cliente
-            function cadastrarClienteBD() {
+            //Essa funcao e responsavel por enviar o POST para o servlet cadastrar o fornecedor
+            function cadastrarFornecedorBD() {
                 $.ajax({
                     type: "POST",
-                    url: "CadastrarCliente",
+                    url: "CadastrarFornecedor",
                     data: {'nome': $('#nome').val(),
                            'email': $('#email').val(),
                            'cpf': $('#cpf').val(),
-                           'dataNascimento': $('#dataNascimento').val(),
+                           'cnpj': $('#cnpj').val(),
+                           'tipoFornecedor': $('#tipoFornecedor').val(),
                            'telefone': $('#telefone').val(),
                            'endereco': $('#endereco').val(),
                            'numero': $('#numero').val(),
@@ -63,13 +61,14 @@
             //Exibe um toast de sucesso
             function exibeMensagemSucesso() {
                 $('#msgToast').html("Cadastro realizado com sucesso!");
-                $('.toast').toast('show');
+                //$('#toast').toast('show');
                 
                 //Limpa o valor dos campos
                 $('#nome').val("");
                 $('#email').val("");
                 $('#cpf').val("");
-                $('#dataNascimento').val("");
+                $('#cnpj').val("");
+                $('#tipoFornecedor').val("");
                 $('#telefone').val("");
                 $('#endereco').val("");
                 $('#numero').val("");
@@ -82,43 +81,43 @@
                         
             //Exibe um toast de erro, com os erros ocorridos
             function exibeMensagemErro(msgErro) {
-                var msgExibir = "<b>Erro ao cadastrar cliente:</b></br>";
+                var msgExibir = "Erro ao cadastrar fornecedor:</br>";
                 msgExibir = msgExibir.concat(msgErro);
                 $('#msgToast').html(msgExibir);
-                $('.toast').toast('show');
+                //$('#toast').toast('show');
             }
             
             //Event Listener para formatacao de campos
             document.addEventListener('DOMContentLoaded', () => {
-                for (const el of document.querySelectorAll("[placeholder][data-slots]")) {
-                    const pattern = el.getAttribute("placeholder"),
-                        slots = new Set(el.dataset.slots || "_"),
-                        prev = (j => Array.from(pattern, (c,i) => slots.has(c)? j=i+1: j))(0),
-                        first = [...pattern].findIndex(c => slots.has(c)),
-                        accept = new RegExp(el.dataset.accept || "\\d", "g"),
-                        clean = input => {
-                            input = input.match(accept) || [];
-                            return Array.from(pattern, c =>
-                                input[0] === c || slots.has(c) ? input.shift() || c : c
-                            );
-                        },
-                        format = () => {
-                            const [i, j] = [el.selectionStart, el.selectionEnd].map(i => {
-                                i = clean(el.value.slice(0, i)).findIndex(c => slots.has(c));
-                                return i<0? prev[prev.length-1]: back? prev[i-1] || first: i;
-                            });
-                            el.value = clean(el.value).join``;
-                            el.setSelectionRange(i, j);
-                            back = false;
-                        };
-                    let back = false;
-                    el.addEventListener("keydown", (e) => back = e.key === "Backspace");
-                    el.addEventListener("input", format);
-                    el.addEventListener("focus", format);
-                    el.addEventListener("blur", () => el.value === pattern && (el.value=""));
-                }
-            });
-        </script> 
+            for (const el of document.querySelectorAll("[placeholder][data-slots]")) {
+                const pattern = el.getAttribute("placeholder"),
+                    slots = new Set(el.dataset.slots || "_"),
+                    prev = (j => Array.from(pattern, (c,i) => slots.has(c)? j=i+1: j))(0),
+                    first = [...pattern].findIndex(c => slots.has(c)),
+                    accept = new RegExp(el.dataset.accept || "\\d", "g"),
+                    clean = input => {
+                        input = input.match(accept) || [];
+                        return Array.from(pattern, c =>
+                            input[0] === c || slots.has(c) ? input.shift() || c : c
+                        );
+                    },
+                    format = () => {
+                        const [i, j] = [el.selectionStart, el.selectionEnd].map(i => {
+                            i = clean(el.value.slice(0, i)).findIndex(c => slots.has(c));
+                            return i<0? prev[prev.length-1]: back? prev[i-1] || first: i;
+                        });
+                        el.value = clean(el.value).join``;
+                        el.setSelectionRange(i, j);
+                        back = false;
+                    };
+                let back = false;
+                el.addEventListener("keydown", (e) => back = e.key === "Backspace");
+                el.addEventListener("input", format);
+                el.addEventListener("focus", format);
+                el.addEventListener("blur", () => el.value === pattern && (el.value=""));
+            }
+        });
+        </script>        
     </head>
     
     <body> 
@@ -133,12 +132,20 @@
             </div>
         </header>
         
+        <!--
+        <div id="toast" class="toast" role="alert" aria-live="polite" aria-atomic="true" data-delay="10000">
+            <div role="alert" aria-live="assertive" aria-atomic="true">
+                <span id="msgToast"></span>
+            </div>
+        </div>
+        -->
+        
         <div class="lft-container">            
-            <a href="ListarProdutos"><img src="img/IconeProduto.png" 
+            <a href="cadastrarProduto.jsp"><img src="img/IconeProduto.png" 
                 class="icone" alt="Ícone de produto"></a>
             <a href="cadastrarServico.jsp"><img src="img/IconeServico.png" 
                 class="icone" alt="Ícone de serviço"></a>
-            <a href="ListarClientes"><img src="img/IconeClientes.png" 
+            <a href="cadastrarCliente.jsp"><img src="img/IconeClientes.png" 
                 class="icone" alt="Ícone de clientes"></a>
             <a href="cadastrarFornecedor.jsp"><img src="img/IconeFornecedor.png" 
                 class="icone" alt="Ícone de fornecedor"></a>
@@ -150,11 +157,11 @@
         
         <div class="rgt-container">
             <div class="container-titulo">
-                <h1>Adicionar Cliente</h1>
-                <a href="ListarClientes"><img src="img/IconePesquisar.png" 
-                    class="btn-manter1" alt="Ícone para a página de listagem de clientes"></a>
-                <a href="atualizarCliente.jsp"><img src="img/IconeEditar.png" 
-                    class="btn-manter2" alt="Ícone para a página de manutenção de clientes"></a>
+                <h1>Adicionar Fornecedor</h1>
+                <a href="listaFornecedor.jsp"><img src="img/IconePesquisar.png" 
+                    class="btn-manter1" alt="Ícone para a página de listagem de fornecedor"></a>
+                <a href="atualizarFornecedor.jsp"><img src="img/IconeEditar.png" 
+                    class="btn-manter2" alt="Ícone para a página de manutenção de fornecedor"></a>
             </div>
             
             <form method="POST">
@@ -174,9 +181,17 @@
                         <input id="cpf" name="cpf" placeholder="___.___.___-__" data-slots="_" required="required"/><br/>
                     </div>
 
-                    <div class="dataNascimento">
-                        <label for="dataNascimento">Data Nascimento</label>
-                        <input id="dataNascimento" name="dataNascimento" placeholder="__/__/____" data-slots="_" required="required"/><br/>
+                    <div class="cnpj">
+                        <label for="cnpj">CNPJ</label>
+                        <input id="cnpj" name="cnpj" placeholder="__.___.___/____-__" data-slots="_" required="required"/><br/>
+                    </div>
+                    
+                    <div class="tipoFornecedor">
+                        <label for="tipoFornecedor">Tipo</label>
+                        <select id="idtipoFornecedor" name="tipo" value="Cordas">
+                            <option value="1">Cordas</option>
+                            <option value="2">Sopro</option>
+                        </select>
                     </div>
 
                     <div class="telefone">
@@ -220,24 +235,13 @@
                     </div>
                 </div>
                 
-                <div class="botao-container">          
-                    <a href="ListarClientes"><button type="button" class="btn-cancelar">Cancelar</button></a>
-                    <button type="button" class="btn-cadastrar" onclick="validarFormulario()">Cadastrar</button>                    
-                </div>
-                
-                <div class="container-toast">
-                    <div class="toast" role="alert" aria-live="polite" aria-atomic="true" data-delay="10000">
-                        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <div>
-                            <div class="toast-body">
-                                <span id="msgToast"></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <div class="botao-container">
+          
+                    <a href="index.jsp"><button type="button" class="btn-cancelar">Cancelar</button></a>
+                    <button type="button" class="btn-cadastrar" onclick="validarFormulario()">Cadastrar</button>
+                </div>              
             </form>            
-        </div>        
+        </div>
+        
     </body>
 </html>

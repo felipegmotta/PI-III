@@ -49,8 +49,7 @@ header h1{
     display: inline-block;
     width: 13%;
     margin-right: 1vw;
-    margin-bottom: -8vw;
-    padding: 1vw 2vw 20vw 2vw;
+    padding: 1vw 2vw 23vw 2vw;
     background-color: #e3e3e3;
 }
 
@@ -92,11 +91,14 @@ header h1{
 }
 
 .campos-container{
+    column-width: 50vw; 
     column-count: 2;
 }
 
 .campos-container1{
     margin-left: 0.5vw;
+    column-count: 2;
+    padding-right: 10px;
 }
 
 label{
@@ -111,8 +113,8 @@ label{
     font-weight: bold;
 }
 
-.tipo-container input{
-    margin-right: 0.8vw;
+.filtro-container {
+    padding-top: 5px;
 }
 
 .filtro-container input{
