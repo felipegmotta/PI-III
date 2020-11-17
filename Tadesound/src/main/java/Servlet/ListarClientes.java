@@ -28,7 +28,7 @@ public class ListarClientes extends HttpServlet {
         request.setAttribute("listaClientes", listaClientes);
         
         RequestDispatcher requestDispatcher = getServletContext()
-                .getRequestDispatcher("/protected/listaClientes.jsp");
+                .getRequestDispatcher("/protected/vendas/listaClientes.jsp");
         requestDispatcher.forward(request, response);
     }
 }

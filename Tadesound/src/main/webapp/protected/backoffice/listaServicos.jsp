@@ -8,7 +8,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <%@include file="header.jsp"%>
+    <%@include file="../../header.jsp"%>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="css/listaClientes.css">
@@ -20,14 +20,6 @@
                 $('#nomeServico').html(nomeServico);
                 $('#idServico').val(idServico);
                 $('#modalExclusao').modal('show');
-            }
-            
-            //Funcao responsavel por atualizar o servico
-            function atualizarServico(idServico) {
-                //Envia a requisicao GET para o BD atualizar o servico
-                $.get("AtualizarServico?idServico="+idServico, function(resposta) {
-                    
-                });
             }
             
             //Funcao responsavel por excluir o servico
@@ -132,8 +124,12 @@
                                     <td>${servico.grauComplexidade}</td>
                                     <td>${servico.duracaoMinutos}</td>
                                     <td>${servico.idLoja}</td>
-                                    <td><a href="AtualizarServico?idServico=${servico.idServico}"><button type="button" class="btn btn-primary">Atualizar</button></a></td>
-                                    <td><button type="button" class="btn btn-primary" onclick="mostrarModalExclusao('${servico.idServico}', '${servico.nome}')">Excluir</button></td>
+                                    <td><a href="AtualizarServico?idServico=${servico.idServico}">
+                                        <img src="img/IconeEditar2.png" class="btn-manter2" 
+                                        alt="Ícone para a página de manutenção de produtos"></a></td>
+                                    <td><img src="img/IconeExcluir.png" class="btn-manter3" style="cursor: pointer;" 
+                                        onclick="mostrarModalExclusao('${servico.idServico}', '${servico.nome}')"
+                                        alt="Ícone para exclusão de produto"></td>
                                 </tr>
                             </c:forEach>
                         </tbody>

@@ -16,7 +16,6 @@ public class AtualizarProduto extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int idProduto = Integer.parseInt(request.getParameter("idProduto"));
-        System.out.println("to no get " + idProduto);
         
         Produto produto = null;
 
@@ -25,12 +24,10 @@ public class AtualizarProduto extends HttpServlet {
         } catch (SQLException ex) {
             Utils.exibeTelaErro(ex, request, response);
         }
-        
-        System.out.println(produto.getNome());
-        
+                
         request.setAttribute("produto", produto);
         RequestDispatcher requestDispatcher = getServletContext()
-                .getRequestDispatcher("/atualizarProduto.jsp");
+                .getRequestDispatcher("/protected/backoffice/atualizarProduto.jsp");
         requestDispatcher.forward(request, response);
     }
 
@@ -44,14 +41,6 @@ public class AtualizarProduto extends HttpServlet {
         int quantidadeEstoque = Integer.parseInt(request.getParameter("quantidadeEstoque"));
         int idFornecedor = Integer.parseInt(request.getParameter("idFornecedor"));
         int idLoja = Integer.parseInt(request.getParameter("idLoja"));
-        
-        System.out.println(nome);
-        System.out.println(descricao);
-        System.out.println(preco);
-        System.out.println(categoria);
-        System.out.println(quantidadeEstoque);
-        System.out.println(idFornecedor);
-        System.out.println(idLoja);
         
         //Cria um novo cliente com os dados atualizados
         Produto produto = new Produto(idProduto, nome, descricao, preco, categoria, quantidadeEstoque, idFornecedor, idLoja);

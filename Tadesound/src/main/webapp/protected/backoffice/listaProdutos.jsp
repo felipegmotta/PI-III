@@ -22,14 +22,6 @@
                 $('#modalExclusao').modal('show');
             }
             
-            //Funcao responsavel por atualizar o produto
-            function atualizarProduto(idProduto) {
-                //Envia a requisicao GET para o BD atualizar o produto
-                $.get("AtualizarProduto?idProduto="+idProduto, function(resposta) {
-                    
-                });
-            }
-            
             //Funcao responsavel por excluir o produto
             function excluirProduto() {
                 var idProduto = $('#idProduto').val();
@@ -123,8 +115,8 @@
                             <th>Codigo Fornecedor</th>
                             <th>Codigo Loja</th>
                             <th>Data Cadastro</th>
-                            <th class="filler">Fill</th>
-                            <th class="filler">Fill</th>
+                            <th class="Fill" style='width:1%'></th>
+                            <th class="Fill" style='width:1%'></th>
                         </thead>
                         <tbody>
                             <c:forEach var="produto" items="${listaProdutos}">
@@ -139,9 +131,9 @@
                                     <td>${produto.idLoja}</td>
                                     <td>${produto.dataCadastro}</td>
                                     <td><a href="AtualizarProduto?idProduto=${produto.idProduto}">
-                                        <img src="../../img/IconeEditar2.png" class="btn-manter2" 
+                                        <img src="img/IconeEditar2.png" class="btn-manter2" 
                                         alt="Ícone para a página de manutenção de produtos"></a></td>
-                                    <td><img src="../../img/IconeExcluir.png" class="btn-manter3" style="cursor: pointer;" 
+                                    <td><img src="img/IconeExcluir.png" class="btn-manter3" style="cursor: pointer;" 
                                         onclick="mostrarModalExclusao('${produto.idProduto}', '${produto.nome}')"
                                         alt="Ícone para exclusão de produto"></td>
                                 </tr>
@@ -158,24 +150,24 @@
 
                     <div class="modal fade" id="modalExclusao" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h5 class="modal-title" id="exampleModalLabel">Confirmar exclusão</h5>
-                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                              </button>
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Confirmar exclusão</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    Confirma a exclusão do Produto <label id="nomeProduto"></label>?
+                                    <input id="idProduto" hidden="true"/>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn-cancelar" data-dismiss="modal">Cancelar</button>
+                                    <button type="button" class="btn-confirmar" onclick="excluirProduto()">Confirmar</button>
+                                </div>
                             </div>
-                            <div class="modal-body">
-                                Confirma a exclusão do produto <label id="nomeProduto"></label>?
-                                <input id="idProduto" hidden="true"/>
-                            </div>
-                            <div class="modal-footer">
-                              <button type="button" class="btn-cancelar" data-dismiss="modal">Cancelar</button>
-                              <button type="button" class="btn-confirmar" onclick="excluirProduto()">Confirmar</button>
-                            </div>
-                          </div>
                         </div>
-                      </div>
+                    </div>
                 </table>
             </div>
         </div>

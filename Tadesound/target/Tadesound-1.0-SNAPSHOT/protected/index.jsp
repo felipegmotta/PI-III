@@ -16,42 +16,46 @@
     <body> 
         <h1>Menu</h1>
         
-        <!--Permissoes para admin-->        
+        <!--Permissoes para admin-->
         <c:if test="${sessionScope.usuario.admin}">
+            <a href="../ListarLojas">Listar Lojas</a><br/>
+            <a href="gerencia/cadastrarLoja.jsp">Cadastrar Lojas</a><br/>
             <a href="../ListarClientes">Listar Clientes</a><br/>
-            <a href="cadastrarCliente.jsp">Cadastrar Clientes</a><br/>
+            <a href="vendas/cadastrarCliente.jsp">Cadastrar Clientes</a><br/>
             <a href="../ListarProdutos">Listar Produtos</a><br/>
-            <a href="backoffice/backoffice/cadastrarProduto.jsp">Cadastrar Produtos</a><br/>
+            <a href="backoffice/cadastrarProduto.jsp">Cadastrar Produtos</a><br/>
             <a href="../ListarServicos">Listar Servicos</a><br/>
             <a href="backoffice/cadastrarServico.jsp">Cadastrar Servicos</a><br/>
             <a href="../ListarProdutosEClientes">Realizar Venda</a><br/>
-            <a href="backoffice/listaVendas.jsp">Relatorio de Vendas</a><br/>
+            <a href="gerencia/listaVendas.jsp">Relatorio de Vendas</a><br/>
         </c:if>
     
-        <!--Permissoes para gerente-->        
+        <!--Permissoes para gerente-->
         <c:if test="${sessionScope.usuario.gerente}">
+            <a href="../ListarLojas">Listar Lojas</a><br/>
+            <a href="gerencia/cadastrarLoja.jsp">Cadastrar Lojas</a><br/>
             <a href="../ListarClientes">Listar Clientes</a><br/>
-            <a href="cadastrarCliente.jsp">Cadastrar Clientes</a><br/>
+            <a href="vendas/cadastrarCliente.jsp">Cadastrar Clientes</a><br/>
             <a href="../ListarProdutos">Listar Produtos</a><br/>
             <a href="backoffice/cadastrarProduto.jsp">Cadastrar Produtos</a><br/>
-            <a href="ListarServicos">Listar Servicos</a><br/>
-            <a href="cadastrarServico.jsp">Cadastrar Servicos</a><br/>
+            <a href="../ListarServicos">Listar Servicos</a><br/>
+            <a href="backoffice/cadastrarServico.jsp">Cadastrar Servicos</a><br/>
             <a href="../ListarProdutosEClientes">Realizar Venda</a><br/>
-            <a href="listaVendas.jsp">Relatorio de Vendas</a><br/>
+            <a href="gerencia/listaVendas.jsp">Relatorio de Vendas</a><br/>
         </c:if>    
         
-        <!--Permissoes para backoffice-->        
+        <!--Permissoes para backoffice-->  
         <c:if test="${sessionScope.usuario.backoffice}">
             <a href="../ListarProdutos">Listar Produtos</a><br/>
             <a href="backoffice/cadastrarProduto.jsp">Cadastrar Produtos</a><br/>
             <a href="../ListarServicos">Listar Servicos</a><br/>
-            <a href="backoffice/cadastrarProduto/cadastrarServico.jsp">Cadastrar Servicos</a><br/>
+            <a href="backoffice/cadastrarServico.jsp">Cadastrar Servicos</a><br/>
         </c:if>
-            
+        
         <!--Permissoes para vendedor-->
         <c:if test="${sessionScope.usuario.vendedor}">
             <a href="../ListarClientes">Listar Clientes</a><br/>
-            <a href="cadastrarCliente.jsp">Cadastrar Clientes</a><br/>
+            <a href="vendas/cadastrarCliente.jsp">Cadastrar Clientes</a><br/>
             <a href="../ListarProdutosEClientes">Realizar Venda</a><br/>
         </c:if>
 

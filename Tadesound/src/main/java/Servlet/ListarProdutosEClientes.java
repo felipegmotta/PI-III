@@ -35,7 +35,7 @@ public class ListarProdutosEClientes extends HttpServlet {
         System.out.println(request.getContextPath() + "/protected/realizaVenda.jsp");
         
         RequestDispatcher requestDispatcher = getServletContext()
-                .getRequestDispatcher("/protected/realizaVenda.jsp");
+                .getRequestDispatcher("/protected/vendas/realizaVenda.jsp");
         requestDispatcher.forward(request, response);
     }
 }

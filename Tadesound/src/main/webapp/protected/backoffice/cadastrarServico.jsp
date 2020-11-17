@@ -9,8 +9,8 @@
     <%--<%@include file="header.jsp"%>--%>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="css/crudServico.css">
-        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="../../css/crudServico.css">
+        <link rel="stylesheet" href="../../css/bootstrap.css">
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
@@ -37,7 +37,7 @@
             function cadastrarServicoBD() {
                 $.ajax({
                     type: "POST",
-                    url: "CadastrarServico",
+                    url: "../../CadastrarServico",
                     data: {'nome': $('#nome').val(),
                            'preco': $('#preco').val(),
                            'grauComplexidade': $('#grauComplexidade').val(),
@@ -105,7 +105,7 @@
     <body>
         <header>
             <div class="container-logo">
-                <a href="02_menuInicial.jsp"><img src="img/Logo.png" class="logo" 
+                <a href="02_menuInicial.jsp"><img src="../../img/Logo.png" class="logo" 
                     alt="Logo da Tadesound"></a>
             </div>
             <h1>CADASTRO</h1>
@@ -123,26 +123,26 @@
         -->
         
         <div class="lft-container">            
-            <a href="cadastrarProduto.jsp"><img src="img/IconeProduto.png" 
+            <a href="cadastrarProduto.jsp"><img src="../../img/IconeProduto.png" 
                 class="icone" alt="Ícone de produto"></a>
-            <a href="cadastrarServico.jsp"><img src="img/IconeServico.png" 
+            <a href="cadastrarServico.jsp"><img src="../../img/IconeServico.png" 
                 class="icone" alt="Ícone de serviço"></a>
-            <a href="cadastrarCliente.jsp"><img src="img/IconeClientes.png" 
+            <a href="cadastrarCliente.jsp"><img src="../../img/IconeClientes.png" 
                 class="icone" alt="Ícone de clientes"></a>
-            <a href="cadastrarFornecedor.jsp"><img src="img/IconeFornecedor.png" 
+            <a href="cadastrarFornecedor.jsp"><img src="../../img/IconeFornecedor.png" 
                 class="icone" alt="Ícone de fornecedor"></a>
-            <a href="cadastrarFilial.jsp"><img src="img/IconeFilial.png" 
+            <a href="cadastrarFilial.jsp"><img src="../../img/IconeFilial.png" 
                 class="icone" alt="Ícone de filial"></a>
-            <a href="cadastrarFuncionario.jsp"><img src="img/IconeFuncionario.png" 
+            <a href="cadastrarFuncionario.jsp"><img src="../../img/IconeFuncionario.png" 
                 class="icone" alt="Ícone de funcionário"></a>
         </div>
         
         <div class="rgt-container">            
             <div class="container-titulo">
                 <h1>Adicionar Serviço</h1>
-                <a href="ListarServicos"><img src="img/IconePesquisar.png" 
+                <a href="ListarServicos"><img src="../../img/IconePesquisar.png" 
                     class="btn-manter1" alt="Ícone para a página de listagem de serviços"></a>
-                <a><img src="img/IconeEditar.png" 
+                <a><img src="../../img/IconeEditar.png" 
                     class="btn-manter2" alt="Ícone para a página de manutenção de serviços"></a>
             </div>
             

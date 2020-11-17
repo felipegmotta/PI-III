@@ -13,6 +13,7 @@ DAO\VendaDAO.class
 Servlet\ListarLojas.class
 Servlet\CadastrarProduto.class
 Model\VendaProdutos.class
+Servlet\AtualizarServico.class
 Model\Servico.class
 Servlet\AtualizarLoja.class
 Servlet\AtualizarProduto.class
@@ -31,7 +32,9 @@ Servlet\CadastrarServico.class
 Servlet\CadastrarVenda.class
 Servlet\ListarServicos.class
 Servlet\CadastrarItensVenda.class
+BD\Teste.class
 DAO\LojaDAO.class
+Servlet\CadastrarLoja.class
 Model\Pessoa.class
 DAO\ClienteDAO.class
 Model\VendaLojas.class

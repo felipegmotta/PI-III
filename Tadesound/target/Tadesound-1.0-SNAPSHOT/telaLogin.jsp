@@ -29,6 +29,13 @@
             </div>
         </c:if>
         
+        <!--Caso o usuario nao esteja logado, ou o acesso tenha expirado-->
+        <c:if test="${param.erro == 'sessionExpired'}">
+            <div class="alert alert-danger" role="alert">
+                O seu acesso expirou, por favor realize o login novamente.
+            </div>
+        </c:if>
+        
         <form action="EfetuaLogin" method="POST">
             <div class="form-group">
                 <label>Login</label>

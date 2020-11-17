@@ -28,7 +28,7 @@ public class ListarServicos extends HttpServlet {
         request.setAttribute("listaServicos", listaServicos);
         
         RequestDispatcher requestDispatcher = getServletContext()
-                .getRequestDispatcher("/listaServicos.jsp");
+                .getRequestDispatcher("/protected/backoffice/listaServicos.jsp");
         requestDispatcher.forward(request, response);
     }
 }

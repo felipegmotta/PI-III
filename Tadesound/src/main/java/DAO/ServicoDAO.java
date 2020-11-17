@@ -33,11 +33,11 @@ public class ServicoDAO {
         return listaServicos;
     }
     
-    public static Servico getProduto(int idServico) throws SQLException {   
+    public static Servico getServico(int idServico) throws SQLException {   
         Servico servico = null;
         
         Connection con = ConexaoBD.getConexao();
-        String query = "SELECT * FROM produto WHERE idProduto = ?";
+        String query = "SELECT * FROM servico WHERE idservico = ?";
         PreparedStatement ps = con.prepareStatement(query);
         ps.setInt(1, idServico);
         ResultSet rs = ps.executeQuery();
@@ -69,10 +69,10 @@ public class ServicoDAO {
         ps.execute();
     }
     
-    public static void updateProduto(Servico servico) throws SQLException {
+    public static void updateServico(Servico servico) throws SQLException {
         Connection con = ConexaoBD.getConexao();
        
-        String query = "UPDATE servico SET nome=?, preco=?, grauComplexidade=?, duracaoMinutos=?, idLoja=? WHERE idProduto=?";
+        String query = "UPDATE servico SET nome=?, preco=?, grauComplexidade=?, duracaoMinutos=?, idLoja=? WHERE idservico=?";
         PreparedStatement ps = con.prepareStatement(query);
         
         ps.setString(1, servico.getNome());
@@ -80,6 +80,7 @@ public class ServicoDAO {
         ps.setString(3, servico.getGrauComplexidade());
         ps.setInt(4, servico.getDuracaoMinutos());
         ps.setInt(5, servico.getIdLoja());
+        ps.setInt(6, servico.getIdServico());
         
         ps.execute();
     }

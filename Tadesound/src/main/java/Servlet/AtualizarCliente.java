@@ -30,7 +30,7 @@ public class AtualizarCliente extends HttpServlet {
         
         request.setAttribute("cliente", cliente);
         RequestDispatcher requestDispatcher = getServletContext()
-                .getRequestDispatcher("/atualizarCliente.jsp");
+                .getRequestDispatcher("/protected/vendas/atualizarCliente.jsp");
         requestDispatcher.forward(request, response);
     }
 
@@ -49,19 +49,6 @@ public class AtualizarCliente extends HttpServlet {
         String cidade = request.getParameter("cidade");
         String uf = request.getParameter("uf");
         String cep = request.getParameter("cep").replaceAll("([^\\w\\*])", "");
-        
-        System.out.println(nome);
-        System.out.println(email);
-        System.out.println(cpf);
-        System.out.println(dataNascimento);
-        System.out.println(telefone);
-        System.out.println(endereco);
-        System.out.println(numero);
-        System.out.println(complemento);
-        System.out.println(bairro);
-        System.out.println(cidade);
-        System.out.println(uf);
-        System.out.println(cep);
         
         //Cria um novo cliente com os dados atualizados
         Cliente cliente = new Cliente(idCliente, nome, email, cpf, dataNascimento, telefone, endereco, numero, complemento, bairro, cidade, uf, cep);

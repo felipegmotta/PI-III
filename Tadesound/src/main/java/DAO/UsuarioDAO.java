@@ -26,8 +26,8 @@ public class UsuarioDAO {
             int idFuncionario = rs.getInt("funcionario.idFuncionario");
             String dataCadastro = rs.getString("usuario.dataCadastro");
             usuario = new Usuario(idUsuario, nome, login, senha, cargo, idFuncionario, dataCadastro);
+            
         }
-        
         return usuario;
     }
 }

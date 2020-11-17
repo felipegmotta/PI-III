@@ -13,6 +13,8 @@
         <link rel="stylesheet" href="css/crudServico.css">
         <link rel="stylesheet" href="css/bootstrap.css">
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
         <title>Atualizar Servico</title>
         
         <script type="text/javascript">
@@ -22,10 +24,6 @@
                 //Valida o Nome
                 if ($('#nome').val().search("[0-9]+") !== -1) {
                     msgErro += "O Campo \"Nome\" nao deve possuir numeros.</br>";
-                }
-                //Valida o Email
-                if ($('#descricao').val().search("@") !== -1) {
-                    msgErro += "O Campo \"Descricao\" esta incorreto.</br>";
                 }
                 
                 //Caso nao contenha erros de preenchimento
@@ -38,19 +36,15 @@
             
             //Essa funcao e responsavel por enviar um POST para o servlet atualizar o produto no BD
             function alterarServicoBD() {
-                console.log("estou para ennviar o post")
                 $.ajax({
                     type: "POST",
                     url: "AtualizarServico",
-                    data: {'nome': $('#nome').val(),
-                           'descricao': $('#descricao').val(),
+                    data: {'idServico': ${servico.idServico},
+                           'nome': $('#nome').val(),
                            'preco': $('#preco').val(),
-                           'categoria': $('#categoria').val(),
                            'grauComplexidade': $('#grauComplexidade').val(),
-                           'tipoServico': $('#tipoServico').val(),
-                           'agendarServico': $('#agendarServico').val(),
-                           'idServico': $('#idServico').val(),
-                           'idLoja': $('#idLoja').val()},
+                           'duracaoMinutos': $('#duracaoMinutos').val(),
+                           'idLoja': "1"},
                     dataType: "text",
                     success: exibeMensagemSucesso()
                    });
@@ -58,16 +52,16 @@
             
             //Exibe um toast de sucesso
             function exibeMensagemSucesso() {
-                $('#msgToast').html("Atualizacao do servico: ${servico.nome} realizada com sucesso!");
-//                $('#toast').toast('show');
+                $('#msgToast').html("Atualizacao do servico <b>${servico.nome}</b> realizada com sucesso!");
+                $('.toast').toast('show');
             }
             
             //Exibe um toast de erro, com os erros ocorridos
             function exibeMensagemErro(msgErro) {
-                var msgExibir = "Erro ao atualizar servico: ${servico.nome}</br>";
+                var msgExibir = "<b>Erro ao atualizar servico ${servico.nome}</b></br>";
                 msgExibir = msgExibir.concat(msgErro);
                 $('#msgToast').html(msgExibir);
-//                $('#toast').toast('show');
+                $('.toast').toast('show');
             }
             
             //Event Listener para formatacao de campos
@@ -153,22 +147,9 @@
                         <input id="nome" name="nome" minlength="3" maxlength="255" required="required" value="${servico.nome}"/><br/>
                     </div>
 
-                    <div class="descricao">
-                        <label for="descricao">Descricao</label>
-                        <input id="descricao" name="descricao" minlength="3" maxlength="255" required="required" value="${servico.descricao}"/><br/>
-                    </div>
-
                     <div class="preco">
                         <label for="preco">Preco</label>
                         <input type="text" id="preco" name="preco" required="required" value="${servico.preco}"/><br/>
-                    </div>
-
-                    <div class="categoria">
-                        <label for="categoria">Categoria</label>
-                        <select id="categoria" name="categoria" value="${servico.categoria}">
-                            <option value="1">Cordas</option>
-                            <option value="2">Grande Porte</option>
-                        </select>
                     </div>
 
                     <div class="grauComplexidade">
@@ -176,32 +157,16 @@
                         <input id="grauComplexidade" type="number" name="grauComplexidade" required="required" value="${servico.grauComplexidade}"/><br/>
                     </div>
 
-                    <div class="tipoServiço">
-                        <label for="tipoServiço">Tipo de Serviço</label>
-                        <select id="idServico" name="servico" value="${servico.tipoServiço}">
-                            <option value="1">Afinação</option>
-                            <option value="2">Manutenção</option>
-                        </select>
+                    <div class="duracaoMinutos">
+                        <label for="duracaoMinutos">Duracao em minutos</label>
+                        <input id="duracaoMinutos" type="number" name="duracaoMinutos" required="required" value="${servico.duracaoMinutos}"/><br/>
                     </div>
                     
-                    <div class="agendarServiço">
-                        <label for="agendarServiço">Agendar Serviço</label>
-                        <input id="agendarServiço" name="agendarServiço" placeholder="__/__/____" data-slots="_" required="required" value="${servico.agendarServico}"/><br/>
-                    </div>
-
-                    <div class="loja">
-                        <label for="loja">Loja</label>
-                        <select id="idLoja" name="loja" value="${servico.idLoja}">
-                            <option value="1">Campos Elisios</option>
-                            <option value="2">Interlagos</option>
-                        </select>
-                    </div>
-
                 <div class="botao-container">
                     <a href="index.jsp"><button type="button" class="btn-cancelar">Cancelar</button></a>
-                    <button type="button" class="btn-cadastrar" onclick="validarFormulario()">Cadastrar</button>
+                    <button type="button" class="btn-cadastrar" onclick="validarFormulario()">Atualizar</button>
                 </div>
-            </form>            
+            </form>               
         </div>
     </body>
 </html>

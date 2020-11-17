@@ -41,7 +41,7 @@
                 console.log("estou para ennviar o post")
                 $.ajax({
                     type: "POST",
-                    url: "AtualizarFornecedor",
+                    url: "AtualizarLoja",
                     data: {'idCliente': ${fornecedor.idFornecedor},
                            'nome': $('#nome').val(),
                            'email': $('#email').val(),

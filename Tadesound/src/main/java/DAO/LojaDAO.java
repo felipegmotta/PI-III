@@ -58,7 +58,7 @@ public class LojaDAO {
             String cep = rs.getString("cep");
             String dataCadastro = rs.getString("dataCadastro");
             
-            loja = new Loja(nome, endereco, numero, bairro, complemento, cidade, uf, cep, telefone, dataCadastro);            
+            loja = new Loja(idLoja, nome, endereco, numero, bairro, complemento, cidade, uf, cep, telefone, dataCadastro);            
         }
         return loja;        
     }
@@ -66,19 +66,18 @@ public class LojaDAO {
     public static void addLoja(Loja loja) throws SQLException {
         Connection con = ConexaoBD.getConexao();
         
-        String query = "INSERT INTO loja (nome, telefone, numero, complemento, bairro, cidade, uf, cep, dataCadastro) VALUES (?,?,?,?,?,?,?,?,?)";
+        String query = "INSERT INTO loja (nome, telefone, endereco, numero, complemento, bairro, cidade, uf, cep) VALUES (?,?,?,?,?,?,?,?,?)";
         PreparedStatement ps = con.prepareStatement (query);
         
-        ps.setString(1, loja.getNomeLoja());
+        ps.setString(1, loja.getNome());
         ps.setString(2, loja.getTelefone());
         ps.setString(3, loja.getEndereco());
-        ps.setInt(4, loja.getNumeroLoja());
+        ps.setInt(4, loja.getNumero());
         ps.setString(5, loja.getComplemento());
         ps.setString(6, loja.getBairro());
         ps.setString(7, loja.getCidade());
         ps.setString(8, loja.getUf());
         ps.setString(9, loja.getCep());
-        ps.setString(10, loja.getDataCadastro());
         
         ps.execute();        
     }
@@ -86,19 +85,19 @@ public class LojaDAO {
     public static void updateLoja (Loja loja) throws SQLException {
         Connection con = ConexaoBD.getConexao();
         
-        String query = "UPDATE loja SET nome=?, telefone=?, endereco=?, numero=?, complemento=?, bairro =?, cidade=?, uf=?, cep=?, dataCadastro=? WHERE idLoja=?";
+        String query = "UPDATE loja SET nome=?, telefone=?, endereco=?, numero=?, complemento=?, bairro =?, cidade=?, uf=?, cep=? WHERE idLoja=?";
         PreparedStatement ps = con.prepareStatement(query);
         
-        ps.setString(1, loja.getNomeLoja());
+        ps.setString(1, loja.getNome());
         ps.setString(2, loja.getTelefone());
         ps.setString(3, loja.getEndereco());
-        ps.setInt(4, loja.getNumeroLoja());
+        ps.setInt(4, loja.getNumero());
         ps.setString(5, loja.getComplemento());
         ps.setString(6, loja.getBairro());
         ps.setString(7, loja.getCidade());
         ps.setString(8, loja.getUf());
         ps.setString(9, loja.getCep());
-        ps.setString(10, loja.getDataCadastro());
+        ps.setInt(10, loja.getIdLoja());
         
         ps.execute();  
     }
@@ -109,7 +108,7 @@ public class LojaDAO {
         String query = "DELETE FROM loja WHERE nome=?";
         PreparedStatement ps = con.prepareStatement(query);
         
-        ps.setString(1, loja.getNomeLoja());
+        ps.setString(1, loja.getNome());
         
         ps.execute();  
     }

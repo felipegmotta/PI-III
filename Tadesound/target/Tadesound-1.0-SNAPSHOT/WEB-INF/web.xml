@@ -29,6 +29,10 @@
         <servlet-class>Servlet.ListarVendas</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>ListarLojas</servlet-name>
+        <servlet-class>Servlet.ListarLojas</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>CadastrarCliente</servlet-name>
         <servlet-class>Servlet.CadastrarCliente</servlet-class>
     </servlet>
@@ -49,12 +53,24 @@
         <servlet-class>Servlet.CadastrarItensVenda</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>CadastrarLoja</servlet-name>
+        <servlet-class>Servlet.CadastrarLoja</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>AtualizarCliente</servlet-name>
         <servlet-class>Servlet.AtualizarCliente</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>AtualizarProduto</servlet-name>
         <servlet-class>Servlet.AtualizarProduto</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AtualizarServico</servlet-name>
+        <servlet-class>Servlet.AtualizarServico</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AtualizarLoja</servlet-name>
+        <servlet-class>Servlet.AtualizarLoja</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ExcluirCliente</servlet-name>
@@ -93,6 +109,10 @@
         <url-pattern>/ListarVendas</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>ListarLojas</servlet-name>
+        <url-pattern>/ListarLojas</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>CadastrarCliente</servlet-name>
         <url-pattern>/CadastrarCliente</url-pattern>
     </servlet-mapping>
@@ -113,12 +133,24 @@
         <url-pattern>/CadastrarItensVenda</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>CadastrarLoja</servlet-name>
+        <url-pattern>/CadastrarLoja</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>AtualizarCliente</servlet-name>
         <url-pattern>/AtualizarCliente</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AtualizarProduto</servlet-name>
         <url-pattern>/AtualizarProduto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AtualizarServico</servlet-name>
+        <url-pattern>/AtualizarServico</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AtualizarLoja</servlet-name>
+        <url-pattern>/AtualizarLoja</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ExcluirCliente</servlet-name>

@@ -20,14 +20,6 @@
                 $('#modalExclusao').modal('show');
             }
             
-            //Funcao responsavel por atualizar o fornecedor
-            function atualizarFornecedor(cnpjFornecedor) {
-                //Envia a requisicao GET para o BD atualizar o fornecedor
-                $.get("AtualizarFornecedor?cnpj="+cnpjFornecedor, function(resposta) {
-                    
-                });
-            }
-            
             //Funcao responsavel por excluir o fornecedor
             function excluirFornecedor() {
                 var cnpjFornecedor = $('#cnpjFornecedor').val();

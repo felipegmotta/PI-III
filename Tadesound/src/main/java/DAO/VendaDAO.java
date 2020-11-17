@@ -57,6 +57,7 @@ public class VendaDAO {
     }
     
     public static List<VendaProdutos> getVendasProdutos(String idConsulta, String nomeConsulta) throws SQLException {
+        System.out.println("dentro de vendas produtos");
         List<VendaProdutos> listaVendasProdutos = new ArrayList();
         
         Connection con = ConexaoBD.getConexao();
@@ -78,7 +79,7 @@ public class VendaDAO {
         } else {
             ps = con.prepareStatement(query);
         }
-        
+        System.out.println(query);
         ResultSet rs = ps.executeQuery();
         
         while (rs.next()) {

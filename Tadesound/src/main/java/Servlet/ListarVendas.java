@@ -45,7 +45,7 @@ public class ListarVendas extends HttpServlet {
         }
         
         RequestDispatcher requestDispatcher = getServletContext()
-                .getRequestDispatcher("/listaVendas.jsp");
+                .getRequestDispatcher("/protected/gerencia/listaVendas.jsp");
         requestDispatcher.forward(request, response);
     }
 }

@@ -2,6 +2,7 @@ E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\Servlet\ListarLoj
 E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\Model\VendaLojas.java
 E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\Model\Venda.java
 E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\Model\ItensVenda.java
+E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\Servlet\CadastrarLoja.java
 E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\Servlet\ExcluirCliente.java
 E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\Servlet\ListarServicos.java
 E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\DAO\ServicoDAO.java
@@ -27,9 +28,11 @@ E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\Utils\Utils.java
 E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\Servlet\CadastrarCliente.java
 E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\Servlet\CadastrarVenda.java
 E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\Servlet\ListarVendas.java
+E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\BD\Teste.java
 E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\Model\Loja.java
 E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\Servlet\ListarProdutosEClientes.java
 E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\DAO\LojaDAO.java
+E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\Servlet\AtualizarServico.java
 E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\Servlet\AtualizarCliente.java
 E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\Model\Cliente.java
 E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\Model\Servico.java

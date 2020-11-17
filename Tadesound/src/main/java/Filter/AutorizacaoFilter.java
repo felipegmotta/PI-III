@@ -42,15 +42,26 @@ public class AutorizacaoFilter implements Filter {
         
         HttpSession sessao = httpRequest.getSession();
         if (sessao.getAttribute("usuario") == null) {
-            httpResponse.sendRedirect("/telaLogin.jsp");
+            httpResponse.sendRedirect(httpRequest.getContextPath() + "/telaLogin.jsp?erro=sessionExpired");
+            return;
         }
         
         Usuario usuario = (Usuario) sessao.getAttribute("usuario");
         String url = httpRequest.getRequestURI();
         
-        if (url.contains("/backoffice/") && (!usuario.isBackoffice() && !usuario.isGerente())) {
+        if (url.contains("/backoffice/") && !usuario.isBackoffice() && !usuario.isGerente() && !usuario.isAdmin()) {
             httpResponse.sendRedirect(httpRequest.getContextPath() + "/telaLogin.jsp?erro=accessForbidden");
-//            sessao.invalidate();
+            return;
+        }
+        
+        if (url.contains("/vendas/") && !usuario.isVendedor() && !usuario.isGerente() && !usuario.isAdmin()) {
+            httpResponse.sendRedirect(httpRequest.getContextPath() + "/telaLogin.jsp?erro=accessForbidden");
+            return;
+        }
+        
+        if (url.contains("/gerencia/") && !usuario.isGerente() && !usuario.isAdmin()) {
+            httpResponse.sendRedirect(httpRequest.getContextPath() + "/telaLogin.jsp?erro=accessForbidden");
+            return;
         }
     }    
     
