@@ -102,14 +102,14 @@ public class LojaDAO {
         ps.execute();  
     }
     
-    public static void deleteLoja (Loja loja) throws SQLException {
+    public static void deleteLoja (int idLoja) throws SQLException {
         Connection con = ConexaoBD.getConexao();
         
-        String query = "DELETE FROM loja WHERE nome=?";
+        String query = "DELETE FROM loja WHERE idLoja=?";
         PreparedStatement ps = con.prepareStatement(query);
         
-        ps.setString(1, loja.getNome());
-        
+        ps.setInt(1, idLoja);
+
         ps.execute();  
     }
 }

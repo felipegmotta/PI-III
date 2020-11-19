@@ -110,6 +110,7 @@
             
             //Formata numero em currency
             function numberToCurrency(number) {
+                console.log("number")
                 //Cria um formatador de numeros
                 var formatter = new Intl.NumberFormat('pt-BR', {
                   style: 'currency',
@@ -193,7 +194,7 @@
                                             <td>${consulta.idLoja}</td>
                                             <td>${consulta.nomeLoja}</td>
                                             <td>${consulta.idVenda}</td>
-                                            <td>${consulta.valorTotal}</td>
+                                            <td id="valorTotal${consulta.idCliente}">${consulta.valorTotal}</td>
                                             <td>${consulta.dataVenda}</td>
                                         </tr>
                                     </c:if>
@@ -215,11 +216,11 @@
                                         <tr>
                                             <td>${consulta.idLoja}</td>
                                             <td>${consulta.nomeLoja}</td>
-                                            <td>${consulta.valorTotal}</td>
+                                            <td id="valorTotal">${consulta.valorTotal}</td>
                                             <td>${consulta.valorTotalPorcentagem}</td>
                                         </tr>
                                     </c:if>
-                                </c:forEach>
+                                </c:forEach>   
                             </tbody>
                         </table>
                     </table>

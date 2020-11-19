@@ -9,13 +9,14 @@ import lombok.Setter;
 public class Usuario {
     
     //Construtor sem a data de cadastro
-    public Usuario(int idUsuario, String nome, String login, String senha, String cargo, int idFuncionario, String dataCadastro) {
+    public Usuario(int idUsuario, String nome, String login, String senha, String cargo, int idFuncionario, int idLoja, String dataCadastro) {
         this.nome = nome;
         this.idUsuario = idUsuario;
         this.login = login;
         this.senha = senha;
         this.cargo = cargo;
         this.idFuncionario = idFuncionario;
+        this.idLoja = idLoja;
         this.dataCadastro = dataCadastro;
     }
     
@@ -25,6 +26,7 @@ public class Usuario {
     private String senha;
     private String cargo;
     private int idFuncionario;
+    private int idLoja;
     private String dataCadastro;
     
     public String codificarSenha(String senha){

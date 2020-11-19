@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <!--Utils-->
     <filter>
         <filter-name>AutorizacaoFilter</filter-name>
         <filter-class>Filter.AutorizacaoFilter</filter-class>
@@ -8,6 +9,25 @@
         <filter-name>AutorizacaoFilter</filter-name>
         <url-pattern>/protected/*</url-pattern>
     </filter-mapping>
+    <servlet>
+        <servlet-name>EfetuaLogin</servlet-name>
+        <servlet-class>Servlet.EfetuaLogin</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EfetuaLogout</servlet-name>
+        <servlet-class>Servlet.EfetuaLogout</servlet-class>
+    </servlet>
+    <!--Mapping-->
+    <servlet-mapping>
+        <servlet-name>EfetuaLogin</servlet-name>
+        <url-pattern>/EfetuaLogin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EfetuaLogout</servlet-name>
+        <url-pattern>/EfetuaLogout</url-pattern>
+    </servlet-mapping>
+    
+    <!--Listagem-->
     <servlet>
         <servlet-name>ListarClientes</servlet-name>
         <servlet-class>Servlet.ListarClientes</servlet-class>
@@ -33,61 +53,10 @@
         <servlet-class>Servlet.ListarLojas</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>CadastrarCliente</servlet-name>
-        <servlet-class>Servlet.CadastrarCliente</servlet-class>
+        <servlet-name>ListarFornecedores</servlet-name>
+        <servlet-class>Servlet.ListarFornecedores</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>CadastrarProduto</servlet-name>
-        <servlet-class>Servlet.CadastrarProduto</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>CadastrarServico</servlet-name>
-        <servlet-class>Servlet.CadastrarServico</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>CadastrarVenda</servlet-name>
-        <servlet-class>Servlet.CadastrarVenda</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>CadastrarItensVenda</servlet-name>
-        <servlet-class>Servlet.CadastrarItensVenda</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>CadastrarLoja</servlet-name>
-        <servlet-class>Servlet.CadastrarLoja</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>AtualizarCliente</servlet-name>
-        <servlet-class>Servlet.AtualizarCliente</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>AtualizarProduto</servlet-name>
-        <servlet-class>Servlet.AtualizarProduto</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>AtualizarServico</servlet-name>
-        <servlet-class>Servlet.AtualizarServico</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>AtualizarLoja</servlet-name>
-        <servlet-class>Servlet.AtualizarLoja</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>ExcluirCliente</servlet-name>
-        <servlet-class>Servlet.ExcluirCliente</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>ExcluirProduto</servlet-name>
-        <servlet-class>Servlet.ExcluirProduto</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>EfetuaLogin</servlet-name>
-        <servlet-class>Servlet.EfetuaLogin</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>EfetuaLogout</servlet-name>
-        <servlet-class>Servlet.EfetuaLogout</servlet-class>
-    </servlet>
+    <!--Mapping-->
     <servlet-mapping>
         <servlet-name>ListarClientes</servlet-name>
         <url-pattern>/ListarClientes</url-pattern>
@@ -113,6 +82,41 @@
         <url-pattern>/ListarLojas</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>ListarFornecedores</servlet-name>
+        <url-pattern>/ListarFornecedores</url-pattern>
+    </servlet-mapping>
+    
+    <!--Cadastro-->
+    <servlet>
+        <servlet-name>CadastrarCliente</servlet-name>
+        <servlet-class>Servlet.CadastrarCliente</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CadastrarProduto</servlet-name>
+        <servlet-class>Servlet.CadastrarProduto</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CadastrarServico</servlet-name>
+        <servlet-class>Servlet.CadastrarServico</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CadastrarVenda</servlet-name>
+        <servlet-class>Servlet.CadastrarVenda</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CadastrarItensVenda</servlet-name>
+        <servlet-class>Servlet.CadastrarItensVenda</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CadastrarLoja</servlet-name>
+        <servlet-class>Servlet.CadastrarLoja</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CadastrarFornecedor</servlet-name>
+        <servlet-class>Servlet.CadastrarFornecedor</servlet-class>
+    </servlet>
+    <!--Mapping-->
+    <servlet-mapping>
         <servlet-name>CadastrarCliente</servlet-name>
         <url-pattern>/CadastrarCliente</url-pattern>
     </servlet-mapping>
@@ -137,6 +141,33 @@
         <url-pattern>/CadastrarLoja</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>CadastrarFornecedor</servlet-name>
+        <url-pattern>/CadastrarFornecedor</url-pattern>
+    </servlet-mapping>
+    
+    <!--Atualizacao-->
+    <servlet>
+        <servlet-name>AtualizarCliente</servlet-name>
+        <servlet-class>Servlet.AtualizarCliente</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AtualizarProduto</servlet-name>
+        <servlet-class>Servlet.AtualizarProduto</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AtualizarServico</servlet-name>
+        <servlet-class>Servlet.AtualizarServico</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AtualizarLoja</servlet-name>
+        <servlet-class>Servlet.AtualizarLoja</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AtualizarFornecedor</servlet-name>
+        <servlet-class>Servlet.AtualizarFornecedor</servlet-class>
+    </servlet>
+    <!--Mapping-->
+    <servlet-mapping>
         <servlet-name>AtualizarCliente</servlet-name>
         <url-pattern>/AtualizarCliente</url-pattern>
     </servlet-mapping>
@@ -153,6 +184,29 @@
         <url-pattern>/AtualizarLoja</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>AtualizarFornecedor</servlet-name>
+        <url-pattern>/AtualizarFornecedor</url-pattern>
+    </servlet-mapping>
+    
+    <!--Exclusao-->
+    <servlet>
+        <servlet-name>ExcluirCliente</servlet-name>
+        <servlet-class>Servlet.ExcluirCliente</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ExcluirProduto</servlet-name>
+        <servlet-class>Servlet.ExcluirProduto</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ExcluirLoja</servlet-name>
+        <servlet-class>Servlet.ExcluirLoja</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ExcluirFornecedor</servlet-name>
+        <servlet-class>Servlet.ExcluirFornecedor</servlet-class>
+    </servlet>
+    <!--Mapping-->
+    <servlet-mapping>
         <servlet-name>ExcluirCliente</servlet-name>
         <url-pattern>/ExcluirCliente</url-pattern>
     </servlet-mapping>
@@ -161,13 +215,14 @@
         <url-pattern>/ExcluirProduto</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>EfetuaLogin</servlet-name>
-        <url-pattern>/EfetuaLogin</url-pattern>
+        <servlet-name>ExcluirLoja</servlet-name>
+        <url-pattern>/ExcluirLoja</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>EfetuaLogout</servlet-name>
-        <url-pattern>/EfetuaLogout</url-pattern>
+        <servlet-name>ExcluirFornecedor</servlet-name>
+        <url-pattern>/ExcluirFornecedor</url-pattern>
     </servlet-mapping>
+    
     <session-config>
         <session-timeout>
             30

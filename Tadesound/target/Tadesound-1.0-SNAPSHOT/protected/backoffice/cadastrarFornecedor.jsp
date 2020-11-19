@@ -9,10 +9,12 @@
     <%--<%@include file="header.jsp"%>--%>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="css/crudFornecedor.css">
-        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="../../css/crudFornecedor.css">
+        <link rel="stylesheet" href="../../css/bootstrap.css">
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-        <title>Cadastrar Fornercedor</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <title>Cadastrar Fornecedor</title>
         
         <script type="text/javascript">
             function validarFormulario() {
@@ -25,6 +27,10 @@
                 //Valida o Email
                 if ($('#email').val().search("@") === -1) {
                     msgErro += "O Campo \"Email\" esta incorreto.</br>";
+                }
+                //Valida CPF e CNPJ
+                if (!$('#cpf').val() === "" && !$('#cnpj').val() === "") {
+                    msgErro += "Deve ser preenchido somente o campo \"CPF\" ou somente o campo \"CNPJ\".</br>";
                 }
                 
                 //Caso nao contenha erros de preenchimento
@@ -39,13 +45,12 @@
             function cadastrarFornecedorBD() {
                 $.ajax({
                     type: "POST",
-                    url: "CadastrarFornecedor",
+                    url: "../../CadastrarFornecedor",
                     data: {'nome': $('#nome').val(),
-                           'email': $('#email').val(),
                            'cpf': $('#cpf').val(),
                            'cnpj': $('#cnpj').val(),
-                           'tipoFornecedor': $('#tipoFornecedor').val(),
                            'telefone': $('#telefone').val(),
+                           'email': $('#email').val(),
                            'endereco': $('#endereco').val(),
                            'numero': $('#numero').val(),
                            'complemento': $('#complemento').val(),
@@ -61,14 +66,13 @@
             //Exibe um toast de sucesso
             function exibeMensagemSucesso() {
                 $('#msgToast').html("Cadastro realizado com sucesso!");
-                //$('#toast').toast('show');
+                $('#toast').toast('show');
                 
                 //Limpa o valor dos campos
                 $('#nome').val("");
                 $('#email').val("");
                 $('#cpf').val("");
                 $('#cnpj').val("");
-                $('#tipoFornecedor').val("");
                 $('#telefone').val("");
                 $('#endereco').val("");
                 $('#numero').val("");
@@ -84,7 +88,7 @@
                 var msgExibir = "Erro ao cadastrar fornecedor:</br>";
                 msgExibir = msgExibir.concat(msgErro);
                 $('#msgToast').html(msgExibir);
-                //$('#toast').toast('show');
+                $('#toast').toast('show');
             }
             
             //Event Listener para formatacao de campos
@@ -123,7 +127,7 @@
     <body> 
         <header>
             <div class="container-logo">
-                <a href="02_menuInicial.jsp"><img src="img/Logo.png" class="logo" 
+                <a href="02_menuInicial.jsp"><img src="../../img/Logo.png" class="logo" 
                     alt="Logo da Tadesound"></a>
             </div>
             <h1>CADASTRO</h1>
@@ -132,35 +136,27 @@
             </div>
         </header>
         
-        <!--
-        <div id="toast" class="toast" role="alert" aria-live="polite" aria-atomic="true" data-delay="10000">
-            <div role="alert" aria-live="assertive" aria-atomic="true">
-                <span id="msgToast"></span>
-            </div>
-        </div>
-        -->
-        
         <div class="lft-container">            
-            <a href="cadastrarProduto.jsp"><img src="img/IconeProduto.png" 
+            <a href="cadastrarProduto.jsp"><img src="../../img/IconeProduto.png" 
                 class="icone" alt="Ícone de produto"></a>
-            <a href="cadastrarServico.jsp"><img src="img/IconeServico.png" 
+            <a href="cadastrarServico.jsp"><img src="../../img/IconeServico.png" 
                 class="icone" alt="Ícone de serviço"></a>
-            <a href="cadastrarCliente.jsp"><img src="img/IconeClientes.png" 
+            <a href="cadastrarCliente.jsp"><img src="../../img/IconeClientes.png" 
                 class="icone" alt="Ícone de clientes"></a>
-            <a href="cadastrarFornecedor.jsp"><img src="img/IconeFornecedor.png" 
+            <a href="cadastrarFornecedor.jsp"><img src="../../img/IconeFornecedor.png" 
                 class="icone" alt="Ícone de fornecedor"></a>
-            <a href="cadastrarFilial.jsp"><img src="img/IconeFilial.png" 
+            <a href="cadastrarFilial.jsp"><img src="../../img/IconeFilial.png" 
                 class="icone" alt="Ícone de filial"></a>
-            <a href="cadastrarFuncionario.jsp"><img src="img/IconeFuncionario.png" 
+            <a href="cadastrarFuncionario.jsp"><img src="../../img/IconeFuncionario.png" 
                 class="icone" alt="Ícone de funcionário"></a>
         </div>
         
         <div class="rgt-container">
             <div class="container-titulo">
-                <h1>Adicionar Fornecedor</h1>
-                <a href="listaFornecedor.jsp"><img src="img/IconePesquisar.png" 
+                <h1>Cadastrar Fornecedor</h1>
+                <a href="listaFornecedor.jsp"><img src="../../img/IconePesquisar.png" 
                     class="btn-manter1" alt="Ícone para a página de listagem de fornecedor"></a>
-                <a href="atualizarFornecedor.jsp"><img src="img/IconeEditar.png" 
+                <a href="atualizarFornecedor.jsp"><img src="../../img/IconeEditar.png" 
                     class="btn-manter2" alt="Ícone para a página de manutenção de fornecedor"></a>
             </div>
             
@@ -178,20 +174,12 @@
 
                     <div class="cpf">
                         <label for="cpf">CPF</label>
-                        <input id="cpf" name="cpf" placeholder="___.___.___-__" data-slots="_" required="required"/><br/>
+                        <input id="cpf" name="cpf" placeholder="___.___.___-__" data-slots="_"/><br/>
                     </div>
 
                     <div class="cnpj">
                         <label for="cnpj">CNPJ</label>
-                        <input id="cnpj" name="cnpj" placeholder="__.___.___/____-__" data-slots="_" required="required"/><br/>
-                    </div>
-                    
-                    <div class="tipoFornecedor">
-                        <label for="tipoFornecedor">Tipo</label>
-                        <select id="idtipoFornecedor" name="tipo" value="Cordas">
-                            <option value="1">Cordas</option>
-                            <option value="2">Sopro</option>
-                        </select>
+                        <input id="cnpj" name="cnpj" placeholder="__.___.___/____-__" data-slots="_"/><br/>
                     </div>
 
                     <div class="telefone">

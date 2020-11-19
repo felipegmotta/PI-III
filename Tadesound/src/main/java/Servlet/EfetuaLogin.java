@@ -18,7 +18,7 @@ public class EfetuaLogin extends HttpServlet {
             throws ServletException, IOException {
         String login = request.getParameter("login");
         String senha = request.getParameter("senha");
-        
+
         try {
             Usuario usuario = UsuarioDAO.getUsuario(login);
             if (usuario != null && usuario.validarSenha(senha)) {

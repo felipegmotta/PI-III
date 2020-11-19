@@ -23,9 +23,11 @@
             <a href="../ListarClientes">Listar Clientes</a><br/>
             <a href="vendas/cadastrarCliente.jsp">Cadastrar Clientes</a><br/>
             <a href="../ListarProdutos">Listar Produtos</a><br/>
-            <a href="backoffice/cadastrarProduto.jsp">Cadastrar Produtos</a><br/>
+            <a href="../CadastrarProduto">Cadastrar Produtos</a><br/>
             <a href="../ListarServicos">Listar Servicos</a><br/>
             <a href="backoffice/cadastrarServico.jsp">Cadastrar Servicos</a><br/>
+            <a href="../ListarFornecedores">Listar Fornecedores</a><br/>
+            <a href="backoffice/cadastrarFornecedor.jsp">Cadastrar Fornecedores</a><br/>
             <a href="../ListarProdutosEClientes">Realizar Venda</a><br/>
             <a href="gerencia/listaVendas.jsp">Relatorio de Vendas</a><br/>
         </c:if>
@@ -37,9 +39,11 @@
             <a href="../ListarClientes">Listar Clientes</a><br/>
             <a href="vendas/cadastrarCliente.jsp">Cadastrar Clientes</a><br/>
             <a href="../ListarProdutos">Listar Produtos</a><br/>
-            <a href="backoffice/cadastrarProduto.jsp">Cadastrar Produtos</a><br/>
+            <a href="../CadastrarProduto">Cadastrar Produtos</a><br/>
             <a href="../ListarServicos">Listar Servicos</a><br/>
             <a href="backoffice/cadastrarServico.jsp">Cadastrar Servicos</a><br/>
+            <a href="../ListarFornecedores">Listar Fornecedores</a><br/>
+            <a href="backoffice/cadastrarFornecedor.jsp">Cadastrar Fornecedores</a><br/>
             <a href="../ListarProdutosEClientes">Realizar Venda</a><br/>
             <a href="gerencia/listaVendas.jsp">Relatorio de Vendas</a><br/>
         </c:if>    
@@ -47,9 +51,11 @@
         <!--Permissoes para backoffice-->  
         <c:if test="${sessionScope.usuario.backoffice}">
             <a href="../ListarProdutos">Listar Produtos</a><br/>
-            <a href="backoffice/cadastrarProduto.jsp">Cadastrar Produtos</a><br/>
+            <a href="../CadastrarProduto">Cadastrar Produtos</a><br/>
             <a href="../ListarServicos">Listar Servicos</a><br/>
             <a href="backoffice/cadastrarServico.jsp">Cadastrar Servicos</a><br/>
+            <a href="../ListarFornecedores">Listar Fornecedores</a><br/>
+            <a href="backoffice/cadastrarFornecedor.jsp">Cadastrar Fornecedores</a><br/>
         </c:if>
         
         <!--Permissoes para vendedor-->
