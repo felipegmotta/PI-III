@@ -16,9 +16,10 @@ public class ProdutoDAO {
         
         Connection con = ConexaoBD.getConexao();
         String query = "SELECT * FROM produto";
-        PreparedStatement ps = con.prepareStatement(query);
-        ResultSet rs = ps.executeQuery();
         
+        PreparedStatement ps = con.prepareStatement(query);
+        
+        ResultSet rs = ps.executeQuery();
         while (rs.next()) {
             int idProduto = rs.getInt("idProduto");
             String nome = rs.getString("nome");
@@ -35,13 +36,41 @@ public class ProdutoDAO {
         return listaProdutos;
     }
     
+    public static List<Produto> getProdutos(int idLoja) throws SQLException {
+        List<Produto> listaProdutos = new ArrayList();
+        
+        Connection con = ConexaoBD.getConexao();
+        String query = "SELECT * FROM produto WHERE idLoja=?";
+        
+        PreparedStatement ps = con.prepareStatement(query);
+        ps.setInt(1, idLoja);
+        
+        ResultSet rs = ps.executeQuery();
+        while (rs.next()) {
+            int idProduto = rs.getInt("idProduto");
+            String nome = rs.getString("nome");
+            String descricao = rs.getString("descricao");
+            String preco = rs.getString("preco");
+            String categoria = rs.getString("categoria");
+            int quantidadeEstoque = rs.getInt("quantidadeEstoque");
+            int idFornecedor = rs.getInt("idFornecedor");
+            String dataCadastro = rs.getString("dataCadastro");
+            listaProdutos.add(new Produto(idProduto, nome, descricao, preco, categoria, quantidadeEstoque, idFornecedor, idLoja, dataCadastro));
+        }
+        
+        return listaProdutos;
+    }
+    
     public static Produto getProduto(int idProduto) throws SQLException {   
         Produto produto = null;
         
         Connection con = ConexaoBD.getConexao();
+        
         String query = "SELECT * FROM produto WHERE idProduto = ?";
         PreparedStatement ps = con.prepareStatement(query);
+        
         ps.setInt(1, idProduto);
+        
         ResultSet rs = ps.executeQuery();
         if (rs.next()) {
             String nome = rs.getString("nome");

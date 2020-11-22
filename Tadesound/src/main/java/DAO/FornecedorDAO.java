@@ -15,10 +15,11 @@ public class FornecedorDAO {
         List<Fornecedor> listaFornecedores = new ArrayList();
         
         Connection con = ConexaoBD.getConexao();
+        
         String query = "SELECT * FROM fornecedor";
         PreparedStatement ps = con.prepareStatement(query);
-        ResultSet rs = ps.executeQuery();
         
+        ResultSet rs = ps.executeQuery();
         while (rs.next()) {
             int idFornecedor = rs.getInt("idFornecedor");
             String nome = rs.getString("nome");
@@ -54,9 +55,10 @@ public class FornecedorDAO {
         Connection con = ConexaoBD.getConexao();
         String query = "SELECT * FROM fornecedor WHERE idFornecedor = ?";
         PreparedStatement ps = con.prepareStatement(query);
-        ps.setInt(1, idFornecedor);
-        ResultSet rs = ps.executeQuery();
         
+        ps.setInt(1, idFornecedor);
+        
+        ResultSet rs = ps.executeQuery();
         if (rs.next()) {
             String nome = rs.getString("nome");
             String cpf = rs.getString("cpf");

@@ -15,10 +15,11 @@ public class ServicoDAO {
         List<Servico> listaServicos = new ArrayList();
         
         Connection con = ConexaoBD.getConexao();
+        
         String query = "SELECT * FROM servico";
         PreparedStatement ps = con.prepareStatement(query);
-        ResultSet rs = ps.executeQuery();
         
+        ResultSet rs = ps.executeQuery();
         while (rs.next()) {
             int idServico = rs.getInt("idServico");
             String nome = rs.getString("nome");
@@ -37,9 +38,12 @@ public class ServicoDAO {
         Servico servico = null;
         
         Connection con = ConexaoBD.getConexao();
+        
         String query = "SELECT * FROM servico WHERE idservico = ?";
         PreparedStatement ps = con.prepareStatement(query);
+        
         ps.setInt(1, idServico);
+        
         ResultSet rs = ps.executeQuery();
         if (rs.next()) {
             String nome = rs.getString("nome");

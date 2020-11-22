@@ -43,6 +43,16 @@ public class Produto {
         this.idLoja = idLoja;
     }
     
+    //Construtor para o produto na sessao do usuario
+    public Produto(int idProduto, String nome, String categoria, int quantidadeProduto, String preco, String precoTotalProduto) {
+        this.idProduto = idProduto;
+        this.nome = nome;
+        this.categoria = categoria;
+        this.quantidadeProduto = quantidadeProduto;
+        this.preco = preco;
+        this.precoTotalProduto = precoTotalProduto;
+    }
+    
     private int idProduto;
     private String nome;
     private String descricao;
@@ -52,4 +62,8 @@ public class Produto {
     private int idFornecedor;
     private int idLoja;
     private String dataCadastro;    
+    
+    //Para adicionar produtos na sessao
+    private String precoTotalProduto;
+    private int quantidadeProduto;
 }

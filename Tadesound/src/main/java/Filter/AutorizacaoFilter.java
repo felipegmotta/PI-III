@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Filter;
 import Model.Usuario;
 import java.io.IOException;
@@ -19,10 +14,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-/**
- *
- * @author Felipe
- */
 public class AutorizacaoFilter implements Filter {
     
     private static final boolean debug = true;
@@ -34,7 +25,7 @@ public class AutorizacaoFilter implements Filter {
     
     public AutorizacaoFilter() {
     }    
-     
+    
     private void doBeforeProcessing(ServletRequest request, ServletResponse response)
             throws IOException, ServletException {
         HttpServletRequest httpRequest = (HttpServletRequest) request;
@@ -49,16 +40,19 @@ public class AutorizacaoFilter implements Filter {
         Usuario usuario = (Usuario) sessao.getAttribute("usuario");
         String url = httpRequest.getRequestURI();
         
+        //Filtro para backoffice
         if (url.contains("/backoffice/") && !usuario.isBackoffice() && !usuario.isGerente() && !usuario.isAdmin()) {
             httpResponse.sendRedirect(httpRequest.getContextPath() + "/telaLogin.jsp?erro=accessForbidden");
             return;
         }
         
+        //Filtro para Vendas
         if (url.contains("/vendas/") && !usuario.isVendedor() && !usuario.isGerente() && !usuario.isAdmin()) {
             httpResponse.sendRedirect(httpRequest.getContextPath() + "/telaLogin.jsp?erro=accessForbidden");
             return;
         }
         
+        //Filtro para gerencia
         if (url.contains("/gerencia/") && !usuario.isGerente() && !usuario.isAdmin()) {
             httpResponse.sendRedirect(httpRequest.getContextPath() + "/telaLogin.jsp?erro=accessForbidden");
             return;

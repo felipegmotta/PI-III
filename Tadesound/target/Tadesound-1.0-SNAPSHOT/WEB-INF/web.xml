@@ -17,6 +17,10 @@
         <servlet-name>EfetuaLogout</servlet-name>
         <servlet-class>Servlet.EfetuaLogout</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CarrinhoServlet</servlet-name>
+        <servlet-class>Servlet.CarrinhoServlet</servlet-class>
+    </servlet> 
     <!--Mapping-->
     <servlet-mapping>
         <servlet-name>EfetuaLogin</servlet-name>
@@ -25,6 +29,10 @@
     <servlet-mapping>
         <servlet-name>EfetuaLogout</servlet-name>
         <url-pattern>/EfetuaLogout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CarrinhoServlet</servlet-name>
+        <url-pattern>/CarrinhoServlet</url-pattern>
     </servlet-mapping>
     
     <!--Listagem-->

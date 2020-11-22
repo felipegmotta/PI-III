@@ -65,6 +65,9 @@
                     //Atualiza o valor total da compra
                     atualizaValorCompra(precoProduto, quantidadeProduto);
                     
+                    //Adiciona o produto na sessao do usuario
+                    adicionaProdutoSessao(idProduto, nomeProduto, categoriaProduto, quantidadeProduto, precoProdutoFormatado, precoTotal);
+                    
                     //Desabilita o toast, caso haja
                     $('#toast').toast('hide');
                 }
@@ -75,22 +78,34 @@
             
             function atualizaValorCompra(precoProduto, quantidadeProduto) {
                 //Captura o valor atual da compra
-                valorAtual = document.getElementById('valorCompra').innerText.replace("Total: R$", "").replaceAll(".", "").replaceAll(",", ".");
-                console.log(valorAtual)
+                valorAtual = document.getElementById('valorCompra').innerText.replaceAll("Total: R$", "").replaceAll(".", "").replaceAll(",00", ".");
+                //Captura o valor do produto
+                console.log("antess:" + precoProduto)
+                precoProduto = precoProduto.replaceAll("R$Â", "").replaceAll(".00", "");
+                console.log(precoProduto)
                 
                 //Transforma valores em int
-                valorAtual = parseInt(valorAtual);
-                precoProduto = parseInt(precoProduto);
-                quantidadeProduto = parseInt(quantidadeProduto);
+                valorAtual = parseFloat(valorAtual);
+                precoProduto = parseFloat(precoProduto);
+                quantidadeProduto = parseFloat(quantidadeProduto);
                 
                 //Calcula o valor total e salva o valor total no HTML
                 valorTotal = valorAtual+precoProduto*quantidadeProduto;
                 $('#valorTotal').val(valorTotal);
+                console.log(valorTotal)
                 
                 //Formata o valor total e atualiza o valor da compra
                 valorTotalFormatado = numberToCurrency(valorTotal); /* R$2.500,00 */
+                console.log(valorTotalFormatado)
                 document.getElementById('valorCompra').innerText = "Total: " + valorTotalFormatado;
             }
+            
+            function adicionaProdutoSessao(idProduto, nomeProduto, categoriaProduto, quantidadeProduto, precoProdutoFormatado, precoTotal) {
+                //Envia a requisicao GET para o BD deletar o fornecedor
+                $.get("CarrinhoServlet?idProduto="+idProduto+"&nomeProduto="+nomeProduto+"&categoriaProduto="+categoriaProduto+"&quantidadeProduto="+quantidadeProduto+"&precoProdutoFormatado="+precoProdutoFormatado+"&precoTotal="+precoTotal, function(resposta) {
+                    
+                });
+            }            
             
             function limparCarrinho() {
                 //Limpa os itens do carrinho
@@ -98,6 +113,11 @@
                 
                 //Limpa o valor total do carrinho
                 document.getElementById('valorCompra').innerText = "Total: R$0,00";
+                
+                //Envia a requisicao GET para o Servlet retirar os produtos da sessao
+                $.get("CarrinhoServlet?limparSessao=True", function(resposta) {
+                    
+                });
             }
             
             function validaVenda() {
@@ -210,7 +230,7 @@
         <div class="lft-container">            
             <a href="ListarProdutos"><img src="img/IconeCaixa.png" 
                 class="icone" alt="Ãcone de venda de produtos"></a>
-            <a href="cadastrarServico.jsp"><img src="img/IconeAgendar.png" 
+            <a href="protected/backoffice/cadastrarServico.jsp"><img src="img/IconeAgendar.png" 
                 class="icone" alt="Ãcone de venda de serviÃ§o"></a>
             <a href="ListarClientes"><img src="img/IconeClientes.png" 
                 class="icone" alt="Ãcone de clientes"></a>
@@ -219,6 +239,16 @@
         <div class="rgt-container">
             <h1>Realizar Venda</h1>
 
+            <div class="total">
+                <!--Guardar o status atual da compra-->
+                <span id="statusCompra">
+                    <h5 id="valorCompra">Total: R$0,00</h5>
+                    <h5 id="clienteCompra">Cliente: </h5>
+                    <input hidden="true" id="clienteEscolhido"/>
+                    <input hidden="true" id="valorTotal"/>
+                    <input hidden="true" id="quantidadeProdutos"/>
+                </span>
+            </div>
             
             <div class="campos-container">                
                 <h2>Selecionar Cliente</h2>
@@ -294,7 +324,7 @@
                                 <c:forEach var="produto" items="${listaProdutos}">
                                     <tr>
                                         <td><img src="img/IconeAdicionar.png" class="btn-selecionar" style="cursor: pointer;"
-                                        alt="Ãcone para adicionar produto ao carrinho" 
+                                        alt="icone para adicionar produto ao carrinho" 
                                         onclick="mostraModalEscolheQuantidadeProduto('${produto.idProduto}', '${produto.nome}', '${produto.categoria}', '${produto.preco}')"></td>                                        
                                         <td hidden="true">${produto.idProduto}</td>
                                         <td>${produto.nome}</td>
@@ -313,13 +343,12 @@
                                     var precoProdutoFormatado = numberToCurrency(precoProdutoAtual);
                                     $('#precoProduto${produto.idProduto}').html(precoProdutoFormatado);
                                 </script>
-
                             </c:forEach>
                             </tbody>
                         </table>
                     </table>
                 </div>
-            
+                
                 <h2 class="carrinho">Carrinho</h2>
                 <div class="campos-container2">
                     <table cellspacing="0" cellpadding="1" border="1" width="300">
@@ -335,49 +364,52 @@
                             <th>Total</th>
                             </thead>
                             <tbody id="tabelaCarrinho">
-
+                                <!--Caso tenha algum item na sessao-->
+                                <c:forEach var="produto" items="${sessionScope.listaProdutos}">
+                                    <tr>
+                                        <td>${produto.idProduto}</td>
+                                        <td>${produto.nome}</td>
+                                        <td>${produto.categoria}</td>
+                                        <td>${produto.quantidadeProduto}</td>
+                                        <td>${produto.preco}</td>
+                                        <td>${produto.precoTotalProduto}</td>
+                                    
+                                        <script>
+                                            atualizaValorCompra('${produto.precoTotalProduto}', '${produto.quantidadeProduto}');
+                                        </script>
+                                    </tr>
+                                </c:forEach>
                             </tbody>
                         </table>
                     </table>                    
                 </div>
-                
-                <div class="total">
-                    <!--Guardar o status atual da compra-->
-                    <span id="statusCompra">
-                        <h5 id="valorCompra">Total: R$0,00</h5>
-                        <h5 id="clienteCompra">Cliente: </h5>
-                        <input hidden="true" id="clienteEscolhido"/>
-                        <input hidden="true" id="valorTotal"/>
-                        <input hidden="true" id="quantidadeProdutos"/>
-                    </span>
-
-                    <div class="modal fade" id="modalProduto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Escolher quantidade</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    Escolha a quantidade do produto: 
-                                    <input id="quantidadeProduto" type="number"/>
-                                    <input id="idProduto" hidden="true"/>
-                                    <input id="nomeProduto" hidden="true"/>
-                                    <input id="categoriaProduto" hidden="true"/>
-                                    <input id="precoProduto" hidden="true"/>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn-cancelar" data-dismiss="modal">Cancelar</button>
-                                    <button type="button" class="btn-confirmar" onclick="adicionarProdutoAoCarrinho()">Confirmar</button>
-                                </div>
-                            </div>
+            </div>
+                    
+            <div class="modal fade" id="modalProduto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Escolher quantidade</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            Escolha a quantidade do produto: 
+                            <input id="quantidadeProduto" type="number"/>
+                            <input id="idProduto" hidden="true"/>
+                            <input id="nomeProduto" hidden="true"/>
+                            <input id="categoriaProduto" hidden="true"/>
+                            <input id="precoProduto" hidden="true"/>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn-cancelar" data-dismiss="modal">Cancelar</button>
+                            <button type="button" class="btn-confirmar" onclick="adicionarProdutoAoCarrinho()">Confirmar</button>
                         </div>
                     </div>
                 </div>
             </div>
-                                        
+            
             <div class="botao-container">
                 <button type="button" class="btn-cancelar" onclick="limparCarrinho()">Limpar Carrinho</button>
                 <button type="button" class="btn-confirmar" onclick="validaVenda()">Finalizar</button>

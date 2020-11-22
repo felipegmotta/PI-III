@@ -13,8 +13,10 @@ public class UsuarioDAO {
         Usuario usuario = null;
         
         Connection con = ConexaoBD.getConexao();
+        
         String query = "SELECT usuario.idUsuario, usuario.senha, funcionario.idFuncionario, funcionario.idLoja, funcionario.nome, funcionario.cargo, usuario.dataCadastro FROM usuario INNER JOIN funcionario ON usuario.idFuncionario = funcionario.idFuncionario WHERE login = ?";
         PreparedStatement ps = con.prepareStatement(query);
+        
         ps.setString(1, login);
         
         ResultSet rs = ps.executeQuery();

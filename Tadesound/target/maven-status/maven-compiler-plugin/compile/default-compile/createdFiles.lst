@@ -39,10 +39,10 @@ Servlet\ListarFornecedores.class
 Servlet\ListarServicos.class
 Model\Fornecedor.class
 Servlet\CadastrarItensVenda.class
-BD\Teste.class
 DAO\LojaDAO.class
 Servlet\CadastrarLoja.class
 Model\Pessoa.class
+Servlet\CarrinhoServlet.class
 DAO\ClienteDAO.class
 Model\VendaLojas.class
 Servlet\EfetuaLogin.class

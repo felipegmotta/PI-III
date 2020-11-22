@@ -25,7 +25,6 @@ public class CadastrarVenda extends HttpServlet {
         
         try {
             int idVenda = VendaDAO.addVenda(new Venda(tipo, valorTotal, quantidadeProdutos, idCliente, idFuncionario));
-            System.out.println("Sucesso!");
             
             //Envia o idVenda via response
             PrintWriter out = response.getWriter();
@@ -33,10 +32,7 @@ public class CadastrarVenda extends HttpServlet {
             response.setCharacterEncoding("UTF-8");
             out.print(idVenda);
             out.flush();   
-        } catch (Exception ex) {
-            //System.out.println(ex.getMessage());
-            //Utils.exibeTelaErro(ex, request, response);
-            
+        } catch (Exception ex) {            
             String msgErro = ex.getMessage();
             request.setAttribute("msgErro", msgErro);
 

@@ -40,7 +40,6 @@ public class VendaDAO {
         }
         
         ResultSet rs = ps.executeQuery();
-        
         while (rs.next()) {
             int idCliente = rs.getInt("cliente.idCliente");
             String nomeCliente = rs.getString("cliente.nome");
@@ -57,7 +56,6 @@ public class VendaDAO {
     }
     
     public static List<VendaProdutos> getVendasProdutos(String idConsulta, String nomeConsulta) throws SQLException {
-        System.out.println("dentro de vendas produtos");
         List<VendaProdutos> listaVendasProdutos = new ArrayList();
         
         Connection con = ConexaoBD.getConexao();
@@ -79,9 +77,8 @@ public class VendaDAO {
         } else {
             ps = con.prepareStatement(query);
         }
-        System.out.println(query);
-        ResultSet rs = ps.executeQuery();
         
+        ResultSet rs = ps.executeQuery();
         while (rs.next()) {
             int idProduto = rs.getInt("produto.idProduto");
             String nomeProduto = rs.getString("produto.nome");
@@ -121,7 +118,6 @@ public class VendaDAO {
         }
         
         ResultSet rs = ps.executeQuery();
-        
         while (rs.next()) {
             int idLoja = rs.getInt("loja.idLoja");
             String nomeLoja = rs.getString("loja.nome");

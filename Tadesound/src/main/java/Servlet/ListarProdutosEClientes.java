@@ -3,6 +3,7 @@ package Servlet;
 import Utils.Utils;
 import Model.Cliente;
 import Model.Produto;
+import Model.Usuario;
 import java.util.List;
 import DAO.ClienteDAO;
 import DAO.ProdutoDAO;
@@ -13,6 +14,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class ListarProdutosEClientes extends HttpServlet {
     
@@ -22,17 +24,23 @@ public class ListarProdutosEClientes extends HttpServlet {
         List<Cliente> listaClientes = null;
         List<Produto> listaProdutos = null;
         
+        HttpServletRequest httpRequest = (HttpServletRequest) request;
+        
+        //Captura as informacoes dessa sessao
+        HttpSession sessao = httpRequest.getSession();
+        
+        //Captura o usuario logado nessa sessao
+        Usuario usuario = (Usuario) sessao.getAttribute("usuario");
+        
         try {
             listaClientes = ClienteDAO.getClientes();
-            listaProdutos = ProdutoDAO.getProdutos();
-        } catch (SQLException ex) {
+            listaProdutos = ProdutoDAO.getProdutos(usuario.getIdLoja());
+        } catch (Exception ex) {
             Utils.exibeTelaErro(ex, request, response);
         }
-        
+    
         request.setAttribute("listaClientes", listaClientes);
         request.setAttribute("listaProdutos", listaProdutos);
-        
-        System.out.println(request.getContextPath() + "/protected/realizaVenda.jsp");
         
         RequestDispatcher requestDispatcher = getServletContext()
                 .getRequestDispatcher("/protected/vendas/realizaVenda.jsp");

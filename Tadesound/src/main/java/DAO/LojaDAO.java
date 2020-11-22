@@ -16,9 +16,10 @@ public class LojaDAO {
 
         Connection con = ConexaoBD.getConexao();
         String query = "SELECT * FROM loja";
+        
         PreparedStatement ps = con.prepareStatement(query);
+        
         ResultSet rs = ps.executeQuery();
-
         while (rs.next()) {
             int idLoja = rs.getInt("idLoja");
             String nome = rs.getString("nome");
@@ -41,11 +42,13 @@ public class LojaDAO {
         Loja loja = null;
         
         Connection con = ConexaoBD.getConexao();
+        
         String query = "SELECT * FROM loja WHERE idLoja = ?";
         PreparedStatement ps = con.prepareStatement(query);
-        ps.setInt(1, idLoja);
-        ResultSet rs = ps.executeQuery();
         
+        ps.setInt(1, idLoja);
+        
+        ResultSet rs = ps.executeQuery();
         if (rs.next()) {
             String nome = rs.getString("nome");
             String telefone = rs.getString("telefone");

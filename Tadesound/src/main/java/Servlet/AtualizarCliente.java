@@ -16,7 +16,6 @@ public class AtualizarCliente extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String cpfCliente = request.getParameter("cpf");
-        System.out.println("to no get " + cpfCliente);
         
         Cliente cliente = null;
 
@@ -25,9 +24,7 @@ public class AtualizarCliente extends HttpServlet {
         } catch (SQLException ex) {
             Utils.exibeTelaErro(ex, request, response);
         }
-        
-        System.out.println(cliente.getNome());
-        
+                
         request.setAttribute("cliente", cliente);
         RequestDispatcher requestDispatcher = getServletContext()
                 .getRequestDispatcher("/protected/vendas/atualizarCliente.jsp");
