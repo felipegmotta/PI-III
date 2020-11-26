@@ -51,6 +51,10 @@
     <servlet>
         <servlet-name>ListarProdutosEClientes</servlet-name>
         <servlet-class>Servlet.ListarProdutosEClientes</servlet-class>
+    </servlet> 
+    <servlet>
+        <servlet-name>ListarServicosEClientes</servlet-name>
+        <servlet-class>Servlet.ListarServicosEClientes</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ListarVendas</servlet-name>
@@ -63,7 +67,7 @@
     <servlet>
         <servlet-name>ListarFornecedores</servlet-name>
         <servlet-class>Servlet.ListarFornecedores</servlet-class>
-    </servlet>
+    </servlet> 
     <!--Mapping-->
     <servlet-mapping>
         <servlet-name>ListarClientes</servlet-name>
@@ -80,6 +84,10 @@
     <servlet-mapping>
         <servlet-name>ListarProdutosEClientes</servlet-name>
         <url-pattern>/ListarProdutosEClientes</url-pattern>
+    </servlet-mapping> 
+    <servlet-mapping>
+        <servlet-name>ListarServicosEClientes</servlet-name>
+        <url-pattern>/ListarServicosEClientes</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ListarVendas</servlet-name>

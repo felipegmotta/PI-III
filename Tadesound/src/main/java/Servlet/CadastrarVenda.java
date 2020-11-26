@@ -1,6 +1,5 @@
 package Servlet;
 
-import Utils.*;
 import Model.Venda;
 import DAO.VendaDAO;
 import java.io.IOException;
@@ -16,15 +15,22 @@ public class CadastrarVenda extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        System.out.println("dentro do cadastrar venda");
         String tipo = request.getParameter("tipo");
         String valorTotal = request.getParameter("valorTotal");
-        int quantidadeProdutos = Integer.parseInt(request.getParameter("quantidadeProdutos"));
+        int quantidadeItens = Integer.parseInt(request.getParameter("quantidadeItens"));
         int idCliente = Integer.parseInt(request.getParameter("idCliente"));
         int idFuncionario = Integer.parseInt(request.getParameter("idFuncionario"));
-        
+        String dataProgramada = request.getParameter("dataProgramada");
+//        .replaceAll("([^\\w\\*])", "")
         try {
-            int idVenda = VendaDAO.addVenda(new Venda(tipo, valorTotal, quantidadeProdutos, idCliente, idFuncionario));
+            int idVenda;
+            
+            if (tipo.contains("Servico")) {
+                idVenda = VendaDAO.addVenda(new Venda(tipo, valorTotal, quantidadeItens, idCliente, idFuncionario, dataProgramada));
+            } else {
+                idVenda = VendaDAO.addVenda(new Venda(tipo, valorTotal, quantidadeItens, idCliente, idFuncionario));
+            }
             
             //Envia o idVenda via response
             PrintWriter out = response.getWriter();
@@ -32,7 +38,9 @@ public class CadastrarVenda extends HttpServlet {
             response.setCharacterEncoding("UTF-8");
             out.print(idVenda);
             out.flush();   
-        } catch (Exception ex) {            
+        } catch (Exception ex) {
+            System.out.println("tenho que exibir mensagem de erro");
+            System.out.println(ex.getMessage());
             String msgErro = ex.getMessage();
             request.setAttribute("msgErro", msgErro);
 

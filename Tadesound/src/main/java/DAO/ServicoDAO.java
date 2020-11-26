@@ -24,13 +24,37 @@ public class ServicoDAO {
             int idServico = rs.getInt("idServico");
             String nome = rs.getString("nome");
             String preco = rs.getString("preco");
-            String grauComplexidade = rs.getString("grauComplexidade");
+            int grauComplexidade = rs.getInt("grauComplexidade");
             int duracaoMinutos = rs.getInt("duracaoMinutos");
             int idLoja = rs.getInt("idLoja");
             String dataCadastro = rs.getString("dataCadastro");
             listaServicos.add(new Servico(idServico, nome, preco, grauComplexidade, duracaoMinutos, idLoja, dataCadastro));
         }
         
+        return listaServicos;
+    }
+    
+    public static List<Servico> getServicos(int idLoja) throws SQLException {
+        List<Servico> listaServicos = new ArrayList();
+        
+        Connection con = ConexaoBD.getConexao();
+        
+        String query = "SELECT * FROM servico WHERE idLoja=?";
+        PreparedStatement ps = con.prepareStatement(query);
+        
+        ps.setInt(1, idLoja);
+        
+        ResultSet rs = ps.executeQuery();
+        while (rs.next()) {
+            int idServico = rs.getInt("idServico");
+            String nome = rs.getString("nome");
+            String preco = rs.getString("preco");
+            int grauComplexidade = rs.getInt("grauComplexidade");
+            int duracaoMinutos = rs.getInt("duracaoMinutos");
+            String dataCadastro = rs.getString("dataCadastro");
+            listaServicos.add(new Servico(idServico, nome, preco, grauComplexidade, duracaoMinutos, idLoja, dataCadastro));
+        }
+
         return listaServicos;
     }
     
@@ -48,13 +72,13 @@ public class ServicoDAO {
         if (rs.next()) {
             String nome = rs.getString("nome");
             String preco = rs.getString("preco");
-            String grauComplexidade = rs.getString("grauComplexidade");
+            int grauComplexidade = rs.getInt("grauComplexidade");
             int duracaoMinutos = rs.getInt("duracaoMinutos");
             int idLoja = rs.getInt("idLoja");
             String dataCadastro = rs.getString("dataCadastro");
             servico = new Servico(idServico, nome, preco, grauComplexidade, duracaoMinutos, idLoja, dataCadastro);
         }
-        
+
         return servico;
     }
     
@@ -66,7 +90,7 @@ public class ServicoDAO {
         
         ps.setString(1, servico.getNome());
         ps.setString(2, servico.getPreco());
-        ps.setString(3, servico.getGrauComplexidade());
+        ps.setInt(3, servico.getGrauComplexidade());
         ps.setInt(4, servico.getDuracaoMinutos());
         ps.setInt(5, servico.getIdLoja());
         
@@ -81,7 +105,7 @@ public class ServicoDAO {
         
         ps.setString(1, servico.getNome());
         ps.setString(2, servico.getPreco());
-        ps.setString(3, servico.getGrauComplexidade());
+        ps.setInt(3, servico.getGrauComplexidade());
         ps.setInt(4, servico.getDuracaoMinutos());
         ps.setInt(5, servico.getIdLoja());
         ps.setInt(6, servico.getIdServico());

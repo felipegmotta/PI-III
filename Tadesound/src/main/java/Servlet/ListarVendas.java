@@ -5,6 +5,7 @@ import DAO.VendaDAO;
 import java.util.List;
 import java.io.IOException;
 import Model.VendaProdutos;
+import Model.VendaServicos;
 import Model.VendaClientes;
 import Model.VendaLojas;
 import java.sql.SQLException;
@@ -28,6 +29,11 @@ public class ListarVendas extends HttpServlet {
                 case "Produto":
                     List<VendaProdutos> listaVendasProdutos = VendaDAO.getVendasProdutos(idConsulta, nomeConsulta);
                     request.setAttribute("listaVendas", listaVendasProdutos);
+                    break;
+                case "Servico":
+                    System.out.println("entrei case de servico");
+                    List<VendaServicos> listaVendasServicos = VendaDAO.getVendasServicos(idConsulta, nomeConsulta);
+                    request.setAttribute("listaVendas", listaVendasServicos);
                     break;
                 case "Cliente":
                     List<VendaClientes> listaVendasClientes = VendaDAO.getVendasClientes(idConsulta, nomeConsulta);

@@ -37,7 +37,7 @@ public class AtualizarServico extends HttpServlet {
         int idServico = Integer.parseInt(request.getParameter("idServico"));
         String nome = request.getParameter("nome");
         String preco = request.getParameter("preco");
-        String grauComplexidade = request.getParameter("grauComplexidade").replaceAll("([^\\w\\*])", ""); //Remove todos os caracteres especiais
+        int grauComplexidade = Integer.parseInt(request.getParameter("grauComplexidade")); //Remove todos os caracteres especiais
         int duracaoMinutos = Integer.parseInt(request.getParameter("duracaoMinutos"));
         int idLoja = Integer.parseInt(request.getParameter("idLoja"));
 

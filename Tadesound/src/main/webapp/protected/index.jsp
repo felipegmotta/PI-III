@@ -29,6 +29,7 @@
             <a href="../ListarFornecedores">Listar Fornecedores</a><br/>
             <a href="backoffice/cadastrarFornecedor.jsp">Cadastrar Fornecedores</a><br/>
             <a href="../ListarProdutosEClientes">Realizar Venda</a><br/>
+            <a href="../ListarServicosEClientes">Realizar Venda de Servicos</a><br/>
             <a href="gerencia/listaVendas.jsp">Relatorio de Vendas</a><br/>
         </c:if>
     
@@ -45,6 +46,7 @@
             <a href="../ListarFornecedores">Listar Fornecedores</a><br/>
             <a href="backoffice/cadastrarFornecedor.jsp">Cadastrar Fornecedores</a><br/>
             <a href="../ListarProdutosEClientes">Realizar Venda</a><br/>
+            <a href="../ListarServicosEClientes">Realizar Venda de Servicos</a><br/>
             <a href="gerencia/listaVendas.jsp">Relatorio de Vendas</a><br/>
         </c:if>    
         
@@ -63,6 +65,7 @@
             <a href="../ListarClientes">Listar Clientes</a><br/>
             <a href="vendas/cadastrarCliente.jsp">Cadastrar Clientes</a><br/>
             <a href="../ListarProdutosEClientes">Realizar Venda</a><br/>
+            <a href="../ListarServicosEClientes">Realizar Venda de Servicos</a><br/>
         </c:if>
 
         <br/>

@@ -71,7 +71,7 @@
             //Atualiza o relatorio
             function atualizaColunasTabela(tipoConsulta) {
                 if (tipoConsulta === "Produto") {
-                    //Adiciona as colunas da tabela
+                    //Adiciona as colunas da tabela para os casos de consulta de produto
                     $('#headTabelaRelatorio').html("<th>ID Loja</th>" +
                                                    "<th>ID Produto</th>" +
                                                    "<th>Nome Produto</th>" +
@@ -80,7 +80,7 @@
                                                    "<th>Total</th>" +
                                                    "<th class='filler' style='width:1%'>Fill</th>");
                 } else if (tipoConsulta === "Cliente") {
-                    //Adiciona as colunas da tabela
+                    //Adiciona as colunas da tabela para os casos de consulta de cliente
                     $('#headTabelaRelatorio').html("<th>ID Cliente</th>" +
                                                    "<th>Nome Cliente</th>" +
                                                    "<th>ID Loja</th>" +
@@ -89,12 +89,20 @@
                                                    "<th>Total</th>" +
                                                    "<th>Data Venda</th>" +
                                                    "<th class='filler' style='width:1%'>Fill</th>");
-                } else {
-                    //Para os casos onde o tipo da consulta e de loja, adicionar as colunas da tabela
+                } else if (tipoConsulta === "Loja") {
+                    //Adiciona as colunas da tabela para os casos de consulta de loja
                     $('#headTabelaRelatorio').html("<th>ID Loja</th>" +
                                                    "<th>Nome Loja</th>" +
                                                    "<th>Total</th>" +
                                                    "<th>Porcentagem</th>" +
+                                                   "<th class='filler' style='width:1%'>Fill</th>");
+                } else {
+                    //Adiciona as colunas da tabela para os casos de consulta de servicos
+                    $('#headTabelaRelatorio').html("<th>ID Loja</th>" +
+                                                   "<th>ID Servico</th>" +
+                                                   "<th>Nome Servico</th>" +
+                                                   "<th>Valor Servico</th>" +
+                                                   "<th>Grau Complexidade</th>" +
                                                    "<th class='filler' style='width:1%'>Fill</th>");
                 }
             }
@@ -110,7 +118,6 @@
             
             //Formata numero em currency
             function numberToCurrency(number) {
-                console.log("number")
                 //Cria um formatador de numeros
                 var formatter = new Intl.NumberFormat('pt-BR', {
                   style: 'currency',
@@ -155,6 +162,9 @@
                         <h2>Tipo de Relatório</h2>
                         <input type="radio" id="Produto" name="tipoConsulta" value="Produto" onchange="atualizarTipoConsulta('Produto')">
                         <label for="tipoConsulta">Produto</label><br>
+                        
+                        <input type="radio" id="Servico" name="tipoConsulta" value="Servico" onchange="atualizarTipoConsulta('Servico')">
+                        <label for="tipoConsulta">Servico</label><br>
 
                         <input type="radio" id="Cliente" name="tipoConsulta" value="Cliente" onchange="atualizarTipoConsulta('Cliente')">
                         <label for="tipoConsulta">Cliente</label><br>
@@ -198,7 +208,7 @@
                                             <td>${consulta.dataVenda}</td>
                                         </tr>
                                     </c:if>
-
+                                        
                                     <!--Para relatorios de produto-->
                                     <c:if test="${consulta.tipoVenda == 'Produto'}">
                                         <tr>
@@ -210,7 +220,18 @@
                                             <td>${consulta.valorTotal}</td>
                                         </tr>
                                     </c:if>
-
+                                    
+                                    <!--Para relatorios de servico-->
+                                    <c:if test="${consulta.tipoVenda == 'Servico'}">
+                                        <tr>
+                                            <td>${consulta.idLoja}</td>
+                                            <td>${consulta.idServico}</td>
+                                            <td>${consulta.nomeServico}</td>
+                                            <td>${consulta.valorServico}</td>
+                                            <td>${consulta.grauComplexidade}</td>
+                                        </tr>
+                                    </c:if>
+                                        
                                     <!--Para relatorios de loja-->
                                     <c:if test="${consulta.tipoVenda == 'Loja'}">
                                         <tr>

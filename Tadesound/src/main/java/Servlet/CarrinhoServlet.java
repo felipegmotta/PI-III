@@ -3,8 +3,6 @@ package Servlet;
 import Model.Produto;
 import java.util.List;
 import java.io.IOException;
-import java.nio.*;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

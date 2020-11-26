@@ -17,15 +17,9 @@ public class CadastrarServico extends HttpServlet {
         
         String nome = request.getParameter("nome");
         String preco = request.getParameter("preco");
-        String grauComplexidade = request.getParameter("grauComplexidade").replaceAll("([^\\w\\*])", ""); //Remove todos os caracteres especiais
+        int grauComplexidade = Integer.parseInt(request.getParameter("grauComplexidade")); //Remove todos os caracteres especiais
         int duracaoMinutos = Integer.parseInt(request.getParameter("duracaoMinutos"));
         int idLoja = Integer.parseInt(request.getParameter("idLoja"));
-        
-        System.out.println(nome);
-        System.out.println(preco);
-        System.out.println(grauComplexidade);
-        System.out.println(duracaoMinutos);
-        System.out.println(idLoja);
         
         try {
             ServicoDAO.addServico(new Servico(nome, preco, grauComplexidade, duracaoMinutos, idLoja));

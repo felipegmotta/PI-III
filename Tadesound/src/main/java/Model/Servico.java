@@ -8,7 +8,7 @@ import lombok.Setter;
 public class Servico {
     
     //Construtor sem a data de requisicao
-    public Servico(String nome, String preco, String grauComplexidade, int duracaoMinutos, int idLoja) {
+    public Servico(String nome, String preco, int grauComplexidade, int duracaoMinutos, int idLoja) {
         this.nome = nome;
         this.preco = preco;
         this.grauComplexidade = grauComplexidade;
@@ -17,7 +17,7 @@ public class Servico {
     }
     
     //Construtor com a data de requisicao
-    public Servico(int idServico, String nome, String preco, String grauComplexidade, int duracaoMinutos, int idLoja) {
+    public Servico(int idServico, String nome, String preco, int grauComplexidade, int duracaoMinutos, int idLoja) {
         this.idServico = idServico;
         this.nome = nome;
         this.preco = preco;
@@ -27,7 +27,7 @@ public class Servico {
     }
     
     //Construtor com o idProduto
-    public Servico(int idServico, String nome, String preco, String grauComplexidade, int duracaoMinutos, int idLoja, String dataCadastro) {
+    public Servico(int idServico, String nome, String preco, int grauComplexidade, int duracaoMinutos, int idLoja, String dataCadastro) {
         this.idServico = idServico;
         this.nome = nome;
         this.preco = preco;
@@ -40,7 +40,7 @@ public class Servico {
     private int idServico;
     private String nome;
     private String preco;
-    private String grauComplexidade;
+    private int grauComplexidade;
     private int duracaoMinutos;
     private int idLoja;
     private String dataCadastro;    

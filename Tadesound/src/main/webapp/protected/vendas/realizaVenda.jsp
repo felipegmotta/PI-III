@@ -79,11 +79,11 @@
             function atualizaValorCompra(precoProduto, quantidadeProduto) {
                 //Captura o valor atual da compra
                 valorAtual = document.getElementById('valorCompra').innerText.replaceAll("Total: R$", "").replaceAll(".", "").replaceAll(",00", ".");
-                //Captura o valor do produto
-                console.log("antess:" + precoProduto)
-                precoProduto = precoProduto.replaceAll("R$Â", "").replaceAll(".00", "");
-                console.log(precoProduto)
                 
+                //Captura o valor do produto
+                precoProduto = precoProduto.replaceAll(".00", "")
+                precoProduto = precoProduto.replaceAll("R$Â", "").replaceAll(",00", "").replace(".", "")
+
                 //Transforma valores em int
                 valorAtual = parseFloat(valorAtual);
                 precoProduto = parseFloat(precoProduto);
@@ -92,16 +92,15 @@
                 //Calcula o valor total e salva o valor total no HTML
                 valorTotal = valorAtual+precoProduto*quantidadeProduto;
                 $('#valorTotal').val(valorTotal);
-                console.log(valorTotal)
                 
                 //Formata o valor total e atualiza o valor da compra
                 valorTotalFormatado = numberToCurrency(valorTotal); /* R$2.500,00 */
-                console.log(valorTotalFormatado)
                 document.getElementById('valorCompra').innerText = "Total: " + valorTotalFormatado;
             }
             
             function adicionaProdutoSessao(idProduto, nomeProduto, categoriaProduto, quantidadeProduto, precoProdutoFormatado, precoTotal) {
                 //Envia a requisicao GET para o BD deletar o fornecedor
+                console.log(nomeProduto)
                 $.get("CarrinhoServlet?idProduto="+idProduto+"&nomeProduto="+nomeProduto+"&categoriaProduto="+categoriaProduto+"&quantidadeProduto="+quantidadeProduto+"&precoProdutoFormatado="+precoProdutoFormatado+"&precoTotal="+precoTotal, function(resposta) {
                     
                 });
@@ -152,7 +151,7 @@
                     url: "CadastrarVenda",
                     data: {'tipo': "Produto",
                            'valorTotal': $('#valorTotal').val(),
-                           'quantidadeProdutos': $('#quantidadeProdutos').val(),
+                           'quantidadeItens': $('#quantidadeProdutos').val(),
                            'idCliente': $('#clienteEscolhido').val(),
                            'idFuncionario': ${sessionScope.usuario.idFuncionario}},
                     dataType: "text",
@@ -174,17 +173,18 @@
                     var quantidadeProduto = document.getElementById("tabelaCarrinho").children[i].children[4].innerText;
                     var valorTotalProduto = document.getElementById("tabelaCarrinho").children[i].children[6].innerText.replaceAll("R$ ", "").replaceAll(".", "").replaceAll(",", ".");
                     
-                   $.ajax({
-                    type: "POST",
-                    url: "CadastrarItensVenda",
-                    data: {'idVenda': idVenda,
-                           'idProduto': idProduto,
-                           'quantidadeProduto': quantidadeProduto,
-                           'valorTotalProduto': valorTotalProduto},
-                    dataType: "text"
-                   });
+                    $.ajax({
+                        type: "POST",
+                        url: "CadastrarItensVenda",
+                        data: {'tipo': "Produto",
+                               'idVenda': idVenda,
+                               'idItem': idProduto,
+                               'quantidadeItens': quantidadeProduto,
+                               'valorTotalProduto': valorTotalProduto},
+                        dataType: "text"
+                    });
                    
-                   i++;
+                    i++;
                 }
                 exibeMensagemSucesso();
             }
@@ -367,15 +367,16 @@
                                 <!--Caso tenha algum item na sessao-->
                                 <c:forEach var="produto" items="${sessionScope.listaProdutos}">
                                     <tr>
-                                        <td>${produto.idProduto}</td>
+                                        <td hidden="true">${produto.idProduto}</td>
+                                        <td>Produto</td>
                                         <td>${produto.nome}</td>
                                         <td>${produto.categoria}</td>
                                         <td>${produto.quantidadeProduto}</td>
                                         <td>${produto.preco}</td>
                                         <td>${produto.precoTotalProduto}</td>
-                                    
+                                        
                                         <script>
-                                            atualizaValorCompra('${produto.precoTotalProduto}', '${produto.quantidadeProduto}');
+                                            atualizaValorCompra('${produto.preco}', '${produto.quantidadeProduto}');
                                         </script>
                                     </tr>
                                 </c:forEach>
