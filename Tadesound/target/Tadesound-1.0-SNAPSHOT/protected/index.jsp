@@ -55,12 +55,15 @@
         
         <!--Permissoes para backoffice-->  
         <c:if test="${sessionScope.usuario.backoffice}">
+            <!--
             <a href="../ListarProdutos">Listar Produtos</a><br/>
             <a href="../CadastrarProduto">Cadastrar Produtos</a><br/>
             <a href="../ListarServicos">Listar Servicos</a><br/>
             <a href="backoffice/cadastrarServico.jsp">Cadastrar Servicos</a><br/>
             <a href="../ListarFornecedores">Listar Fornecedores</a><br/>
             <a href="backoffice/cadastrarFornecedor.jsp">Cadastrar Fornecedores</a><br/>
+            -->
+            <meta http-equiv="refresh" content="0; ../ListarProdutos">
         </c:if>
         
         <!--Permissoes para vendedor-->

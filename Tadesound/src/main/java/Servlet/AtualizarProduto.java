@@ -27,7 +27,7 @@ public class AtualizarProduto extends HttpServlet {
                 
         request.setAttribute("produto", produto);
         RequestDispatcher requestDispatcher = getServletContext()
-                .getRequestDispatcher("/protected/backoffice/atualizarProduto.jsp");
+                .getRequestDispatcher("/protected/backoffice/atualizarProdutoBackoffice.jsp");
         requestDispatcher.forward(request, response);
     }
 

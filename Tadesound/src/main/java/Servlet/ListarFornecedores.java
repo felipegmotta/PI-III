@@ -28,7 +28,7 @@ public class ListarFornecedores extends HttpServlet {
         request.setAttribute("listaFornecedores", listaFornecedores);
         
         RequestDispatcher requestDispatcher = getServletContext()
-                .getRequestDispatcher("/protected/backoffice/listaFornecedores.jsp");
+                .getRequestDispatcher("/protected/backoffice/listaFornecedoresBackoffice.jsp");
         requestDispatcher.forward(request, response);
     }
 }

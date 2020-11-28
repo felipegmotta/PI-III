@@ -29,7 +29,7 @@ public class ListarProdutos extends HttpServlet {
         request.setAttribute("listaProdutos", listaProdutos);
         
         RequestDispatcher requestDispatcher = getServletContext()
-                .getRequestDispatcher("/protected/backoffice/listaProdutos.jsp");
+                .getRequestDispatcher("/protected/backoffice/listaProdutosBackoffice.jsp");
         requestDispatcher.forward(request, response);
     }
 }

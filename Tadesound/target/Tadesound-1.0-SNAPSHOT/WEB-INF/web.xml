@@ -20,7 +20,7 @@
     <servlet>
         <servlet-name>CarrinhoServlet</servlet-name>
         <servlet-class>Servlet.CarrinhoServlet</servlet-class>
-    </servlet> 
+    </servlet>
     <!--Mapping-->
     <servlet-mapping>
         <servlet-name>EfetuaLogin</servlet-name>
@@ -34,7 +34,6 @@
         <servlet-name>CarrinhoServlet</servlet-name>
         <url-pattern>/CarrinhoServlet</url-pattern>
     </servlet-mapping>
-    
     <!--Listagem-->
     <servlet>
         <servlet-name>ListarClientes</servlet-name>
@@ -51,7 +50,7 @@
     <servlet>
         <servlet-name>ListarProdutosEClientes</servlet-name>
         <servlet-class>Servlet.ListarProdutosEClientes</servlet-class>
-    </servlet> 
+    </servlet>
     <servlet>
         <servlet-name>ListarServicosEClientes</servlet-name>
         <servlet-class>Servlet.ListarServicosEClientes</servlet-class>
@@ -67,7 +66,7 @@
     <servlet>
         <servlet-name>ListarFornecedores</servlet-name>
         <servlet-class>Servlet.ListarFornecedores</servlet-class>
-    </servlet> 
+    </servlet>
     <!--Mapping-->
     <servlet-mapping>
         <servlet-name>ListarClientes</servlet-name>
@@ -84,7 +83,7 @@
     <servlet-mapping>
         <servlet-name>ListarProdutosEClientes</servlet-name>
         <url-pattern>/ListarProdutosEClientes</url-pattern>
-    </servlet-mapping> 
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ListarServicosEClientes</servlet-name>
         <url-pattern>/ListarServicosEClientes</url-pattern>
@@ -101,7 +100,6 @@
         <servlet-name>ListarFornecedores</servlet-name>
         <url-pattern>/ListarFornecedores</url-pattern>
     </servlet-mapping>
-    
     <!--Cadastro-->
     <servlet>
         <servlet-name>CadastrarCliente</servlet-name>
@@ -160,7 +158,6 @@
         <servlet-name>CadastrarFornecedor</servlet-name>
         <url-pattern>/CadastrarFornecedor</url-pattern>
     </servlet-mapping>
-    
     <!--Atualizacao-->
     <servlet>
         <servlet-name>AtualizarCliente</servlet-name>
@@ -203,7 +200,6 @@
         <servlet-name>AtualizarFornecedor</servlet-name>
         <url-pattern>/AtualizarFornecedor</url-pattern>
     </servlet-mapping>
-    
     <!--Exclusao-->
     <servlet>
         <servlet-name>ExcluirCliente</servlet-name>
@@ -238,13 +234,11 @@
         <servlet-name>ExcluirFornecedor</servlet-name>
         <url-pattern>/ExcluirFornecedor</url-pattern>
     </servlet-mapping>
-    
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
-    
     <welcome-file-list>
         <welcome-file>paginaInicial.jsp</welcome-file>
     </welcome-file-list>

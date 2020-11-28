@@ -1,5 +1,6 @@
 Servlet\ListarProdutos.class
 Utils\Utils.class
+Utils\teste.class
 DAO\VendaDAO.class
 Servlet\ListarLojas.class
 Servlet\CadastrarProduto.class
@@ -19,6 +20,7 @@ Servlet\ExcluirFornecedor.class
 DAO\vendaServicos.class
 Servlet\ListarServicos.class
 Servlet\CadastrarItensVenda.class
+BD\Teste.class
 DAO\LojaDAO.class
 Servlet\CadastrarLoja.class
 Model\Pessoa.class
@@ -28,6 +30,7 @@ Model\Venda.class
 DAO\ProdutoDAO.class
 DAO\UsuarioDAO.class
 Model\Loja.class
+DAO\teste.class
 Filter\AutorizacaoFilter.class
 Servlet\ExcluirLoja.class
 Model\Cliente.class
