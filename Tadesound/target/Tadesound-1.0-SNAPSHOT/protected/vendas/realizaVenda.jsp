@@ -11,12 +11,12 @@
     <%@include file="../../header.jsp"%>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="css/realizaVenda.css">
+        <link rel="stylesheet" href="css/realizaVendaVendas.css">
         <link rel="stylesheet" href="css/bootstrap.css">
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-        <title>Venda</title>
+        <title>Venda de Produto</title>
         
         <script type="text/javascript">  
             function escolherCliente(idCliente, nomeCliente) {
@@ -223,32 +223,21 @@
             </div>
             <h1>VENDA</h1>
             <div class="info">
-                <h3><b>produto . serviÃ§o</b></h3>
+                <h3><b>produto . serviço</b></h3>
             </div>
         </header>
         
         <div class="lft-container">            
-            <a href="ListarProdutos"><img src="img/IconeCaixa.png" 
-                class="icone" alt="Ãcone de venda de produtos"></a>
-            <a href="protected/backoffice/cadastrarServico.jsp"><img src="img/IconeAgendar.png" 
-                class="icone" alt="Ãcone de venda de serviÃ§o"></a>
             <a href="ListarClientes"><img src="img/IconeClientes.png" 
-                class="icone" alt="Ãcone de clientes"></a>
+                class="icone" alt="Ícone de clientes"></a>
+            <a href="ListarProdutosEClientes"><img src="img/IconeCaixa.png" 
+                class="icone" alt="Ícone de venda de produtos"></a>
+            <a href="ListarServicosEClientes"><img src="img/IconeAgendar.png" 
+                class="icone" alt="Ícone de venda de serviço"></a>
         </div>         
        
         <div class="rgt-container">
-            <h1>Realizar Venda</h1>
-
-            <div class="total">
-                <!--Guardar o status atual da compra-->
-                <span id="statusCompra">
-                    <h5 id="valorCompra">Total: R$0,00</h5>
-                    <h5 id="clienteCompra">Cliente: </h5>
-                    <input hidden="true" id="clienteEscolhido"/>
-                    <input hidden="true" id="valorTotal"/>
-                    <input hidden="true" id="quantidadeProdutos"/>
-                </span>
-            </div>
+            <h1>Venda de Produto</h1>
             
             <div class="campos-container">                
                 <h2>Selecionar Cliente</h2>
@@ -384,28 +373,39 @@
                         </table>
                     </table>                    
                 </div>
-            </div>
-                    
-            <div class="modal fade" id="modalProduto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Escolher quantidade</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            Escolha a quantidade do produto: 
-                            <input id="quantidadeProduto" type="number"/>
-                            <input id="idProduto" hidden="true"/>
-                            <input id="nomeProduto" hidden="true"/>
-                            <input id="categoriaProduto" hidden="true"/>
-                            <input id="precoProduto" hidden="true"/>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn-cancelar" data-dismiss="modal">Cancelar</button>
-                            <button type="button" class="btn-confirmar" onclick="adicionarProdutoAoCarrinho()">Confirmar</button>
+                        
+                <div class="total">
+                    <!--Guardar o status atual da compra-->
+                    <span id="statusCompra">
+                        <h5 id="valorCompra">Total: R$0,00</h5>
+                        <h5 id="clienteCompra">Cliente: </h5>
+                        <input hidden="true" id="clienteEscolhido"/>
+                        <input hidden="true" id="valorTotal"/>
+                        <input hidden="true" id="quantidadeProdutos"/>
+                    </span>
+                        
+                    <div class="modal fade" id="modalProduto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Escolher quantidade</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    Escolha a quantidade do produto: 
+                                    <input id="quantidadeProduto" type="number"/>
+                                    <input id="idProduto" hidden="true"/>
+                                    <input id="nomeProduto" hidden="true"/>
+                                    <input id="categoriaProduto" hidden="true"/>
+                                    <input id="precoProduto" hidden="true"/>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn-cancelar" data-dismiss="modal">Cancelar</button>
+                                    <button type="button" class="btn-confirmar" onclick="adicionarProdutoAoCarrinho()">Confirmar</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

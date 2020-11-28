@@ -1,5 +1,5 @@
 <%-- 
-    Document   : listaClientes
+    Document   : listaClientesVendas
     Created on : 10/10/2020, 12:03:30
     Author     : Felipe
 --%>
@@ -11,7 +11,7 @@
     <%@include file="../../header.jsp"%>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="css/listaClientes.css">
+        <link rel="stylesheet" href="css/listaClientesVendas.css">
         <link rel="stylesheet" href="css/bootstrap.css">
         <title>Consulta de Clientes</title>
         
@@ -70,25 +70,19 @@
         </div>
         -->
         
-        <div class="lft-container">            
-            <a href="/Tadesound/protected/backoffice/cadastrarProduto.jsp"><img src="img/IconeProduto.png" 
-                class="icone" alt="Ícone de produto"></a>
-            <a href="/Tadesound/protected/backoffice/cadastrarServico.jsp"><img src="img/IconeServico.png" 
-                class="icone" alt="Ícone de serviço"></a>
-            <a href="/Tadesound/protected/backoffice/cadastrarCliente.jsp"><img src="img/IconeClientes.png" 
+        <div class="lft-container">
+            <a href="ListarClientes"><img src="img/IconeClientes.png" 
                 class="icone" alt="Ícone de clientes"></a>
-            <a href="/Tadesound/protected/backoffice/cadastrarFornecedor.jsp"><img src="img/IconeFornecedor.png" 
-                class="icone" alt="Ícone de fornecedor"></a>
-            <a href="/Tadesound/protected/backoffice/cadastrarLoja.jsp"><img src="img/IconeFilial.png" 
-                class="icone" alt="Ícone de filial"></a>
-            <a href="/Tadesound/protected/backoffice/cadastrarFuncionario.jsp"><img src="img/IconeFuncionario.png" 
-                class="icone" alt="Ícone de funcionário"></a>
+            <a href="ListarProdutosEClientes"><img src="img/IconeCaixa.png" 
+                class="icone" alt="Ícone de venda de produtos"></a>
+            <a href="ListarServicosEClientes"><img src="img/IconeAgendar.png" 
+                class="icone" alt="Ícone de venda de serviço"></a>
         </div>
         
         <div class="rgt-container">
             <div class="container-titulo">
                 <h1>Consultar Cliente</h1>
-                <a href="protected/cadastrarCliente.jsp"><img src="img/IconeAdicionar.png" 
+                <a href="protected/vendas/cadastrarClienteVendas.jsp"><img src="img/IconeAdicionar.png" 
                     class="btn-manter1" alt="Ícone para a página de cadastro de clientes"></a>
             </div>
 

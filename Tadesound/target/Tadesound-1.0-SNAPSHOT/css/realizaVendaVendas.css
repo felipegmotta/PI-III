@@ -1,0 +1,210 @@
+/* 
+    Created on : 15/10/2020, 17:46:54
+    Author     : Denise Trevizo 
+*/
+
+body{
+    background-color: #f8f8f8;
+}
+
+.container-logo{
+    width: 10%;
+    float: left; 
+    margin-left: 1.5vw;
+}
+
+.container-logo .logo{
+    width: 100%;    
+}
+
+header h1{
+    margin: 0 -10px 0 -10px;
+    padding-top: 1vw;
+    background-color: #182127;
+    color: white;
+    font-family: Bahnschrift Condensed;
+    font-weight: normal;
+    font-size: 5vw;   
+    transform: scale(1, 1.2);
+    text-align: center;
+    z-index: -1;
+    position: relative;
+}
+
+.info{
+    margin: 0 -10px 0 -10px;
+    padding: 0.3vw 0 0.8vw 0;
+    background-color: #182127;
+    font-family: Calibri;
+    color: #cccccc;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.info h3{
+    font-size: 1.5vw;
+}
+
+.lft-container{
+    display: inline-block;
+    width: 13%;
+    margin-right: 1vw;
+    margin-bottom: -10.5vw;
+    padding: 1vw 2vw 30vw 2vw;
+    background-color: #e3e3e3;
+}
+
+.icone{
+    border-radius: 100px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.05);
+    float: left;
+    margin-top: 30px;
+    margin-left: 1.3vw;
+    max-height: 5.3vw;
+}
+
+.rgt-container{
+    display: inline-block;    
+    background-color: white;
+    width: 80%;
+    margin-left: 20px;
+    margin-bottom: 100px;
+    padding: 2vw 20px 0 40px;   /*top right bottom left*/
+    border-radius: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.05);
+}
+
+.rgt-container h1{
+    font-family: Bahnschrift Condensed;
+    font-size: 2.7vw;
+    transform: scale(1, 1.2);
+    margin-bottom: 0vw;
+    margin-left: 0.5vw;
+}
+
+.rgt-container h2{
+    font-family: Bahnschrift Condensed;
+    font-size: 1.5vw;
+    transform: scale(1, 1.2);
+    margin-bottom: 1vw;
+}
+
+.campos-container{
+    column-count: 2;
+    margin: 0 -20px 0 -40px;
+    padding: 2vw 40px 1vw 3vw;
+    background-color: white;
+    font-family: Calibri;
+}
+
+.campos-container1{
+    border-radius: 5px;
+    height: 10vw;
+    width: 120%;
+    margin-bottom: 2vw;
+    padding: 0 0 8vw 0;
+    background-color: #f8f8f8;
+    overflow: scroll;
+    overflow-y: auto;
+    white-space: nowrap;
+}
+
+.campos-container2{
+    border-radius: 5px;
+    height: 20vw;
+    width: 70%;
+    padding: 0 0 10vw 0;
+    margin-left: 10.5vw;
+    background-color: #e0ebf6;    
+    overflow: scroll;
+    overflow-y: auto;
+    white-space: nowrap;
+}
+
+.carrinho{
+    margin-left: 10.5vw;
+}
+
+thead th{
+    background-color: #e3e3e3;
+    font-size: 1vw;
+    color: black;
+    font-weight: bold;
+    padding: 0.5vw 0.5vw 0.5vw 1vw;
+}
+
+.campos-container2 thead th{
+    background-color: #85898b;
+    color: white;
+}
+
+.filler{
+    color: #e3e3e3;
+}
+
+td{
+    padding: 0.3vw 0.3vw 0.3vw 1vw;
+    font-size: 1vw;
+}
+
+.total h5{
+    margin-top: 1vw;
+    margin-left: 10.5vw;
+    font-family: Calibri;
+    font-size: 1.2vw;
+    font-weight: bold;
+}
+
+.botao-container{
+    float: left;
+    margin: 0 -20px 1vw -40px;
+    padding: 0 4vw 0 4vw;
+    border-radius: 0 0 15px 15px;
+}
+
+.botao-container button{
+    padding: 8px 15px;
+    margin: 0 1vw 20px 0;    
+    border-radius: 10px;
+    font-family: Calibri;
+    font-size: 1.3vw;
+    font-weight: bold;    
+    color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.05);
+}
+
+.modal-footer button{
+    padding: 8px 15px;
+    margin: 0 1vw 20px 0;    
+    border-radius: 10px;
+    font-family: Calibri;
+    font-size: 1vw;
+    font-weight: bold;    
+    color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.05);
+}
+
+.btn-cancelar{
+    border: 0.5px solid #aa2516;
+    background-color: #aa2516;
+}
+
+.btn-confirmar{
+    border: 0.5px solid #005eb5;
+    background-color: #005eb5;
+}
+
+.btn-selecionar{
+    width: 99%;
+    border-radius: 0.4vw;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 0px 20px 0 rgba(0, 0, 0, 0.05);
+}
+
+.container-toast{
+    margin-left: 50vw;
+    margin-top: -1vw;
+}
+
+.toast-body{
+    font-size: 0.8vw;
+}

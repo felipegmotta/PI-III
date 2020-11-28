@@ -1,5 +1,5 @@
 <%-- 
-    Document   : listaClientes
+    Document   : realizaVendaServicos
     Created on : 10/10/2020, 12:03:30
     Author     : Felipe
 --%>
@@ -11,12 +11,12 @@
     <%@include file="../../header.jsp"%>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="css/realizaVenda.css">
+        <link rel="stylesheet" href="css/realizaVendaServicosVendas.css">
         <link rel="stylesheet" href="css/bootstrap.css">
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-        <title>Venda</title>
+        <title>Venda de Serviço</title>
         
         <script type="text/javascript">  
             function escolherCliente(idCliente, nomeCliente) {
@@ -230,31 +230,21 @@
             </div>
             <h1>VENDA</h1>
             <div class="info">
-                <h3><b>produto . servico</b></h3>
+                <h3><b>produto . serviço</b></h3>
             </div>
         </header>
         
         <div class="lft-container">            
-            <a href="ListarServicos"><img src="img/IconeCaixa.png" 
-                class="icone" alt="Icone de venda de servicos"></a>
-            <a href="protected/backoffice/cadastrarServico.jsp"><img src="img/IconeAgendar.png" 
-                class="icone" alt="Icone de venda de serviÃ§o"></a>
             <a href="ListarClientes"><img src="img/IconeClientes.png" 
-                class="icone" alt="Icone de clientes"></a>
+                class="icone" alt="Ícone de clientes"></a>
+            <a href="ListarProdutosEClientes"><img src="img/IconeCaixa.png" 
+                class="icone" alt="Ícone de venda de produtos"></a>
+            <a href="ListarServicosEClientes"><img src="img/IconeAgendar.png" 
+                class="icone" alt="Ícone de venda de serviço"></a>
         </div>         
        
         <div class="rgt-container">
-            <h1>Realizar Venda</h1>
-
-            <div class="total">
-                <!--Guardar o status atual da compra-->
-                <span id="statusCompra">
-                    <h5 id="valorCompra">Total: R$0,00</h5>
-                    <h5 id="clienteCompra">Cliente: </h5>
-                    <h5 id="servicoCompra">Servico: </h5>
-                    <h5 id="dataProgramada">Data Programada: </h5>
-                </span>
-            </div>
+            <h1>Venda de Serviço</h1>          
             
             <div class="campos-container">                
                 <h2>Selecionar Cliente</h2>
@@ -284,7 +274,7 @@
                                 <c:forEach var="cliente" items="${listaClientes}">
                                     <tr>
                                         <td><img src="img/IconeFinalizar.png" class="btn-selecionar" style="cursor: pointer;" 
-                                        alt="Ãcone para selecionar cliente" 
+                                        alt="Ícone para selecionar cliente" 
                                         onclick="escolherCliente('${cliente.idCliente}', '${cliente.nome}')"></td>
                                         <td hidden="true">${cliente.idCliente}</td>
                                         <td>${cliente.nome}</td>
@@ -307,7 +297,7 @@
                     </table>
                 </div>
 
-                <h2>Selecionar Servico</h2>
+                <h2>Selecionar Serviço</h2>
                 <div class="campos-container1">
                     
                     <!--Tabela de Servicos-->
@@ -345,54 +335,67 @@
                         </table>
                     </table>
                 </div>
-            </div>
+                
+                <h2 class="carrinho">Carrinho</h2>
+                <div class="campos-container2">
+                    <div class="total">
+                        <!--Guardar o status atual da compra-->
+                        <span id="statusCompra">
+                            <h5 id="valorCompra">Total: R$0,00</h5>
+                            <h5 id="clienteCompra">Cliente: </h5>
+                            <h5 id="servicoCompra">Serviço: </h5>
+                            <h5 id="dataProgramada">Data Programada: </h5>
+                        </span>
+                    </div>
                     
-            <div class="modal fade" id="modalServico" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Escolher Data</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
+                    <div class="modal fade" id="modalServico" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Escolher Data</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    Escolha a data de realizacao do servico: 
+                                    <input id="dataServico" placeholder="__/__/____" data-slots="_" required="required"/>
+                                    <input id="idServico" hidden="true"/>
+                                    <input id="nomeServico" hidden="true"/>
+                                    <input id="grauComplexidade" hidden="true"/>
+                                    <input id="duracaoMinutos" hidden="true"/>
+                                    <input id="precoServico" hidden="true"/>
+                                    <input id="clienteEscolhido" hidden="true"/>
+                                    <input id="valorTotal" hidden="true"/>
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn-cancelar" data-dismiss="modal">Cancelar</button>
+                                    <button type="button" class="btn-confirmar" onclick="escolheServico()">Confirmar</button>
+                                </div>
+                            </div>
                         </div>
-                        <div class="modal-body">
-                            Escolha a data de realizacao do servico: 
-                            <input id="dataServico" placeholder="__/__/____" data-slots="_" required="required"/>
-                            <input id="idServico" hidden="true"/>
-                            <input id="nomeServico" hidden="true"/>
-                            <input id="grauComplexidade" hidden="true"/>
-                            <input id="duracaoMinutos" hidden="true"/>
-                            <input id="precoServico" hidden="true"/>
-                            <input id="clienteEscolhido" hidden="true"/>
-                            <input id="valorTotal" hidden="true"/>
-                            
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn-cancelar" data-dismiss="modal">Cancelar</button>
-                            <button type="button" class="btn-confirmar" onclick="escolheServico()">Confirmar</button>
+                    </div> 
+                </div>
+            
+                <div class="container-toast">
+                    <div id="toast" class="toast" role="alert" aria-live="polite" aria-atomic="true" data-delay="10000">
+                        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <div>
+                            <div class="toast-body">
+                                <span id="msgToast"></span>
+                            </div>
                         </div>
                     </div>
                 </div>
+                
+                <div class="botao-container">
+                    <button type="button" class="btn-cancelar" onclick="limparCarrinho()">Limpar Carrinho</button>
+                    <button type="button" class="btn-confirmar" onclick="validaVenda()">Finalizar</button>
+                </div>                       
             </div>
-            
-            <div class="botao-container">
-                <button type="button" class="btn-cancelar" onclick="limparCarrinho()">Limpar Carrinho</button>
-                <button type="button" class="btn-confirmar" onclick="validaVenda()">Finalizar</button>
-            </div>
-            
-            <div class="container-toast">
-                <div id="toast" class="toast" role="alert" aria-live="polite" aria-atomic="true" data-delay="10000">
-                    <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    <div>
-                        <div class="toast-body">
-                            <span id="msgToast"></span>
-                        </div>
-                    </div>
-                </div>
-            </div>            
         </div>
     </body>
 </html>
