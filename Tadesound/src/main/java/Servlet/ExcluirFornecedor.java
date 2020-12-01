@@ -1,6 +1,5 @@
 package Servlet;
 
-import Utils.Utils;
 import DAO.FornecedorDAO;
 import java.io.IOException;
 import java.sql.SQLException;

@@ -60,7 +60,7 @@ public class VendaDAO {
         List<VendaProdutos> listaVendasProdutos = new ArrayList();
         
         Connection con = ConexaoBD.getConexao();
-        String query = "SELECT produto.idProduto, produto.nome, produto.preco, produto.idLoja, itensVenda.quantidadeItens, itensVenda.valorTotal FROM venda INNER JOIN itensVenda ON venda.idVenda = itensVenda.idVenda INNER JOIN produto ON itensVenda.idProduto = produto.idProduto";
+        String query = "SELECT produto.idProduto, produto.nome, produto.preco, produto.idLoja, itensVenda.quantidadeItens, itensVenda.valorTotal, venda.dataVenda FROM venda INNER JOIN itensVenda ON venda.idVenda = itensVenda.idVenda INNER JOIN produto ON itensVenda.idProduto = produto.idProduto";
         
         PreparedStatement ps = null;
         
@@ -87,8 +87,9 @@ public class VendaDAO {
             int quantidadeTotalProduto = rs.getInt("itensVenda.quantidadeItens");
             String valorTotal = rs.getString("itensVenda.valorTotal");
             int idLoja = rs.getInt("produto.idLoja");
+            String dataVenda = rs.getString("venda.dataVenda");
             
-            listaVendasProdutos.add(new VendaProdutos(idProduto, nomeProduto, valorProduto, quantidadeTotalProduto, valorTotal, idLoja));
+            listaVendasProdutos.add(new VendaProdutos(idProduto, nomeProduto, valorProduto, quantidadeTotalProduto, valorTotal, idLoja, dataVenda));
         }
         
         return listaVendasProdutos;
@@ -98,18 +99,18 @@ public class VendaDAO {
         List<VendaServicos> listaVendasServicos = new ArrayList();
         
         Connection con = ConexaoBD.getConexao();
-        String query = "SELECT * FROM servico";
+        String query = "SELECT itensVenda.idServico, servico.nome, servico.preco, servico.grauComplexidade, servico.duracaoMinutos, servico.idLoja, venda.dataVenda FROM venda INNER JOIN itensVenda ON venda.idVenda = itensVenda.idVenda INNER JOIN servico ON itensVenda.idServico = servico.idServico WHERE venda.tipo = 'Servico'";
         
         PreparedStatement ps = null;
         
         //Caso tenha que consultar por id
         if (!idConsulta.equals("")) {
-            query += " WHERE idServico = ?";
+            query += " AND idServico = ?";
             
             ps = con.prepareStatement(query);
             ps.setString(1, idConsulta);
         } else if (!nomeConsulta.equals("")) {
-            query += " WHERE nome like ?";
+            query += " AND nome like ?";
             
             ps = con.prepareStatement(query);
             ps.setString(1, nomeConsulta + "%");
@@ -118,17 +119,16 @@ public class VendaDAO {
         }
         
         ResultSet rs = ps.executeQuery();
-        System.out.println("antes");
         while (rs.next()) {
-            System.out.println("entrei");
-            int idServico = rs.getInt("idServico");
-            String nomeServico = rs.getString("nome");
-            String valorServico = rs.getString("preco");
-            int grauComplexidade = rs.getInt("grauComplexidade");
-            int duracaoMinutos = rs.getInt("duracaoMinutos");
-            int idLoja = rs.getInt("idLoja");
+            int idServico = rs.getInt("itensVenda.idServico");
+            String nomeServico = rs.getString("servico.nome");
+            String valorServico = rs.getString("servico.preco");
+            int grauComplexidade = rs.getInt("servico.grauComplexidade");
+            int duracaoMinutos = rs.getInt("servico.duracaoMinutos");
+            String dataVenda = rs.getString("venda.dataVenda");
+            int idLoja = rs.getInt("servico.idLoja");
             
-            listaVendasServicos.add(new VendaServicos(idServico, nomeServico, valorServico, grauComplexidade, duracaoMinutos, idLoja));
+            listaVendasServicos.add(new VendaServicos(idServico, nomeServico, valorServico, grauComplexidade, duracaoMinutos, idLoja, dataVenda));
         }
         
         return listaVendasServicos;
@@ -182,7 +182,6 @@ public class VendaDAO {
             query = "INSERT INTO venda (tipo, valorTotal, quantidadeItens, idCliente, idFuncionario, dataProgramada) VALUES (?,?,?,?,?,?)";
             
             ps = con.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
-            System.out.println(venda.getDataProgramada());
             ps.setString(6, venda.getDataProgramada());
         } else {
             query = "INSERT INTO venda (tipo, valorTotal, quantidadeItens, idCliente, idFuncionario) VALUES (?,?,?,?,?)";
@@ -199,14 +198,12 @@ public class VendaDAO {
         ps.execute();
         
         int idVenda = 0;
-        System.out.println("antes aqui em");
         ResultSet generatedKeys = ps.getGeneratedKeys(); //Recupera o idVenda
         if (generatedKeys.next()) {
             idVenda = generatedKeys.getInt(1);
         } else {
             throw new SQLException("Falha ao obter o idVenda!");
         }
-        System.out.println("idVenda: " + idVenda);
         return idVenda;
     }
     
@@ -218,12 +215,10 @@ public class VendaDAO {
         PreparedStatement ps = null;
         
         if (itensVenda.getTipo().contains("Servico")) {
-            System.out.println("eh servico");
             query = "INSERT INTO itensVenda (idVenda, idServico, quantidadeItens, valorTotal) VALUES (?,?,?,?)";
             
             ps = con.prepareStatement(query);
         } else {
-            System.out.println("eh venda");
             query = "INSERT INTO itensVenda (idVenda, idProduto, quantidadeItens, valorTotal) VALUES (?,?,?,?)";
             
             ps = con.prepareStatement(query);

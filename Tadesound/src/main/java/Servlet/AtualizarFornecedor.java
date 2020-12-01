@@ -27,7 +27,7 @@ public class AtualizarFornecedor extends HttpServlet {
 
         request.setAttribute("fornecedor", fornecedor);
         RequestDispatcher requestDispatcher = getServletContext()
-                .getRequestDispatcher("/protected/backoffice/atualizarFornecedorBackoffice.jsp");
+                .getRequestDispatcher("/protected/backoffice/atualizarFornecedor.jsp");
         requestDispatcher.forward(request, response);
     }
     

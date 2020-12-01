@@ -42,18 +42,22 @@ public class AutorizacaoFilter implements Filter {
         
         //Filtro para backoffice
         if (url.contains("/backoffice/") && !usuario.isBackoffice() && !usuario.isGerente() && !usuario.isAdmin()) {
+            System.out.println(url);
+            System.out.println("ENTREI 2 PORRA ");
             httpResponse.sendRedirect(httpRequest.getContextPath() + "/telaLogin.jsp?erro=accessForbidden");
             return;
         }
         
         //Filtro para Vendas
         if (url.contains("/vendas/") && !usuario.isVendedor() && !usuario.isGerente() && !usuario.isAdmin()) {
+            System.out.println("ENTREI 1 PORRA ");
             httpResponse.sendRedirect(httpRequest.getContextPath() + "/telaLogin.jsp?erro=accessForbidden");
             return;
         }
         
         //Filtro para gerencia
         if (url.contains("/gerencia/") && !usuario.isGerente() && !usuario.isAdmin()) {
+            System.out.println("ENTREI 3 PORRA ");
             httpResponse.sendRedirect(httpRequest.getContextPath() + "/telaLogin.jsp?erro=accessForbidden");
             return;
         }

@@ -27,7 +27,7 @@ public class AtualizarServico extends HttpServlet {
                 
         request.setAttribute("servico", servico);
         RequestDispatcher requestDispatcher = getServletContext()
-                .getRequestDispatcher("/protected/backoffice/atualizarServicoBackoffice.jsp");
+                .getRequestDispatcher("/protected/backoffice/atualizarServico.jsp");
         requestDispatcher.forward(request, response);
     }
     

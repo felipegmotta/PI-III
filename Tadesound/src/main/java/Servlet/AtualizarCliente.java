@@ -27,7 +27,7 @@ public class AtualizarCliente extends HttpServlet {
                 
         request.setAttribute("cliente", cliente);
         RequestDispatcher requestDispatcher = getServletContext()
-                .getRequestDispatcher("/protected/vendas/atualizarClienteVendas.jsp");
+                .getRequestDispatcher("/protected/vendas/atualizarCliente.jsp");
         requestDispatcher.forward(request, response);
     }
 

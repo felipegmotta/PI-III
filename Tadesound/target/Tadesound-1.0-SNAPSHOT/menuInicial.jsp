@@ -1,9 +1,3 @@
-<%-- 
-    Document   : menuInicial
-    Created on : 18/10/2020, 15:19:54
-    Author     : Denise Trevizo 
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

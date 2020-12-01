@@ -31,7 +31,6 @@ public class ListarVendas extends HttpServlet {
                     request.setAttribute("listaVendas", listaVendasProdutos);
                     break;
                 case "Servico":
-                    System.out.println("entrei case de servico");
                     List<VendaServicos> listaVendasServicos = VendaDAO.getVendasServicos(idConsulta, nomeConsulta);
                     request.setAttribute("listaVendas", listaVendasServicos);
                     break;

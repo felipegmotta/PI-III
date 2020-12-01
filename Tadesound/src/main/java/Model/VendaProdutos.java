@@ -7,7 +7,7 @@ import lombok.Setter;
 @Setter
 public class VendaProdutos {   
     
-    public VendaProdutos(int idProduto, String nomeProduto, String valorProduto, int quantidadeTotalProduto, String valorTotal, int idLoja) {
+    public VendaProdutos(int idProduto, String nomeProduto, String valorProduto, int quantidadeTotalProduto, String valorTotal, int idLoja, String dataVenda) {
         this.tipoVenda = "Produto";
         this.idProduto = idProduto;
         this.nomeProduto = nomeProduto;
@@ -15,6 +15,7 @@ public class VendaProdutos {
         this.quantidadeTotalProduto = quantidadeTotalProduto;
         this.valorTotal = valorTotal;
         this.idLoja = idLoja;
+        this.dataVenda = dataVenda;
     }
     
     private String tipoVenda;
@@ -24,4 +25,5 @@ public class VendaProdutos {
     private int quantidadeTotalProduto;
     private String valorTotal;
     private int idLoja;
+    private String dataVenda;
 }

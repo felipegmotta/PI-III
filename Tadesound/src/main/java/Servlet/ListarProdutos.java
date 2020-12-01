@@ -4,6 +4,8 @@ import Utils.Utils;
 import Model.Produto;
 import java.util.List;
 import DAO.ProdutoDAO;
+import Model.Fornecedor;
+import DAO.FornecedorDAO;
 import java.io.IOException;
 import java.sql.SQLException;
 import javax.servlet.RequestDispatcher;
@@ -18,18 +20,20 @@ public class ListarProdutos extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         List<Produto> listaProdutos = null;
+        List<Fornecedor> listaFornecedores = null;
         
         try {
-            System.out.println("manda la porra");
             listaProdutos = ProdutoDAO.getProdutos();
+            listaFornecedores = FornecedorDAO.getFornecedores();
         } catch (SQLException ex) {
             Utils.exibeTelaErro(ex, request, response);
         }
         
         request.setAttribute("listaProdutos", listaProdutos);
+        request.setAttribute("listaFornecedores", listaFornecedores);
         
         RequestDispatcher requestDispatcher = getServletContext()
-                .getRequestDispatcher("/protected/backoffice/listaProdutosBackoffice.jsp");
+                .getRequestDispatcher("/protected/backoffice/listaProdutos.jsp");
         requestDispatcher.forward(request, response);
     }
 }
