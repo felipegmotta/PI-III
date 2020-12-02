@@ -67,18 +67,49 @@
         </header>
         
         <div class="lft-container">            
-            <a href="ListarFornecedors"><img src="img/IconeFornecedor.png" 
-                class="icone" alt="Ícone de fornecedor"></a>
-            <a><img src="img/IconeServico.png" 
-                class="icone" alt="Ícone de serviço"></a>
-            <a href="ListarClientes"><img src="img/IconeClientes.png" 
-                class="icone" alt="Ícone de clientes"></a>
-            <a><img src="img/IconeFornecedor.png" 
-                class="icone" alt="Ícone de fornecedor"></a>
-            <a><img src="img/IconeFilial.png" 
-                class="icone" alt="Ícone de filial"></a>
-            <a><img src="img/IconeFuncionario.png" 
-                class="icone" alt="Ícone de funcionário"></a>
+            <!--Verifica o cargo do usuario, para determinar a exibicao do menu lateral-->
+            <c:if test="${sessionScope.usuario.admin}">
+                <a href="/Tadesound/CadastrarProduto"><img src="img/IconeProduto.png" 
+                    class="icone" alt="Ícone de produto"></a>
+                <a href="/Tadesound/protected/backoffice/cadastrarServico.jsp"><img src="img/IconeServico.png" 
+                    class="icone" alt="Ícone de serviço"></a>
+                <a href="/Tadesound/protected/vendas/cadastrarCliente.jsp"><img src="img/IconeClientes.png" 
+                    class="icone" alt="Ícone de clientes"></a>
+                <a href="/Tadesound/protected/backoffice/cadastrarFornecedor.jsp"><img src="img/IconeFornecedor.png" 
+                    class="icone" alt="Ícone de fornecedor"></a>
+                <a href="/Tadesound/protected/gerencia/cadastrarLoja.jsp"><img src="img/IconeFilial.png" 
+                    class="icone" alt="Ícone de filial"></a>
+                <a><img src="img/IconeFuncionario.png" 
+                    class="icone" alt="Ícone de funcionário"></a>
+            </c:if>
+            <c:if test="${sessionScope.usuario.gerente}">
+                <a href="/Tadesound/CadastrarProduto"><img src="img/IconeProduto.png" 
+                    class="icone" alt="Ícone de produto"></a>
+                <a href="/Tadesound/protected/backoffice/cadastrarServico.jsp"><img src="img/IconeServico.png" 
+                    class="icone" alt="Ícone de serviço"></a>
+                <a href="/Tadesound/protected/vendas/cadastrarCliente.jsp"><img src="img/IconeClientes.png" 
+                    class="icone" alt="Ícone de clientes"></a>
+                <a href="/Tadesound/protected/backoffice/cadastrarFornecedor.jsp"><img src="img/IconeFornecedor.png" 
+                    class="icone" alt="Ícone de fornecedor"></a>
+                <a href="/Tadesound/protected/gerencia/cadastrarLoja.jsp"><img src="img/IconeFilial.png" 
+                    class="icone" alt="Ícone de filial"></a>
+                <a><img src="img/IconeFuncionario_desabilitado.png" 
+                    class="icone" alt="Ícone de funcionário"></a>
+            </c:if>
+            <c:if test="${sessionScope.usuario.backoffice}">
+                <a href="/Tadesound/CadastrarProduto"><img src="img/IconeProduto.png" 
+                    class="icone" alt="Ícone de produto"></a>
+                <a href="/Tadesound/protected/backoffice/cadastrarServico.jsp"><img src="img/IconeServico.png" 
+                    class="icone" alt="Ícone de serviço"></a>
+                <a><img src="img/IconeClientes_desabilitado.png" 
+                    class="icone" alt="Ícone de clientes"></a>
+                <a href="/Tadesound/protected/backoffice/cadastrarFornecedor.jsp"><img src="img/IconeFornecedor.png" 
+                    class="icone" alt="Ícone de fornecedor"></a>
+                <a><img src="img/IconeFilial_desabilitado.png"
+                    class="icone" alt="Ícone de filial"></a>
+                <a><img src="img/IconeFuncionario_desabilitado.png"
+                    class="icone" alt="Ícone de funcionário"></a>
+            </c:if>
         </div>
         
         <div class="rgt-container">

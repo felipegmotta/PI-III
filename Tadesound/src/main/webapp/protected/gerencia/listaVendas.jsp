@@ -1,18 +1,12 @@
-<%-- 
-    Document   : listaProdutos
-    Created on : 10/10/2020, 12:03:30
-    Author     : Felipe
---%>
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <%@include file="../../header.jsp"%>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="../../css/listaVendas.css">
         <link rel="stylesheet" href="../../css/bootstrap.css">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <title>Relatorio de Vendas</title>
         <script>
             //Funcao responsavel por atulizar o tipo da consulta
@@ -78,6 +72,7 @@
                                                    "<th>Valor Produto</th>" +
                                                    "<th>Quantidade Produto</th>" +
                                                    "<th>Total</th>" +
+                                                   "<th>Data Venda</th>" +
                                                    "<th class='filler' style='width:1%'>Fill</th>");
                 } else if (tipoConsulta === "Cliente") {
                     //Adiciona as colunas da tabela para os casos de consulta de cliente
@@ -101,8 +96,10 @@
                     $('#headTabelaRelatorio').html("<th>ID Loja</th>" +
                                                    "<th>ID Servico</th>" +
                                                    "<th>Nome Servico</th>" +
-                                                   "<th>Valor Servico</th>" +
                                                    "<th>Grau Complexidade</th>" +
+                                                   "<th>Duracao Minutos</th>" +
+                                                   "<th>Valor Servico</th>" +
+                                                   "<th>Data Contratacao</th>" +
                                                    "<th class='filler' style='width:1%'>Fill</th>");
                 }
             }
@@ -142,9 +139,9 @@
         <div class="lft-container">      
             <a href="listaVendas.jsp"><img src="../../img/IconeVendas.png" 
                 class="icone" alt="Ícone de relatório de vendas"></a>
-            <a href="ListarProdutos"><img src="../../img/IconeProduto.png" 
+            <a href="../../ListarProdutos"><img src="../../img/IconeProduto.png" 
                 class="icone" alt="Ícone de produto"></a>
-            <a href="ListarClientes"><img src="../../img/IconeClientes.png" 
+            <a href="../../ListarClientes"><img src="../../img/IconeClientes.png" 
                 class="icone" alt="Ícone de clientes"></a>
             <a><img src="../../img/IconeFilial.png" 
                 class="icone" alt="Ícone de filial"></a>
@@ -204,11 +201,11 @@
                                             <td>${consulta.idLoja}</td>
                                             <td>${consulta.nomeLoja}</td>
                                             <td>${consulta.idVenda}</td>
-                                            <td id="valorTotal${consulta.idCliente}">${consulta.valorTotal}</td>
+                                            <td>${consulta.valorTotal}</td>
                                             <td>${consulta.dataVenda}</td>
                                         </tr>
                                     </c:if>
-                                        
+                                    
                                     <!--Para relatorios de produto-->
                                     <c:if test="${consulta.tipoVenda == 'Produto'}">
                                         <tr>
@@ -218,6 +215,7 @@
                                             <td>${consulta.valorProduto}</td>
                                             <td>${consulta.quantidadeTotalProduto}</td>
                                             <td>${consulta.valorTotal}</td>
+                                            <td>${consulta.dataVenda}</td>
                                         </tr>
                                     </c:if>
                                     
@@ -227,17 +225,19 @@
                                             <td>${consulta.idLoja}</td>
                                             <td>${consulta.idServico}</td>
                                             <td>${consulta.nomeServico}</td>
-                                            <td>${consulta.valorServico}</td>
                                             <td>${consulta.grauComplexidade}</td>
+                                            <td>${consulta.duracaoMinutos}</td>
+                                            <td>${consulta.valorServico}</td>
+                                            <td>${consulta.dataVenda}</td>
                                         </tr>
                                     </c:if>
-                                        
+                                    
                                     <!--Para relatorios de loja-->
                                     <c:if test="${consulta.tipoVenda == 'Loja'}">
                                         <tr>
                                             <td>${consulta.idLoja}</td>
                                             <td>${consulta.nomeLoja}</td>
-                                            <td id="valorTotal">${consulta.valorTotal}</td>
+                                            <td>${consulta.valorTotal}</td>
                                             <td>${consulta.valorTotalPorcentagem}</td>
                                         </tr>
                                     </c:if>

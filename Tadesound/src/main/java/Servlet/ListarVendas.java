@@ -23,7 +23,7 @@ public class ListarVendas extends HttpServlet {
         String tipoConsulta = request.getParameter("tipoConsulta");
         String idConsulta = request.getParameter("idConsulta");        
         String nomeConsulta = request.getParameter("nomeConsulta");        
-        
+
         try {
             switch (tipoConsulta) {
                 case "Produto":

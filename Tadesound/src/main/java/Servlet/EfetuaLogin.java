@@ -18,13 +18,22 @@ public class EfetuaLogin extends HttpServlet {
             throws ServletException, IOException {
         String login = request.getParameter("login");
         String senha = request.getParameter("senha");
-
+        
         try {
             Usuario usuario = UsuarioDAO.getUsuario(login);
             if (usuario != null && usuario.validarSenha(senha)) {
                 HttpSession sessao = request.getSession();
                 sessao.setAttribute("usuario", usuario);
-                response.sendRedirect("protected/index.jsp");
+                
+                if (usuario.isAdmin()) {
+                    response.sendRedirect("protected/admin/menuInicialAdmin.jsp");
+                } else if (usuario.isGerente()) {
+                    response.sendRedirect("protected/gerencia/menuInicial.jsp");
+                } else if (usuario.isVendedor()) {
+                    response.sendRedirect("ListarProdutosEClientes");
+                } else {
+                    response.sendRedirect("ListarProdutos");
+                }
             } else {
                 response.sendRedirect("telaLogin.jsp?erro=userNotFound");
             }

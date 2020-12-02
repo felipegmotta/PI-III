@@ -13,9 +13,7 @@ public class CadastrarCliente extends HttpServlet {
     
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        System.out.println("dentro do post");
-        
+            throws ServletException, IOException {        
         String nome = request.getParameter("nome");
         String email = request.getParameter("email");
         String cpf = request.getParameter("cpf").replaceAll("([^\\w\\*])", ""); //Remove todos os caracteres especiais
@@ -29,23 +27,9 @@ public class CadastrarCliente extends HttpServlet {
         String uf = request.getParameter("uf");
         String cep = request.getParameter("cep").replaceAll("([^\\w\\*])", "");
         
-        System.out.println(nome);
-        System.out.println(email);
-        System.out.println(cpf);
-        System.out.println(dataNascimento);
-        System.out.println(telefone);
-        System.out.println(endereco);
-        System.out.println(numero);
-        System.out.println(complemento);
-        System.out.println(bairro);
-        System.out.println(cidade);
-        System.out.println(uf);
-        System.out.println(cep);
-        
         try {
             ClienteDAO.addCliente(new Cliente(nome, email, cpf, dataNascimento, telefone, endereco, numero, complemento, bairro, cidade, uf, cep));
             response.sendRedirect("sucesso.jsp");
-            System.out.println("sucessoooo");
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
             Utils.exibeTelaErro(ex, request, response);

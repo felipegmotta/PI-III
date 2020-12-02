@@ -9,7 +9,6 @@ Servlet\AtualizarServico.class
 Servlet\AtualizarLoja.class
 Servlet\AtualizarProduto.class
 Servlet\ExcluirCliente.class
-BD\ConexaoBDAWS.class
 Servlet\ExcluirProduto.class
 BD\ConexaoBD.class
 Servlet\AtualizarCliente.class
@@ -45,7 +44,6 @@ Model\VendaClientes.class
 Servlet\ListarProdutosEClientes.class
 DAO\ServicoDAO.class
 Servlet\EfetuaLogout.class
-Servlet\teste.class
 Servlet\CadastrarCliente.class
 Servlet\CadastrarServico.class
 Servlet\CadastrarVenda.class
