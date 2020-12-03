@@ -4,7 +4,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="css/realizaVendaServicosVendas.css">
+        <link rel="stylesheet" href="css/realizaVendaServicos.css">
         <link rel="stylesheet" href="css/bootstrap.css">
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -218,7 +218,7 @@
     <body>
         <header>
             <div class="container-logo">
-                <a href="02_menuInicial.jsp"><img src="img/Logo.png" class="logo" 
+                <a href="paginaInicial.jsp"><img src="img/Logo.png" class="logo" 
                     alt="Logo da Tadesound"></a>
             </div>
             <h1>VENDA</h1>

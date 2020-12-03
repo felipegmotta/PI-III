@@ -28,11 +28,11 @@ public class EfetuaLogin extends HttpServlet {
                 if (usuario.isAdmin()) {
                     response.sendRedirect("protected/admin/menuInicialAdmin.jsp");
                 } else if (usuario.isGerente()) {
-                    response.sendRedirect("protected/gerencia/menuInicial.jsp");
+                    response.sendRedirect("protected/gerencia/menuInicialGerente.jsp");
                 } else if (usuario.isVendedor()) {
-                    response.sendRedirect("ListarProdutosEClientes");
+                    response.sendRedirect("protected/vendas/menuInicialVendedor.jsp");
                 } else {
-                    response.sendRedirect("ListarProdutos");
+                    response.sendRedirect("protected/backoffice/menuInicialBackoffice.jsp");
                 }
             } else {
                 response.sendRedirect("telaLogin.jsp?erro=userNotFound");

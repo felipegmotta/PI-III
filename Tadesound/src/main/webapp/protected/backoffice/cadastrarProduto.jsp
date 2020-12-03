@@ -23,6 +23,10 @@
                 if ($('#descricao').val().search("[0-9]+") !== -1) {
                     msgErro += "O Campo \"Descricao\" esta incorreto.</br>";
                 }
+                //Valida a descricao
+                if ($('#quantidadeEstoque').val() < 0) {
+                    msgErro += "O Campo \"Quantidade em Estoque\" deve conter somente valores positivos.</br>";
+                }
                 
                 //Caso nao contenha erros de preenchimento
                 if (msgErro === "") {
@@ -104,7 +108,7 @@
     <body>
         <header>
             <div class="container-logo">
-                <a href="02_menuInicial.jsp"><img src="img/Logo.png" class="logo" 
+                <a href="../../paginaInicial.jsp"><img src="img/Logo.png" class="logo" 
                     alt="Logo da Tadesound"></a>
             </div>
             <h1>CADASTRO</h1>

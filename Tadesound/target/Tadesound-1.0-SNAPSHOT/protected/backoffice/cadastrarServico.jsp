@@ -32,7 +32,7 @@
             function cadastrarServicoBD() {
                 $.ajax({
                     type: "POST",
-                    url: "../../CadastrarServico",
+                    url: "../../Cada    strarServico",
                     data: {'nome': $('#nome').val(),
                            'preco': $('#preco').val(),
                            'grauComplexidade': $('#grauComplexidade').val(),
@@ -100,7 +100,7 @@
     <body>
         <header>
             <div class="container-logo">
-                <a href="02_menuInicial.jsp"><img src="../../img/Logo.png" class="logo" 
+                <a href="../../paginaInicial.jsp"><img src="../../img/Logo.png" class="logo" 
                     alt="Logo da Tadesound"></a>
             </div>
             <h1>CADASTRO</h1>

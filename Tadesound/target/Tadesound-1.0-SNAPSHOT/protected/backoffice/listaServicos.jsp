@@ -2,7 +2,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <%@include file="../../header.jsp"%>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="css/listaClientes.css">
@@ -57,7 +56,7 @@
     <body>
         <header>
             <div class="container-logo">
-                <a href="02_menuInicial.jsp"><img src="img/Logo.png" class="logo" 
+                <a href="paginaInicial.jsp"><img src="img/Logo.png" class="logo" 
                     alt="Logo da Tadesound"></a>
             </div>
             <h1>CONSULTA</h1>
@@ -115,7 +114,7 @@
         <div class="rgt-container">
             <div class="container-titulo">
                 <h1>Consultar Servico</h1>
-                <a href="cadastrarServico.jsp"><img src="img/IconeAdicionar.png" 
+                <a href="protected/backoffice/cadastrarServico.jsp"><img src="img/IconeAdicionar.png" 
                     class="btn-manter1" alt="Ícone para a página de cadastro de servicos"></a>
             </div>
 
@@ -129,8 +128,8 @@
                             <th>Grau Complexidade</th>
                             <th>Duracao em Minutos</th>
                             <th>Codigo Loja</th>
-                            <th class="Fill" style='width:1%'></th>
-                            <th class="Fill" style='width:1%'></th>
+                            <th class="filler"></th>
+                            <th class="filler"></th>
                         </thead>
                         <tbody>
                             <c:forEach var="servico" items="${listaServicos}">

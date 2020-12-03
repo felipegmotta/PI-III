@@ -2,7 +2,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <%@include file="../../header.jsp"%>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="css/listaClientes.css">
@@ -57,7 +56,7 @@
     <body>
         <header>
             <div class="container-logo">
-                <a href="02_menuInicial.jsp"><img src="img/Logo.png" class="logo" 
+                <a href="paginaInicial.jsp"><img src="img/Logo.png" class="logo" 
                     alt="Logo da Tadesound"></a>
             </div>
             <h1>CONSULTA</h1>
@@ -137,9 +136,8 @@
                             <th>UF</th>
                             <th>CEP</th>
                             <th>Data Cadastro</th>
-                            <th class="Fill" style='width:1%'></th>
-                            <th class="Fill" style='width:1%'></th>
-                            <th class="Fill" style='width:1%'></th>
+                            <th class="filler">Fill</th>
+                            <th class="filler">Fill</th>
                         </thead>
                         <tbody>
                             <c:forEach var="fornecedor" items="${listaFornecedores}">
@@ -153,7 +151,6 @@
                                     <td>${fornecedor.endereco}</td>
                                     <td>${fornecedor.numero}</td>
                                     <td>${fornecedor.complemento}</td>
-                                    <td>${fornecedor.bairro}</td>
                                     <td>${fornecedor.bairro}</td>
                                     <td>${fornecedor.cidade}</td>
                                     <td>${fornecedor.uf}</td>
