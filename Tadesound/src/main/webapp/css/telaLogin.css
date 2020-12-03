@@ -1,0 +1,74 @@
+/* 
+    Created on : 30/11/2020, 15:25:59
+    Author     : Ygor Jesus 
+*/
+
+body{
+    background-color: #182127;
+}
+
+.form-group {
+    width: 320px;
+    height: 420px;
+    border: 2px solid #000;
+    border-radius: 80px 0px 80px 0px;
+    color: #fff;
+    background-color: rgba(0,0,000,0.8);   
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    padding: 60px 28px;
+}
+
+.form-group input{
+    border: none;
+    border-bottom: 1px solid white;
+    background: transparent;
+    outline: none;
+    height: 35px;
+    color: white;
+    font-size: 16px;
+    margin-left: 5px;
+}
+
+.form-group input[type="text"], input[type="password"]{
+    border-bottom: 1px solid white;
+    margin-left: 15px;
+}
+
+.btn-primary{
+    width: 220px;
+    height: 35px;
+    top: 70%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);    
+    border: none;
+    outline: none;
+    color: #000;
+    background: #fff;
+    border-radius: 20px;
+}
+
+.container {
+    width: 100%; 
+    text-align: center;
+}
+
+.background{
+    width: 95%;
+    height: 684px;
+}
+
+footer{
+    background-color: #d1d1d1;
+    text-align: center;
+    padding-top: 0.3vw;
+    margin: -4px 2.45vw 2vw 2.45vw;
+}
+
+.info{
+    width: 80%;
+}
