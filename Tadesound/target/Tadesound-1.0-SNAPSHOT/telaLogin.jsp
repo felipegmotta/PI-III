@@ -4,16 +4,10 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="css/telaLogin.css">
         <title>Menu</title>
     </head>
     <body> 
-        
-        <div class="container">
-            <img src="img/BaseBackground.jpg" class="background" 
-                alt="Imagem de fundo da Tadesound">
-        </div> 
-        
+        <h1>Login</h1>
         <!--Caso tenha dado algum erro de login-->
         <c:if test="${param.erro == 'userNotFound'}">
             <div class="alert alert-danger" role="alert">
@@ -35,23 +29,16 @@
             </div>
         </c:if>
         
-
-
         <form action="EfetuaLogin" method="POST">
             <div class="form-group">
-                <h1>Login</h1>
-                </br>
-                <label>Usuário</label>
+                <label>Login</label>
                 <input name="login" class="form-control" required>
-                </br>
-                </br>
+            </div>
+            <div class="form-group">
                 <label>Senha</label>
                 <input type="password" name="senha" class="form-control" required>
             </div>
             <button type="submit" class="btn btn-primary">Logar</button>
         </form>
-        <footer>
-            <img src="img/Footer.png" class="info" alt="Rodapé">                            
-        </footer>
     </body>
 </html>
