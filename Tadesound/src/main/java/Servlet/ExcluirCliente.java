@@ -14,14 +14,14 @@ public class ExcluirCliente extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        System.out.println("entrei");
         String cpfCliente = request.getParameter("cpf");
         
         //Realiza o delete no banco
         try {
             ClienteDAO.deleteCliente(cpfCliente);
-            response.getWriter().print(true);
         } catch (SQLException ex) {
-            response.getWriter().print(false);
+            Utils.exibeTelaErro(ex, request, response);
         }
     }
 

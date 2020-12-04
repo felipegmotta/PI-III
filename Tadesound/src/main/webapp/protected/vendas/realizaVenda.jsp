@@ -4,7 +4,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="css/realizaVendaVendas.css">
+        <link rel="stylesheet" href="css/realizaVenda.css">
         <link rel="stylesheet" href="css/bootstrap.css">
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -93,8 +93,7 @@
             
             function adicionaProdutoSessao(idProduto, nomeProduto, categoriaProduto, quantidadeProduto, precoProdutoFormatado, precoTotal) {
                 //Envia a requisicao GET para o BD deletar o fornecedor
-                console.log(nomeProduto)
-                $.get("CarrinhoServlet?idProduto="+idProduto+"&nomeProduto="+nomeProduto+"&categoriaProduto="+categoriaProduto+"&quantidadeProduto="+quantidadeProduto+"&precoProdutoFormatado="+precoProdutoFormatado+"&precoTotal="+precoTotal, function(resposta) {
+                $.get("SessaoVendaProdutos?idProduto="+idProduto+"&nomeProduto="+nomeProduto+"&categoriaProduto="+categoriaProduto+"&quantidadeProduto="+quantidadeProduto+"&precoProdutoFormatado="+precoProdutoFormatado+"&precoTotal="+precoTotal, function(resposta) {
                     
                 });
             }            
@@ -107,8 +106,7 @@
                 document.getElementById('valorCompra').innerText = "Total: R$0,00";
                 
                 //Envia a requisicao GET para o Servlet retirar os produtos da sessao
-                $.get("CarrinhoServlet?limparSessao=True", function(resposta) {
-                    
+                $.get("SessaoVendaProdutos?limparSessao=True", function() {
                 });
             }
             
@@ -332,6 +330,17 @@
                 </div>
                 
                 <h2 class="carrinho">Carrinho</h2>
+                <div class="total">
+                    <!--Guardar o status atual da compra-->
+                    <span id="statusCompra">
+                        <h5 id="valorCompra">Total: R$0,00</h5>
+                        <h5 id="clienteCompra">Cliente: </h5>
+                        <input hidden="true" id="clienteEscolhido"/>
+                        <input hidden="true" id="valorTotal"/>
+                        <input hidden="true" id="quantidadeProdutos"/>
+                    </span>
+                </div>
+                
                 <div class="campos-container2">
                     <table cellspacing="0" cellpadding="1" border="1" width="300">
                         <!--Tabela do carrinho-->
@@ -347,7 +356,7 @@
                             </thead>
                             <tbody id="tabelaCarrinho">
                                 <!--Caso tenha algum item na sessao-->
-                                <c:forEach var="produto" items="${sessionScope.listaProdutos}">
+                                <c:forEach var="produto" items="${sessionScope.listaProdutosSessao}">
                                     <tr>
                                         <td hidden="true">${produto.idProduto}</td>
                                         <td>Produto</td>
@@ -368,15 +377,6 @@
                 </div>
                         
                 <div class="total">
-                    <!--Guardar o status atual da compra-->
-                    <span id="statusCompra">
-                        <h5 id="valorCompra">Total: R$0,00</h5>
-                        <h5 id="clienteCompra">Cliente: </h5>
-                        <input hidden="true" id="clienteEscolhido"/>
-                        <input hidden="true" id="valorTotal"/>
-                        <input hidden="true" id="quantidadeProdutos"/>
-                    </span>
-                        
                     <div class="modal fade" id="modalProduto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">

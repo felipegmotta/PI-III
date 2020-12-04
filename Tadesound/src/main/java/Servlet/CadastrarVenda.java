@@ -16,11 +16,14 @@ public class CadastrarVenda extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String tipo = request.getParameter("tipo");
-        String valorTotal = request.getParameter("valorTotal");
+        String valorTotal = request.getParameter("valorTotal").replaceAll("([^\\w\\*])", "");
         int quantidadeItens = Integer.parseInt(request.getParameter("quantidadeItens"));
         int idCliente = Integer.parseInt(request.getParameter("idCliente"));
         int idFuncionario = Integer.parseInt(request.getParameter("idFuncionario"));
-        String dataProgramada = request.getParameter("dataProgramada").replaceAll("([^\\w\\*])", "");
+        String dataProgramada = request.getParameter("dataProgramada");
+        if (dataProgramada != null) {
+            dataProgramada = dataProgramada.replaceAll("([^\\w\\*])", "");
+        }
 
         try {
             int idVenda;

@@ -8,7 +8,6 @@ import java.util.List;
 import DAO.ClienteDAO;
 import DAO.ProdutoDAO;
 import java.io.IOException;
-import java.sql.SQLException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

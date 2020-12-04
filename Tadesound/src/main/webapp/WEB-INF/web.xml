@@ -18,8 +18,12 @@
         <servlet-class>Servlet.EfetuaLogout</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>CarrinhoServlet</servlet-name>
-        <servlet-class>Servlet.CarrinhoServlet</servlet-class>
+        <servlet-name>SessaoVendaProdutos</servlet-name>
+        <servlet-class>Servlet.SessaoVendaProdutos</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SessaoVendaServicos</servlet-name>
+        <servlet-class>Servlet.SessaoVendaServicos</servlet-class>
     </servlet>
     <!--Mapping-->
     <servlet-mapping>
@@ -31,8 +35,12 @@
         <url-pattern>/EfetuaLogout</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>CarrinhoServlet</servlet-name>
-        <url-pattern>/CarrinhoServlet</url-pattern>
+        <servlet-name>SessaoVendaProdutos</servlet-name>
+        <url-pattern>/SessaoVendaProdutos</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SessaoVendaServicos</servlet-name>
+        <url-pattern>/SessaoVendaServicos</url-pattern>
     </servlet-mapping>
     <!--Listagem-->
     <servlet>

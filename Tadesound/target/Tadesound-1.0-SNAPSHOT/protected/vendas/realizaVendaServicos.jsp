@@ -32,19 +32,22 @@
             
             function escolheServico() {
                 //Captura as informacoes do servico atual
+                var idServico = $('#idServico').val();
                 var nomeServico = $('#nomeServico').val();
-                var dataSerivco = $('#dataServico').val();
+                var duracaoMinutos = $('#duracaoMinutos').val();
+                var grauComplexidade = $('#grauComplexidade').val();
+                var dataServico = $('#dataServico').val();
                 var precoServico = $('#precoServico').val();
                 
                 //Atualiza valores da compra
                 $('#servicoCompra').html("Servico: " + nomeServico);
-                $('#dataProgramada').html("Data Programada: " + dataSerivco);
+                $('#dataProgramada').html("Data Programada: " + dataServico);
                 
                 //Atualiza o valor total da compra
                 atualizaValorCompra(precoServico);
 
                 //Adiciona o servico na sessao do usuario
-//                adicionaServicoSessao(idServico, nomeServico, precoServicoFormatado, precoTotal);
+                adicionaServicoSessao(idServico, nomeServico, duracaoMinutos, grauComplexidade, precoServicoFormatado, dataServico);
 
                 //Desabilita o toast, caso haja
                 $('#toast').toast('hide');
@@ -65,9 +68,9 @@
                 document.getElementById('valorCompra').innerText = "Total: " + valorTotalFormatado;
             }
             
-            function adicionaServicoSessao(idServico, nomeServico, precoServicoFormatado, precoTotal) {
+            function adicionaServicoSessao(idServico, nomeServico, duracaoMinutos, grauComplexidade, precoTotal, dataProgramada) {
                 //Envia a requisicao GET para o BD deletar o fornecedor
-                $.get("CarrinhoServlet?idServico="+idServico+"&nomeServico="+nomeServico+"&precoServicoFormatado="+precoServicoFormatado+"&precoTotal="+precoTotal, function(resposta) {
+                $.get("SessaoVendaServicos?idServico="+idServico+"&nomeServico="+nomeServico+"&duracaoMinutos="+duracaoMinutos+"&grauComplexidade="+grauComplexidade+"&precoTotal="+precoTotal+"&dataProgramada="+dataProgramada, function(resposta) {
                     
                 });
             }            
@@ -350,6 +353,7 @@
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
+                                
                                 <div class="modal-body">
                                     Escolha a data de realizacao do servico: 
                                     <input id="dataServico" placeholder="__/__/____" data-slots="_" required="required"/>
@@ -360,8 +364,23 @@
                                     <input id="precoServico" hidden="true"/>
                                     <input id="clienteEscolhido" hidden="true"/>
                                     <input id="valorTotal" hidden="true"/>
-
                                 </div>
+                                
+                                <c:forEach var="servico" items="${sessionScope.listaServicosSessao}">
+                                    <script>
+                                        console.log("entrei")
+                                        //Atualiza valores da compra
+                                        $('#servicoCompra').html("Servico: " + ${servico.nomeServico});
+                                        $('#dataProgramada').html("Data Programada: " + ${servico.dataProgramada});
+                                        $('#idServico').val(${servico.idServico});
+                                        $('#nomeServico').val(${servico.nomeServico});
+                                        $('#grauComplexidade').val(${servico.grauComplexidade});
+                                        $('#duracaoMinutos').val(${servico.duracaoMinutos});
+                                        $('#valorTotal').val(${servico.valorTotal});
+                                        $('#dataServico').val(${servico.dataProgramada});
+                                    </script>
+                                </c:forEach>
+                                
                                 <div class="modal-footer">
                                     <button type="button" class="btn-cancelar" data-dismiss="modal">Cancelar</button>
                                     <button type="button" class="btn-confirmar" onclick="escolheServico()">Confirmar</button>

@@ -1,6 +1,7 @@
 package Servlet;
 
 import DAO.FornecedorDAO;
+import Utils.Utils;
 import java.io.IOException;
 import java.sql.SQLException;
 import javax.servlet.ServletException;
@@ -18,9 +19,8 @@ public class ExcluirFornecedor extends HttpServlet {
         //Realiza o delete no banco
         try {
             FornecedorDAO.deleteFornecedor(idFornecedor);
-            response.getWriter().print(true);
         } catch (SQLException ex) {
-            response.getWriter().print(false);
+            Utils.exibeTelaErro(ex, request, response);
         }
     }
 

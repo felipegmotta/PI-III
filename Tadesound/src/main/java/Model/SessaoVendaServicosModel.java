@@ -7,15 +7,19 @@ import lombok.Setter;
 @Setter
 public class SessaoVendaServicosModel {
     
-    public SessaoVendaServicosModel(int idServico, String nome, int grauComplexidade, int duracaoMinutos) {
+    public SessaoVendaServicosModel(int idServico, String nomeServico, int duracaoMinutos, int grauComplexidade, String valorTotal, String dataProrgramada) {
         this.idServico = idServico;
-        this.nome = nome;
-        this.grauComplexidade = grauComplexidade;
+        this.nomeServico = nomeServico;
         this.duracaoMinutos = duracaoMinutos;
+        this.grauComplexidade = grauComplexidade;
+        this.valorTotal = valorTotal;
+        this.dataProrgramada = dataProrgramada;
     }
     
     private int idServico;
-    private String nome;
-    private int grauComplexidade;
+    private String nomeServico;
     private int duracaoMinutos;
+    private int grauComplexidade;
+    private String valorTotal;
+    private String dataProrgramada;
 }

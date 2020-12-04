@@ -20,26 +20,28 @@ public class SessaoVendaServicos extends HttpServlet {
         
         //Caso tenha que limpar a sessao
         if (limparSessao != null) {
-            sessao.setAttribute("listaServicos", null);
+            sessao.setAttribute("listaServicosSessao", null);
             return;
         }
         
         int idServico = Integer.parseInt(request.getParameter("idServico"));
         String nomeServico = request.getParameter("nomeServico");
-        int grauComplexidade = Integer.parseInt(request.getParameter("grauComplexidade"));
         int duracaoMinutos = Integer.parseInt(request.getParameter("duracaoMinutos"));
+        int grauComplexidade = Integer.parseInt(request.getParameter("grauComplexidade"));
+        String valorTotal = request.getParameter("valorTotal");
+        String dataProgramada = request.getParameter("dataProgramada");
         
-        SessaoVendaServicosModel sessaoServicos = new SessaoVendaServicosModel(idServico, nomeServico, grauComplexidade, duracaoMinutos);
+        SessaoVendaServicosModel sessaoServicos = new SessaoVendaServicosModel(idServico, nomeServico, duracaoMinutos, grauComplexidade, valorTotal, dataProgramada);
         
-        List<SessaoVendaServicosModel> listaServicos = null;
-        if (sessao.getAttribute("listaServicos") == null) {
-            listaServicos = new ArrayList<>();
+        List<SessaoVendaServicosModel> listaServicosSessao = null;
+        if (sessao.getAttribute("listaServicosSessao") == null) {
+            listaServicosSessao = new ArrayList<>();
         } else {
-            listaServicos = (List<SessaoVendaServicosModel>) sessao.getAttribute("listaServicos");
+            listaServicosSessao = (List<SessaoVendaServicosModel>) sessao.getAttribute("listaServicosSessao");
         }
         
-        listaServicos.add(sessaoServicos);
-        
-        sessao.setAttribute("listaServicos", listaServicos);
+        listaServicosSessao.add(sessaoServicos);
+        System.out.println("adicionei");
+        sessao.setAttribute("listaServicosSessao", listaServicosSessao);
     }
 }

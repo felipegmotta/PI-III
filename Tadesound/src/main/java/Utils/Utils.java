@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 public class Utils {
     public static void exibeTelaErro(Exception ex, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("tenho que exibir tela de erro");
+        System.out.println(ex.getMessage());
         
         String msgErro = ex.getMessage();
         request.setAttribute("msgErro", msgErro);

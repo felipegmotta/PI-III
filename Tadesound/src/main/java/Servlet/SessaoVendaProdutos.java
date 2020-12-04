@@ -20,7 +20,7 @@ public class SessaoVendaProdutos extends HttpServlet {
         
         //Caso tenha que limpar a sessao
         if (limparSessao != null) {
-            sessao.setAttribute("listaProdutos", null);
+            sessao.setAttribute("listaProdutosSessao", null);
             return;
         }
         
@@ -33,15 +33,15 @@ public class SessaoVendaProdutos extends HttpServlet {
         
         SessaoVendaProdutosModel sessaoProdutos = new SessaoVendaProdutosModel(idProduto, nomeProduto, categoriaProduto, quantidadeProduto, precoProdutoFormatado, precoTotal);
         
-        List<SessaoVendaProdutosModel> listaProdutos = null;
-        if (sessao.getAttribute("listaProdutos") == null) {
-            listaProdutos = new ArrayList<>();
+        List<SessaoVendaProdutosModel> listaProdutosSessao = null;
+        if (sessao.getAttribute("listaProdutosSessao") == null) {
+            listaProdutosSessao = new ArrayList<>();
         } else {
-            listaProdutos = (List<SessaoVendaProdutosModel>) sessao.getAttribute("listaProdutos");
+            listaProdutosSessao = (List<SessaoVendaProdutosModel>) sessao.getAttribute("listaProdutosSessao");
         }
         
-        listaProdutos.add(sessaoProdutos);
+        listaProdutosSessao.add(sessaoProdutos);
         
-        sessao.setAttribute("listaProdutos", listaProdutos);
+        sessao.setAttribute("listaProdutosSessao", listaProdutosSessao);
     }
 }
