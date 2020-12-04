@@ -7,17 +7,12 @@
         <link rel="stylesheet" href="css/telaLogin.css">
         <title>Menu</title>
     </head>
-    <body> 
-        
-        <div class="container">
-            <img src="img/BaseBackground.jpg" class="background" 
-                alt="Imagem de fundo da Tadesound">
-        </div> 
+    <body>       
         
         <!--Caso tenha dado algum erro de login-->
         <c:if test="${param.erro == 'userNotFound'}">
             <div class="alert alert-danger" role="alert">
-                Usuario e/ou senha incorreto(s)!
+                <h3 style="color:#ff8f06; font-family: Calibri">Usuario e/ou senha incorreto(s)!</h3>
             </div>
         </c:if>
         
@@ -35,20 +30,23 @@
             </div>
         </c:if>
         
-
+        <div class="container">
+            <img src="img/BaseBackground.jpg" class="background" 
+                alt="Imagem de fundo da Tadesound">
+        </div> 
 
         <form action="EfetuaLogin" method="POST">
             <div class="form-group">
-                <h1>Login</h1>
+                <h1 style="font-family: Calibri">Login</h1>
                 </br>
-                <label>Usuário</label>
+                <label style="font-family: Calibri">Usuário</label>
                 <input name="login" class="form-control" required>
                 </br>
                 </br>
-                <label>Senha</label>
+                <label style="font-family: Calibri">Senha</label>
                 <input type="password" name="senha" class="form-control" required>
             </div>
-            <button type="submit" class="btn btn-primary">Logar</button>
+            <button type="submit" class="btn btn-primary" style="font-family: Calibri">Logar</button>
         </form>
         <footer>
             <img src="img/Footer.png" class="info" alt="Rodapé">                            
