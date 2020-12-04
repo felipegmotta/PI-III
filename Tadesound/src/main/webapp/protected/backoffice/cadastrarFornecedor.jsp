@@ -4,7 +4,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="../../css/crudFornecedor.css">
+        <link rel="stylesheet" href="../../css/crudFornecedores.css">
         <link rel="stylesheet" href="../../css/bootstrap.css">
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -179,11 +179,10 @@
                 
         <div class="rgt-container">
             <div class="container-titulo">
-                <h1>Cadastrar Fornecedor</h1>
-                <a href="../../ListarFornecedores"><img src="../../img/IconePesquisar.png" 
-                    class="btn-manter1" alt="Ícone para a página de listagem de fornecedor"></a>
-                <a href="atualizarFornecedor.jsp"><img src="../../img/IconeEditar.png" 
-                    class="btn-manter2" alt="Ícone para a página de manutenção de fornecedor"></a>
+                <h1>Adicionar Fornecedor</h1>
+                <img class="btn-manter3">
+                <a href="../../ListarFornecedores"><img src="../../img/IconePesquisar2.png" 
+                    class="btn-manter4" alt="Ícone para a página de listagem de fornecedor"></a>
             </div>
             
             <form method="POST">

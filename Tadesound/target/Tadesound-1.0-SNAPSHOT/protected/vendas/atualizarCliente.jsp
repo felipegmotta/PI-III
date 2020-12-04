@@ -4,7 +4,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="css/crudCliente.css">
+        <link rel="stylesheet" href="css/crudClientes.css">
         <link rel="stylesheet" href="css/bootstrap.css">
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -166,7 +166,7 @@
                 <h1>Atualizar Cliente</h1>
                 <a href="ListarClientes"><img src="img/IconePesquisar.png" 
                     class="btn-manter1" alt="Ícone para a página de listagem de clientes"></a>
-                <a href="cadastrarCliente.jsp"><img src="img/IconeAdicionar2.png" 
+                <a href="protected/vendas/cadastrarCliente.jsp"><img src="img/IconeAdicionar2.png" 
                     class="btn-manter2" alt="Ícone para a página de cadastro de clientes"></a>
             </div>
                 <h3>${cliente.nome}</h3>

@@ -4,7 +4,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="css/crudServico.css">
+        <link rel="stylesheet" href="css/crudServicos.css">
         <link rel="stylesheet" href="css/bootstrap.css">
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -150,12 +150,13 @@
         
         <div class="rgt-container">
             <div class="container-titulo">
-                <h1>Atualizar Serviço: ${servico.nome}</h1>
+                <h1>Atualizar Serviço</h1>
                 <a href="listaServico.jsp"><img src="img/IconePesquisar.png" 
                     class="btn-manter1" alt="Ícone para a página de listagem de servico"></a>
                 <a href="cadastrarServico.jsp"><img src="img/IconeAdicionar2.png" 
                     class="btn-manter2" alt="Ícone para a página de cadastro de servico"></a>
             </div>
+                <h3>${servico.nome}</h3>
             
             <form method="POST">
                 <div class="campos-container">

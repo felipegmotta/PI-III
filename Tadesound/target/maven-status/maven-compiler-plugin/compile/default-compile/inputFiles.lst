@@ -1,53 +1,58 @@
-E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\Model\VendaLojas.java
-E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\Model\ItensVenda.java
-E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\Servlet\ExcluirCliente.java
-E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\Servlet\ListarServicos.java
-E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\Servlet\AtualizarFornecedor.java
-E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\Servlet\SessaoVendaProdutos.java
-E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\DAO\UsuarioDAO.java
-E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\Servlet\CadastrarProduto.java
-E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\Servlet\AtualizarLoja.java
-E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\Servlet\CadastrarServico.java
-E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\Servlet\EfetuaLogin.java
-E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\Servlet\ListarClientes.java
-E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\Servlet\ListarProdutos.java
-E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\Model\Usuario.java
-E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\Servlet\CadastrarItensVenda.java
-E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\Model\VendaClientes.java
-E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\Servlet\AtualizarProduto.java
-E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\Model\VendaProdutos.java
-E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\Servlet\EfetuaLogout.java
-E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\Utils\Utils.java
-E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\Servlet\CadastrarVenda.java
-E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\Servlet\ListarVendas.java
-E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\Servlet\ExcluirFornecedor.java
-E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\Model\Fornecedor.java
-E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\DAO\LojaDAO.java
-E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\Model\VendaServicos.java
-E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\Servlet\AtualizarCliente.java
-E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\Model\Servico.java
-E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\DAO\ClienteDAO.java
-E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\Model\SessaoVendaProdutosModel.java
-E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\Servlet\ListarLojas.java
-E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\Model\Venda.java
-E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\Servlet\ListarFornecedores.java
-E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\Servlet\CadastrarLoja.java
-E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\DAO\ServicoDAO.java
-E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\DAO\ProdutoDAO.java
-E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\Servlet\ListarServicosEClientes.java
-E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\Model\SessaoVendaServicosModel.java
-E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\DAO\FornecedorDAO.java
-E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\BD\ConexaoBD.java
-E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\Filter\AutorizacaoFilter.java
-E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\Servlet\ExcluirProduto.java
-E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\Model\Produto.java
-E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\Servlet\CadastrarCliente.java
-E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\Model\Loja.java
-E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\Servlet\ListarProdutosEClientes.java
-E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\Servlet\SessaoVendaServicos.java
-E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\Servlet\AtualizarServico.java
-E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\Servlet\CadastrarFornecedor.java
-E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\Model\Cliente.java
-E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\DAO\VendaDAO.java
-E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\Model\Pessoa.java
-E:\Facul\TADS\2 Semestre\PI III\meu PI\Tadesound\src\main\java\Servlet\ExcluirLoja.java
+C:\Users\denis\Documents\NetBeansProjects\PI-III\PI-III\Tadesound\src\main\java\Model\SessaoVendaProdutosModel.java
+C:\Users\denis\Documents\NetBeansProjects\PI-III\PI-III\Tadesound\src\main\java\Model\Venda.java
+C:\Users\denis\Documents\NetBeansProjects\PI-III\PI-III\Tadesound\src\main\java\Model\Produto.java
+C:\Users\denis\Documents\NetBeansProjects\PI-III\PI-III\Tadesound\src\main\java\Model\VendaLojas.java
+C:\Users\denis\Documents\NetBeansProjects\PI-III\PI-III\Tadesound\src\main\java\Servlet\CadastrarProduto.java
+C:\Users\denis\Documents\NetBeansProjects\PI-III\PI-III\Tadesound\src\main\java\Model\ItensVenda.java
+C:\Users\denis\Documents\NetBeansProjects\PI-III\PI-III\Tadesound\src\main\java\Servlet\CadastrarItensVenda.java
+C:\Users\denis\Documents\NetBeansProjects\PI-III\PI-III\Tadesound\src\main\java\Utils\teste.java
+C:\Users\denis\Documents\NetBeansProjects\PI-III\PI-III\Tadesound\src\main\java\Servlet\EfetuaLogin.java
+C:\Users\denis\Documents\NetBeansProjects\PI-III\PI-III\Tadesound\src\main\java\Servlet\ExcluirProduto.java
+C:\Users\denis\Documents\NetBeansProjects\PI-III\PI-III\Tadesound\src\main\java\Model\Fornecedor.java
+C:\Users\denis\Documents\NetBeansProjects\PI-III\PI-III\Tadesound\src\main\java\Model\SessaoVendaServicosModel.java
+C:\Users\denis\Documents\NetBeansProjects\PI-III\PI-III\Tadesound\src\main\java\DAO\ProdutoDAO.java
+C:\Users\denis\Documents\NetBeansProjects\PI-III\PI-III\Tadesound\src\main\java\BD\ConexaoBDAWS.java
+C:\Users\denis\Documents\NetBeansProjects\PI-III\PI-III\Tadesound\src\main\java\Servlet\SessaoVendaProdutos.java
+C:\Users\denis\Documents\NetBeansProjects\PI-III\PI-III\Tadesound\src\main\java\DAO\ServicoDAO.java
+C:\Users\denis\Documents\NetBeansProjects\PI-III\PI-III\Tadesound\src\main\java\Servlet\AtualizarProduto.java
+C:\Users\denis\Documents\NetBeansProjects\PI-III\PI-III\Tadesound\src\main\java\Servlet\ListarServicosEClientes.java
+C:\Users\denis\Documents\NetBeansProjects\PI-III\PI-III\Tadesound\src\main\java\Servlet\ListarFornecedores.java
+C:\Users\denis\Documents\NetBeansProjects\PI-III\PI-III\Tadesound\src\main\java\Model\VendaServicos.java
+C:\Users\denis\Documents\NetBeansProjects\PI-III\PI-III\Tadesound\src\main\java\Servlet\SessaoVendaServicos.java
+C:\Users\denis\Documents\NetBeansProjects\PI-III\PI-III\Tadesound\src\main\java\Servlet\CadastrarFornecedor.java
+C:\Users\denis\Documents\NetBeansProjects\PI-III\PI-III\Tadesound\src\main\java\Model\VendaProdutos.java
+C:\Users\denis\Documents\NetBeansProjects\PI-III\PI-III\Tadesound\src\main\java\Servlet\CadastrarLoja.java
+C:\Users\denis\Documents\NetBeansProjects\PI-III\PI-III\Tadesound\src\main\java\Model\VendaClientes.java
+C:\Users\denis\Documents\NetBeansProjects\PI-III\PI-III\Tadesound\src\main\java\Servlet\AtualizarCliente.java
+C:\Users\denis\Documents\NetBeansProjects\PI-III\PI-III\Tadesound\src\main\java\Servlet\ListarProdutosEClientes.java
+C:\Users\denis\Documents\NetBeansProjects\PI-III\PI-III\Tadesound\src\main\java\DAO\teste.java
+C:\Users\denis\Documents\NetBeansProjects\PI-III\PI-III\Tadesound\src\main\java\DAO\vendaServicos.java
+C:\Users\denis\Documents\NetBeansProjects\PI-III\PI-III\Tadesound\src\main\java\Model\Servico.java
+C:\Users\denis\Documents\NetBeansProjects\PI-III\PI-III\Tadesound\src\main\java\Servlet\ExcluirCliente.java
+C:\Users\denis\Documents\NetBeansProjects\PI-III\PI-III\Tadesound\src\main\java\DAO\UsuarioDAO.java
+C:\Users\denis\Documents\NetBeansProjects\PI-III\PI-III\Tadesound\src\main\java\Servlet\EfetuaLogout.java
+C:\Users\denis\Documents\NetBeansProjects\PI-III\PI-III\Tadesound\src\main\java\Servlet\AtualizarFornecedor.java
+C:\Users\denis\Documents\NetBeansProjects\PI-III\PI-III\Tadesound\src\main\java\Servlet\ListarProdutos.java
+C:\Users\denis\Documents\NetBeansProjects\PI-III\PI-III\Tadesound\src\main\java\Servlet\ListarVendas.java
+C:\Users\denis\Documents\NetBeansProjects\PI-III\PI-III\Tadesound\src\main\java\Servlet\ListarClientes.java
+C:\Users\denis\Documents\NetBeansProjects\PI-III\PI-III\Tadesound\src\main\java\DAO\FornecedorDAO.java
+C:\Users\denis\Documents\NetBeansProjects\PI-III\PI-III\Tadesound\src\main\java\Servlet\ListarServicos.java
+C:\Users\denis\Documents\NetBeansProjects\PI-III\PI-III\Tadesound\src\main\java\Model\Cliente.java
+C:\Users\denis\Documents\NetBeansProjects\PI-III\PI-III\Tadesound\src\main\java\BD\ConexaoBD.java
+C:\Users\denis\Documents\NetBeansProjects\PI-III\PI-III\Tadesound\src\main\java\Servlet\CadastrarServico.java
+C:\Users\denis\Documents\NetBeansProjects\PI-III\PI-III\Tadesound\src\main\java\Servlet\CadastrarCliente.java
+C:\Users\denis\Documents\NetBeansProjects\PI-III\PI-III\Tadesound\src\main\java\Servlet\ExcluirLoja.java
+C:\Users\denis\Documents\NetBeansProjects\PI-III\PI-III\Tadesound\src\main\java\BD\Teste.java
+C:\Users\denis\Documents\NetBeansProjects\PI-III\PI-III\Tadesound\src\main\java\Model\Loja.java
+C:\Users\denis\Documents\NetBeansProjects\PI-III\PI-III\Tadesound\src\main\java\Servlet\ExcluirFornecedor.java
+C:\Users\denis\Documents\NetBeansProjects\PI-III\PI-III\Tadesound\src\main\java\DAO\VendaDAO.java
+C:\Users\denis\Documents\NetBeansProjects\PI-III\PI-III\Tadesound\src\main\java\Utils\Utils.java
+C:\Users\denis\Documents\NetBeansProjects\PI-III\PI-III\Tadesound\src\main\java\Model\Pessoa.java
+C:\Users\denis\Documents\NetBeansProjects\PI-III\PI-III\Tadesound\src\main\java\Servlet\CadastrarVenda.java
+C:\Users\denis\Documents\NetBeansProjects\PI-III\PI-III\Tadesound\src\main\java\DAO\ClienteDAO.java
+C:\Users\denis\Documents\NetBeansProjects\PI-III\PI-III\Tadesound\src\main\java\DAO\LojaDAO.java
+C:\Users\denis\Documents\NetBeansProjects\PI-III\PI-III\Tadesound\src\main\java\Servlet\AtualizarLoja.java
+C:\Users\denis\Documents\NetBeansProjects\PI-III\PI-III\Tadesound\src\main\java\Servlet\AtualizarServico.java
+C:\Users\denis\Documents\NetBeansProjects\PI-III\PI-III\Tadesound\src\main\java\Model\Usuario.java
+C:\Users\denis\Documents\NetBeansProjects\PI-III\PI-III\Tadesound\src\main\java\Filter\AutorizacaoFilter.java
+C:\Users\denis\Documents\NetBeansProjects\PI-III\PI-III\Tadesound\src\main\java\Servlet\ListarLojas.java

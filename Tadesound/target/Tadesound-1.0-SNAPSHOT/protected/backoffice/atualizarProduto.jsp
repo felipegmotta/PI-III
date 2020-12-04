@@ -4,7 +4,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="css/crudProduto.css">
+        <link rel="stylesheet" href="css/crudProdutos.css">
         <link rel="stylesheet" href="css/bootstrap.css">
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -160,7 +160,7 @@
                 <h1>Atualizar Produto</h1>
                 <a href="ListarProdutos"><img src="img/IconePesquisar.png" 
                     class="btn-manter1" alt="Ícone para a página de listagem de produtos"></a>
-                <a href="cadastrarProduto.jsp"><img src="img/IconeAdicionar2.png" 
+                <a href="/Tadesound/CadastrarProduto"><img src="img/IconeAdicionar2.png" 
                     class="btn-manter2" alt="Ícone para a página de cadastro de produtos"></a>
             </div>
                 <h3>${produto.nome}</h3>

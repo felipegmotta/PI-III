@@ -103,7 +103,7 @@
         <div class="rgt-container">
             <div class="container-titulo">
                 <h1>Consultar Loja</h1>
-                <a href="protected/backoffice/cadastrarLoja.jsp"><img src="img/IconeAdicionar.png" 
+                <a href="protected/gerencia/cadastrarLoja.jsp"><img src="img/IconeAdicionar.png" 
                     class="btn-manter1" alt="Ícone para a página de cadastro de lojas"></a>
             </div>
 
@@ -122,8 +122,8 @@
                             <th>UF</th>
                             <th>CEP</th>
                             <th>Data Cadastro</th>
-                            <th class="Fill" style='width:1%'></th>
-                            <th class="Fill" style='width:1%'></th>
+                            <th class="filler">Fill</th>
+                            <th class="filler">Fill</th>
                         </thead>
                         <tbody>
                             <c:forEach var="loja" items="${listaLojas}">

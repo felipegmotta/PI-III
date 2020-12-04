@@ -48,9 +48,9 @@ header h1{
 .lft-container{
     display: inline-block;
     width: 13%;
-    margin-right: 1vw;
     margin-bottom: -10vw;
-    padding: 1vw 2vw 30vw 2vw;
+    margin-right: 1vw;
+    padding: 1vw 2vw 3vw 2vw;
     background-color: #e3e3e3;
 }
 
@@ -82,12 +82,11 @@ header h1{
     font-family: Bahnschrift Condensed;
     font-size: 2.7vw;
     transform: scale(1, 1.2);
-    margin-right: 47vw;
+    margin-right: 46vw;
 }
 
 .rgt-container h3{
     font-family: Bahnschrift Condensed;
-    font-size: 1.5vw;
     transform: scale(1, 1.2);
 }
 
@@ -101,6 +100,18 @@ header h1{
 .btn-manter2{
     width: 4%;
     border-radius: 0 0.5vw 0.5vw 0;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.05);
+}
+
+.btn-manter3{
+    margin-right: 0.3vw;
+    width: 4%;
+}
+
+.btn-manter4{
+    margin-right: 0.3vw;
+    width: 4%;
+    border-radius: 0.5vw;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.05);
 }
 

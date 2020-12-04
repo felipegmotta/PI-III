@@ -4,12 +4,12 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="css/listaClientes.css">
+        <link rel="stylesheet" href="css/listaServicos.css">
         <link rel="stylesheet" href="css/bootstrap.css">
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-        <title>Consulta de Servicos</title>
+        <title>Consulta de Serviços</title>
         
         <script type="text/javascript">
             function mostrarModalExclusao(idServico, nomeServico){
@@ -116,7 +116,7 @@
         
         <div class="rgt-container">
             <div class="container-titulo">
-                <h1>Consultar Servico</h1>
+                <h1>Consultar Serviço</h1>
                 <a href="protected/backoffice/cadastrarServico.jsp"><img src="img/IconeAdicionar.png" 
                     class="btn-manter1" alt="Ícone para a página de cadastro de servicos"></a>
             </div>
@@ -125,7 +125,7 @@
                 <table cellspacing="0" cellpadding="1" border="1" width="300">
                     <table>
                         <thead>
-                            <th hidden="true">idServico</th>
+                            <th>idServico</th>
                             <th>Nome</th>
                             <th>Preco</th>
                             <th>Grau Complexidade</th>
@@ -137,7 +137,7 @@
                         <tbody>
                             <c:forEach var="servico" items="${listaServicos}">
                                 <tr>
-                                    <td hidden="true">${servico.idServico}</td>
+                                    <td>${servico.idServico}</td>
                                     <td>${servico.nome}</td>
                                     <td>${servico.preco}</td>
                                     <td>${servico.grauComplexidade}</td>

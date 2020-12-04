@@ -4,7 +4,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="../../css/crudCliente.css">
+        <link rel="stylesheet" href="../../css/crudLoja.css">
         <link rel="stylesheet" href="../../css/bootstrap.css">
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -146,10 +146,9 @@
         <div class="rgt-container">            
             <div class="container-titulo">
                 <h1>Adicionar Loja</h1>
-                <a href="ListarLojas"><img src="../../img/IconePesquisar.png" 
-                    class="btn-manter1" alt="Ícone para a página de listagem de lojas"></a>
-                <a><img src="../../img/IconeEditar.png" 
-                    class="btn-manter2" alt="Ícone para a página de manutenção de lojas"></a>
+                <img class="btn-manter3">
+                <a href="../../ListarLojas"><img src="../../img/IconePesquisar2.png" 
+                    class="btn-manter4" alt="Ícone para a página de listagem de lojas"></a>
             </div>
             
             <form method="POST">
@@ -198,6 +197,7 @@
                         <label for="cep">CEP</label>
                         <input id="cep" name="cep" placeholder="_____-___" data-slots="_" required="required"/><br/>
                     </div>
+                </div>
                     
                 <div class="botao-container">
                     <a href="ListarLojas"><button type="button" class="btn-cancelar">Cancelar</button></a>
