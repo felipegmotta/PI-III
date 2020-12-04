@@ -4,7 +4,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="css/crudCliente.css">
+        <link rel="stylesheet" href="css/atualizaLojas.css">
         <link rel="stylesheet" href="css/bootstrap.css">
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -144,7 +144,7 @@
                 <h1>Atualizar Loja</h1>
                 <a href="ListarLojas"><img src="img/IconePesquisar.png" 
                     class="btn-manter1" alt="Ícone para a página de listagem de lojas"></a>
-                <a href="cadastrarLoja.jsp"><img src="img/IconeAdicionar2.png" 
+                <a href="/Tadesound/protected/gerencia/cadastrarLoja.jsp"><img src="img/IconeAdicionar2.png" 
                     class="btn-manter2" alt="Ícone para a página de cadastro de lojas"></a>
             </div>
                 <h3>${loja.nome}</h3>
@@ -195,6 +195,7 @@
                         <label for="cep">CEP</label>
                         <input id="cep" name="cep" placeholder="_____-___" data-slots="_" required="required" value="${loja.cep}"/><br/>
                     </div>
+                </div>
 
                 <div class="botao-container">
                     <a href="ListarLojas"><button type="button" class="btn-cancelar">Cancelar</button></a>

@@ -151,9 +151,9 @@
         <div class="rgt-container">
             <div class="container-titulo">
                 <h1>Atualizar Serviço</h1>
-                <a href="listaServico.jsp"><img src="img/IconePesquisar.png" 
+                <a href="ListarServicos"><img src="img/IconePesquisar.png" 
                     class="btn-manter1" alt="Ícone para a página de listagem de servico"></a>
-                <a href="cadastrarServico.jsp"><img src="img/IconeAdicionar2.png" 
+                <a href="/Tadesound/protected/backoffice/cadastrarServico.jsp"><img src="img/IconeAdicionar2.png" 
                     class="btn-manter2" alt="Ícone para a página de cadastro de servico"></a>
             </div>
                 <h3>${servico.nome}</h3>

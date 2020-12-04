@@ -1,0 +1,196 @@
+/* 
+    Created on : 15/10/2020, 17:46:54
+    Author     : Denise Trevizo 
+*/
+
+body{
+    background-color: #f8f8f8;
+}
+
+.container-logo{
+    width: 10%;
+    float: left; 
+    margin-left: 1.5vw;
+}
+
+.container-logo .logo{
+    width: 100%;    
+}
+
+header h1{
+    margin: 0 -10px 0 -10px;
+    padding-top: 1vw;
+    background-color: #182127;
+    color: white;
+    font-family: Bahnschrift Condensed;
+    font-weight: normal;
+    font-size: 5vw;   
+    transform: scale(1, 1.2);
+    text-align: center;
+    z-index: -1;
+    position: relative;
+}
+
+.info{
+    margin: 0 -10px 0 -10px;
+    padding: 0.3vw 0 0.8vw 0;
+    background-color: #182127;
+    font-family: Calibri;
+    color: #cccccc;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.info h3{
+    font-size: 1.5vw;
+}
+
+.lft-container{
+    display: inline-block;
+    width: 13%;
+    margin-right: 1vw;
+    margin-bottom: -5vw;
+    padding: 1vw 2vw 25vw 2vw;
+    background-color: #e3e3e3;
+}
+
+.icone{
+    border-radius: 100px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.05);
+    float: left;
+    margin-top: 30px;
+    margin-left: 1.3vw;
+    max-height: 5.3vw;
+}
+
+.rgt-container{
+    display: inline-block;    
+    background-color: white;
+    width: 80%;
+    margin-left: 20px;
+    padding: 2vw 20px 4vw 40px;   /*top right bottom left*/
+    border-radius: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.05);
+}
+
+.container-titulo{
+    margin-bottom: 1.5vw;
+}
+
+.rgt-container h1{
+    font-family: Bahnschrift Condensed;
+    font-size: 2.7vw;
+    transform: scale(1, 1.2);
+}
+
+.rgt-container h2{
+    font-family: Bahnschrift Condensed;
+    font-size: 1.5vw;
+    transform: scale(1, 1.2);
+    margin-bottom: 1vw;
+    margin-top: 2vw;
+}
+
+.campos-container{
+    column-width: 50vw; 
+    column-count: 2;
+}
+
+.campos-container1{
+    margin-left: 0.5vw;
+    column-count: 2;
+    padding-right: 10px;
+}
+
+label{
+    font-family: Calibri;
+    font-size: 1.2vw;
+    margin-right: 1vw;
+    display: inline-block;
+    width: 6vw;
+}
+
+.filtro-container{
+    padding-top: 0.2vw;
+}
+
+.filtro-container label{
+    font-weight: bold;
+}
+
+.filtro-container input{
+    width: 50%;
+    padding: 0.5vw 1vw;
+    margin: 0.4vw 0 0.4vw;
+    border: 0.5px solid #e3e3e3;
+    border-radius: 10px;   
+}
+
+.tipo-container{
+    margin-bottom: 3vw;
+}
+
+.campos-container2{
+    height: 20vw;
+    margin-right: 3vw;
+    border-radius: 5px;
+    padding: 0 0 15vw 0;
+    background-color: #e0ebf6;
+    font-family: Calibri;
+    overflow: scroll;
+    overflow-y: auto;
+    white-space: nowrap;
+}
+
+thead{
+    background-color: #85898b;
+    font-size: 1.2vw;
+    color: white;
+    font-weight: bold;
+}
+
+thead th{
+    padding: 0.8vw 3vw 0.8vw 2vw;
+}
+
+.filler{
+    color: #85898b;
+}
+
+td{
+    padding: 0.5vw 3vw 0.5vw 2vw;
+    font-size: 1vw;
+}
+
+.modal-footer button{
+    padding: 8px 10px;
+    margin: 1vw 1vw 20px 0;    
+    border-radius: 10px;
+    font-family: Calibri;
+    font-size: 1vw;
+    font-weight: bold;    
+    color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.05);
+}
+
+.btn-confirmar{
+    padding: 10px 20px;
+    margin: 2vw 1vw 20px 0;    
+    border-radius: 10px;
+    font-family: Calibri;
+    font-size: 1.3vw;
+    font-weight: bold;    
+    color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.05);
+    border: 0.5px solid #005eb5;
+    background-color: #005eb5;
+}
+
+.container-toast{
+    margin-left: 51vw;
+    margin-top: -4vw;
+}
+
+.toast-body{
+    font-size: 0.8vw;
+}
